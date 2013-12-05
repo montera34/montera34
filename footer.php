@@ -1,3 +1,4 @@
+</div><!-- #content -->
 <?php
 // get number of queries
 //echo "<div style='display: none;'>".get_num_queries()."</div>";

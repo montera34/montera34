@@ -23,7 +23,7 @@
 
 	// Add a page number if necessary:
 	if ( $paged >= 2 || $page >= 2 )
-		echo ' | ' . sprintf( __( 'Page %s', 'twentyeleven' ), max( $paged, $page ) );
+		echo ' | ' . sprintf( __( 'Page %s', 'montera34' ), max( $paged, $page ) );
 
 	?>
 </title>
@@ -39,12 +39,14 @@ if ( is_single() || is_page() ) {
 	$metadesc_tw = substr( $metadesc, 0, 200 );
 	$metadesc = substr( $metadesc, 0, 154 );
 	$metatit = $post->post_title;
+	//$metatit = wp_title("",FALSE);
 	$metatype = "article";
 } else {
 	$metadesc = MONTERA34_BLOGDESC;
 	$metadesc_tw = MONTERA34_BLOGDESC;
 	$metadesc_fb = MONTERA34_BLOGDESC;
-	$metatit = "montera34";
+	$metatit = MONTERA34_BLOGNAME;
+	//$metatit = wp_title("",FALSE);
 	$metatype = "blog";
 }
 	$metaperma = get_permalink();
@@ -85,3 +87,11 @@ wp_head(); ?>
 
 <?php // better to use body tag as the main container ?>
 <body <?php body_class(); ?>>
+
+<div id="pre">
+	<div><a href="<?php echo MONTERA34_BLOGURL ?>" title="Ir a la portada"><img src="<?php echo MONTERA34_BLOGTHEME . "/images/m34_logo.png"; ?>" alt="Inicio" /></a></div>
+	<div><a href="<?php echo MONTERA34_BLOGURL ?>" title="Ir a la portada"><?php echo MONTERA34_BLOGNAME ?></a></div>
+	<div><?php echo MONTERA34_BLOGDESC ?></div>
+</div><!-- #pre -->
+
+<div id="content">
