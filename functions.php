@@ -46,7 +46,7 @@ function montera_theme_setup() {
 // set up media options
 function montera34_media_options() {
 	/* Add theme support for post thumbnails (featured images). */
-	add_theme_support( 'post-thumbnails', array( 'post','page','project') );
+	add_theme_support( 'post-thumbnails', array( 'post','page','montera34_project') );
 	set_post_thumbnail_size( 231, 0 ); // default Post Thumbnail dimensions
 	/* set up image sizes*/
 	update_option('thumbnail_size_w', 231);
@@ -85,7 +85,7 @@ function montera34_load_scripts() {
 // register post types
 function montera34_create_post_type() {
 	// Documento custom post type
-	register_post_type( 'project', array(
+	register_post_type( 'montera34_project', array(
 		'labels' => array(
 			'name' => __( 'Projects' ),
 			'singular_name' => __( 'Project' ),
@@ -106,9 +106,9 @@ function montera34_create_post_type() {
 		'exclude_from_search' => false,
 		'menu_position' => 5,
 		//'menu_icon' => get_template_directory_uri() . '/images/icon-post.type-integrantes.png',
-		'hierarchical' => false, // if true this post type will be as pages
+		'hierarchical' => true, // if true this post type will be as pages
 		'query_var' => true,
-		'supports' => array('title', 'editor','excerpt','author','comments','trackbacks' ),
+		'supports' => array('title', 'editor','excerpt','author','comments','trackbacks','thumbnail','page-attributes'),
 		'rewrite' => array('slug'=>'project','with_front'=>false),
 		'can_export' => true,
 		'_builtin' => false,
@@ -118,7 +118,7 @@ function montera34_create_post_type() {
 
 // register taxonomies
 function montera34_build_taxonomies() {
-	register_taxonomy( 'type', 'project', array( // type taxonomy
+	register_taxonomy( 'montera34_type', 'montera34_project', array( // type taxonomy
 		'hierarchical' => true,
 		'label' => __( 'Type' ),
 		'name' => __( 'Types' ),
