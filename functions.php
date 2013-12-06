@@ -151,6 +151,41 @@ function montera34_metaboxes( $meta_boxes ) {
 			),
 		),
 	);
+	// project card
+	$meta_boxes[] = array(
+		'id' => 'project_card',
+		'title' => 'Project card',
+		'pages' => array('montera34_project'), // post type
+		'context' => 'normal', //  'normal', 'advanced', or 'side'
+		'priority' => 'high', // 'high', 'core', 'default' or 'low'
+		'show_names' => false, // Show field names on the left
+		'fields' => array(
+			array(
+				'name' => '',
+				'desc' => 'Project URL',
+				'id' => $prefix . 'project_card_url',
+				'type' => 'text_medium'
+			),
+			array(
+				'name' => '',
+				'desc' => 'Client',
+				'id' => $prefix . 'project_card_client',
+				'type' => 'text_medium'
+			),
+			array(
+				'name' => '',
+				'desc' => 'Code repository URL',
+				'id' => $prefix . 'project_card_code_repo',
+				'type' => 'text_medium'
+			),
+			array(
+				'name' => '',
+				'desc' => 'Code license',
+				'id' => $prefix . 'project_card_code_license',
+				'type' => 'text_medium'
+			),
+		),
+	);
 	return $meta_boxes;
 } // end Add metaboxes
 // Initialize the metabox class
