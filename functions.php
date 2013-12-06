@@ -31,10 +31,12 @@ function montera_theme_setup() {
 	// Custom Taxonomies
 	add_action( 'init', 'montera34_build_taxonomies', 0 );
 
+	// Custom Metaboxes Library
+	// https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
 	// Extra meta boxes in editor
-	//add_filter( 'cmb_meta_boxes', 'montera34_metaboxes' );
+	add_filter( 'cmb_meta_boxes', 'montera34_metaboxes' );
 	// Initialize the metabox class
-	//add_action( 'init', 'montera34_init_metaboxes', 9999 );
+	add_action( 'init', 'montera34_init_metaboxes', 9999 );
 
 	// excerpt support in pages
 	add_post_type_support( 'page', 'excerpt' );
@@ -129,4 +131,32 @@ function montera34_build_taxonomies() {
 	) );
 } // end register taxonomies
 
+// custom metaboxes
+function montera34_metaboxes( $meta_boxes ) {
+	$prefix = '_montera34_'; // Prefix for all fields
+	// sticky project at home page
+	$meta_boxes[] = array(
+		'id' => 'project_sticky',
+		'title' => 'Show at home page',
+		'pages' => array('montera34_project'), // post type
+		'context' => 'side', //  'normal', 'advanced', or 'side'
+		'priority' => 'high', // 'high', 'core', 'default' or 'low'
+		'show_names' => false, // Show field names on the left
+		'fields' => array(
+			array(
+				'name' => '',
+				'desc' => '',
+				'id' => $prefix . 'project_sticky',
+				'type' => 'checkbox'
+			),
+		),
+	);
+	return $meta_boxes;
+} // end Add metaboxes
+// Initialize the metabox class
+function montera34_init_metaboxes() {
+	if ( !class_exists( 'cmb_Meta_Box' ) ) {
+		require_once( 'lib/metabox/init.php' );
+	}
+} // end Init metaboxes
 ?>

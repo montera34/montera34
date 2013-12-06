@@ -7,14 +7,19 @@ $args = array(
 	'posts_per_page' => -1,
 	'order' => 'ASC',
 	'orderby' => 'menu_order',
-//	'meta_query' => array(
-//		array(
-//			'key' => '_montera34_home_sticky',
-//			'compare' => '=',
-//			'value' => 'on'
-//		),
-//	),
 );
+
+if ( is_home() ) {
+// if is home, add sticky project condition to loop
+	$args['meta_query'] = array(
+		array(
+			'key' => '_montera34_project_sticky',
+			'compare' => '=',
+			'value' => 'on'
+		),
+	);
+}
+
 $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) {
 
