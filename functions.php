@@ -41,6 +41,9 @@ function montera_theme_setup() {
 	// excerpt support in pages
 	add_post_type_support( 'page', 'excerpt' );
 
+	// custom loops for each template
+	add_filter( 'pre_get_posts', 'montera34_custom_args_for_loops' );
+
 	// montera34 shortcodes
 
 } // end montera34 theme setup function
@@ -194,4 +197,20 @@ function montera34_init_metaboxes() {
 		require_once( 'lib/metabox/init.php' );
 	}
 } // end Init metaboxes
+
+// custom args for loops
+function montera34_custom_args_for_loops( $query ) {
+	if ( is_home() && $query->is_main_query() ) {
+		$query->set( 'meta_query', array(
+			array(
+				'key' => '_montera34_project_sticky',
+				'compare' => '=',
+				'value' => 'on'
+			),
+		));
+		$query->set( 'post_type',array('montera34_project'));
+	}
+	return $query;
+}
+
 ?>

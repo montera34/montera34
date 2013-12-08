@@ -3,27 +3,11 @@
 <?php
 // MAIN CONTENT
 
-// home and type tax archive common conditions
-$args = array(
-	'post_type' => 'montera34_project',
-	//'post_type' => 'page',
-	'posts_per_page' => -1,
-	'order' => 'ASC',
-	'orderby' => 'menu_order',
-);
-
 if ( is_home() ) {
 // if is home
 	// main title
 	$page_tit = "Searching good title for home page";
-	// loop args: add sticky project condition
-	$args['meta_query'] = array(
-		array(
-			'key' => '_montera34_project_sticky',
-			'compare' => '=',
-			'value' => 'on'
-		),
-	);
+
 } else {
 	// main title
 	$page_tit = $wp_query->queried_object->name;
@@ -35,12 +19,11 @@ if ( is_home() ) {
 
 <section>
 
-<?php $the_query = new WP_Query( $args );
-if ( $the_query->have_posts() ) {
-	$page_tit = get_query_var('montera34_type');
+<?php
+if ( have_posts() ) {
 
 	// The Loop
-	while ( $the_query->have_posts() ) : $the_query->the_post();
+	while ( have_posts() ) : the_post();
 		include "loop.php";
 	endwhile;
 	/* Restore original Post Data 
