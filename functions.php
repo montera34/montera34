@@ -132,6 +132,13 @@ function montera34_build_taxonomies() {
 		'query_var' => 'type',
 		'rewrite' => array( 'slug' => 'type', 'with_front' => false ),
 	) );
+	register_taxonomy( 'montera34_status', 'montera34_project', array( // status taxonomy
+		'hierarchical' => false,
+		'label' => __( 'Status' ),
+		'name' => __( 'Status' ),
+		'query_var' => 'status',
+		'rewrite' => array( 'slug' => 'status', 'with_front' => false ),
+	) );
 } // end register taxonomies
 
 // custom metaboxes
@@ -171,19 +178,19 @@ function montera34_metaboxes( $meta_boxes ) {
 			),
 			array(
 				'name' => '',
-				'desc' => 'Client',
+				'desc' => 'Client. You can include HTML tags, but no <strong>"</strong>. Use instead <strong>\'</strong>',
 				'id' => $prefix . 'project_card_client',
 				'type' => 'text_medium'
 			),
 			array(
 				'name' => '',
-				'desc' => 'Code repository URL',
+				'desc' => 'Code repository URL. You can include HTML tags, but no <strong>"</strong>. Use instead <strong>\'</strong>',
 				'id' => $prefix . 'project_card_code_repo',
 				'type' => 'text_medium'
 			),
 			array(
 				'name' => '',
-				'desc' => 'Code license',
+				'desc' => 'Code license. You can include HTML tags, but no <strong>"</strong>. Use instead <strong>\'</strong>',
 				'id' => $prefix . 'project_card_code_license',
 				'type' => 'text_medium'
 			),
