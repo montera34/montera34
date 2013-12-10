@@ -75,6 +75,8 @@ if ( is_single() || is_page() ) {
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <!-- Bootstrap stylesheet -->
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/bootstrap.min.css" type="text/css" media="screen" />
+<!-- Fontsquirrel fonts stylesheet -->
+<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/fonts/stylesheet.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 
 <link rel="alternate" type="application/rss+xml" title="<?php echo MONTERA34_BLOGNAME; ?> RSS Feed suscription" href="<?php bloginfo('rss2_url'); ?>" />
