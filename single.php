@@ -33,7 +33,13 @@
 		<header>
 		<h1><?php the_title(); ?></h1>
 		</header>
-
+		
+		<?php if ( has_post_thumbnail() ) {
+			$art_featured = get_the_post_thumbnail($post_id,array(500,100)); // falta configurar $size correctamente
+			$loop_featured = "<figure>" .$art_featured. "</figure>";
+		} else { $loop_featured = ""; } 
+		echo $loop_featured ?>
+		
 		<section>
 		<?php the_content(); ?>
 		</section>

@@ -24,9 +24,7 @@ if ( has_post_thumbnail() ) {
 ?>
 
 <article>
-	<header><h2><?php echo $loop_tit ?></h2></header>
-		<?php echo $term_perma // pensar donde meter el enlace?>
+	<header><h2><a href="<?php echo $term_perma ?>"><?php echo $loop_tit ?></a></h2></header>
+	<div><a href="<?php echo $project_perma ?>"><?php echo $loop_desc ?></a></div>
 	<?php echo $loop_featured ?>
-	<div><?php echo $loop_desc ?></div>
-		<?php echo $project_perma // pensar donde meter el enlace?>
 </article>
