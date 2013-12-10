@@ -91,11 +91,13 @@ wp_head(); ?>
 
 <?php // better to use body tag as the main container ?>
 <body <?php body_class(); ?>>
+<div class="container">
 
-<div id="pre">
-	<div><a href="<?php echo MONTERA34_BLOGURL ?>" title="Ir a la portada"><img src="<?php echo MONTERA34_BLOGTHEME . "/images/m34_logo.png"; ?>" alt="Inicio" /></a></div>
-	<div><a href="<?php echo MONTERA34_BLOGURL ?>" title="Ir a la portada"><?php echo MONTERA34_BLOGNAME ?></a></div>
-	<div><?php echo MONTERA34_BLOGDESC ?></div>
-</div><!-- #pre -->
-
-<div id="content">
+<div class="row">
+	<div id="pre" class="col-md-2">
+		<div><a href="<?php echo MONTERA34_BLOGURL ?>" title="Ir a la portada"><img src="<?php echo MONTERA34_BLOGTHEME . "/images/m34_logo.png"; ?>" alt="Inicio" /></a></div>
+		<div><a href="<?php echo MONTERA34_BLOGURL ?>" title="Ir a la portada"><?php echo MONTERA34_BLOGNAME ?></a></div>
+		<div><?php echo MONTERA34_BLOGDESC ?></div>
+	</div> <!-- first side bar --> <!-- #pre -->
+	
+	<div id="content" class="col-md-6 col-md-offset-1">

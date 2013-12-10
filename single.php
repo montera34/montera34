@@ -37,7 +37,9 @@
 		<section>
 		<?php the_content(); ?>
 		</section>
-
+	</div>
+	
+	<div class="col-md-3"><!-- side bar 2-->
 		<section>
 		<ul>
 			<?php foreach ($card_items as $item ) {
@@ -102,5 +104,7 @@ if ( $post->post_parent != '0' ) {
 ?>
 
 
+	</div><!-- end side bar 2-->
+</div>
 
 <?php get_footer(); ?>
