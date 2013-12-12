@@ -34,11 +34,6 @@
 		<h1><?php the_title(); ?></h1>
 		</header>
 		
-		<?php if ( has_post_thumbnail() ) {
-			$art_featured = get_the_post_thumbnail($post_id,medium); // falta configurar $size correctamente
-			$loop_featured = "<figure>" .$art_featured. "</figure>";
-		} else { $loop_featured = ""; } 
-		echo $loop_featured ?>
 		<div class="row">
 			<div class="col-md-8">
 				<section>
@@ -48,17 +43,12 @@
 	
 			<div class="col-md-4"><!-- side bar 2-->
 				<section>
-				<ul>
-					<?php //foreach ($card_items as $item ) {
-						//echo "<li><strong>" .$item[0]. "</strong>. " .$item[1]. "</li>";
-					//} ?>
-				</ul>
-				<form>
+				<dl>
 					<?php foreach ($card_items as $item ) {
-						echo "<div class='form-group'><strong><label class='control-label'>" .$item[0]. "</label></strong>
-									<div class=''>" .$item[1]. "</div></div>";
+						echo "<dt><strong>" .$item[0]. "</strong></dt>
+									<dd>" .$item[1]. "</dd>";
 					} ?>
-				</form>
+				</dl>
 				</section>
 	<?php endwhile;
 	//wp_reset_postdata();
