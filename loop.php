@@ -18,7 +18,7 @@ $project_perma = get_permalink();
 
 // featured image
 if ( has_post_thumbnail() ) {
-	$art_featured = get_the_post_thumbnail($post_id,array(500,100)); // falta configurar $size correctamente
+	$art_featured = get_the_post_thumbnail($post_id,thumbnail); // falta configurar $size correctamente
 	$loop_featured = "<figure>" .$art_featured. "</figure>";
 } else { $loop_featured = ""; }
 
@@ -27,7 +27,7 @@ if ( has_post_thumbnail() ) {
 <article>
 <?php if ( is_home() ) {?>
 	<header><h2><a href="<?php echo $term_perma ?>"><?php echo $loop_tit ?></a></h2></header>
-	<h3><a href="<?php echo $project_perma ?>"><?php echo $loop_desc ?></a></h3>
+	<strong><a href="<?php echo $project_perma ?>"><?php echo $loop_desc ?></a></strong><br>
 	<?php echo $loop_excer ?>	
 <?php } else { ?>
 	<header><h2><a href="<?php echo $project_perma ?>"><?php echo $loop_tit ?></a></h2></header>
