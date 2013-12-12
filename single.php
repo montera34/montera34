@@ -49,10 +49,16 @@
 			<div class="col-md-4"><!-- side bar 2-->
 				<section>
 				<ul>
-					<?php foreach ($card_items as $item ) {
-						echo "<li><strong>" .$item[0]. "</strong>. " .$item[1]. "</li>";
-					} ?>
+					<?php //foreach ($card_items as $item ) {
+						//echo "<li><strong>" .$item[0]. "</strong>. " .$item[1]. "</li>";
+					//} ?>
 				</ul>
+				<form class="form-horizontal">
+					<?php foreach ($card_items as $item ) {
+						echo "<div class='form-group'><strong><label class='col-sm-6 control-label'>" .$item[0]. "</label></strong>
+									<div class='col-sm-6'><p class='form-control-static'>" .$item[1]. "</p></div></div>";
+					} ?>
+				</form>
 				</section>
 	<?php endwhile;
 	//wp_reset_postdata();
@@ -75,7 +81,7 @@ if ( $post->post_parent != '0' ) {
 	//if ( $related_count == '0' ) { $related_count = 1; }
 	//echo count($related_projects);
 	//print_r($related_projects);
-	$related_out = "<section><ul>";
+	$related_out = "<section><h3>Parent Project</h3><ul>"; //TODO estart in cluding getext _e('Parent Project','montera34');
 	$related_out .= "<li><a href='" .get_permalink($post->post_parent). "'>" .get_the_title($post->post_parent). "</a></li>";
 	if ( $related_count != '0' ) {
 		foreach ( $related_projects as $related ) {
@@ -98,7 +104,7 @@ if ( $post->post_parent != '0' ) {
 	if ( $related_count != '0' ) {
 	// if project has children
 		//echo "Project is parent and has children.";
-		$related_out = "<section><ul>";
+		$related_out = "<section><h3>Related Projects</h3><ul>";
 		foreach ( $related_projects as $related ) {
 			$related_out .= "<li><a href='" .get_permalink($related->ID). "'>" .$related->post_title. "</a></li>";
 		}
