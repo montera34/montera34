@@ -53,10 +53,10 @@
 						//echo "<li><strong>" .$item[0]. "</strong>. " .$item[1]. "</li>";
 					//} ?>
 				</ul>
-				<form class="form-horizontal">
+				<form>
 					<?php foreach ($card_items as $item ) {
-						echo "<div class='form-group'><strong><label class='col-sm-6 control-label'>" .$item[0]. "</label></strong>
-									<div class='col-sm-6'><p class='form-control-static'>" .$item[1]. "</p></div></div>";
+						echo "<div class='form-group'><strong><label class='control-label'>" .$item[0]. "</label></strong>
+									<div class=''>" .$item[1]. "</div></div>";
 					} ?>
 				</form>
 				</section>
