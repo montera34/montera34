@@ -95,8 +95,12 @@ wp_head(); ?>
 
 <div class="row">
 	<div id="pre" class="col-md-2">
-		<div><a href="<?php echo MONTERA34_BLOGURL ?>" title="Ir a la portada"><img src="<?php echo MONTERA34_BLOGTHEME . "/images/m34_logo.png"; ?>" alt="Inicio" /></a></div>
-		<div><a href="<?php echo MONTERA34_BLOGURL ?>" title="Ir a la portada"><?php echo MONTERA34_BLOGNAME ?></a></div>
+		<div>
+			<a href="<?php echo MONTERA34_BLOGURL ?>" title="Ir a la portada">
+			<img src="<?php echo MONTERA34_BLOGTHEME . "/images/m34_logo.png"; ?>" alt="Inicio" /><br>
+			<strong><?php echo MONTERA34_BLOGNAME ?></strong>
+			</a>
+		</div>
 		<div><?php echo MONTERA34_BLOGDESC ?></div>
 	</div> <!-- first side bar --> <!-- #pre -->
 	
