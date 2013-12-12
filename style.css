@@ -20,3 +20,12 @@ Tags: HTML5, CSS3
 h1 {
 	font-family: 'yanone_kaffeesatzbold';
 }
+h2{
+	font-weight:bold;
+}
+p a{
+	text-decoration:underline;
+}
+a:hover {
+	background-color:#fff100;
+}
