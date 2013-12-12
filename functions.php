@@ -52,9 +52,9 @@ function montera_theme_setup() {
 function montera34_media_options() {
 	/* Add theme support for post thumbnails (featured images). */
 	add_theme_support( 'post-thumbnails', array( 'post','page','montera34_project') );
-	set_post_thumbnail_size( 231, 0 ); // default Post Thumbnail dimensions
+	set_post_thumbnail_size( 600, 0 ); // default Post Thumbnail dimensions
 	/* set up image sizes*/
-	update_option('thumbnail_size_w', 231);
+	update_option('thumbnail_size_w', 600);
 	update_option('thumbnail_size_h', 0);
 	update_option('medium_size_w', 474);
 	update_option('medium_size_h', 0);

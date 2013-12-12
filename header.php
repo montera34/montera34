@@ -94,7 +94,7 @@ wp_head(); ?>
 <div class="container">
 
 <div class="row">
-	<div id="pre" class="col-md-2">
+	<div id="pre" class="col-md-3">
 		<div>
 			<a href="<?php echo MONTERA34_BLOGURL ?>" title="Ir a la portada">
 			<img src="<?php echo MONTERA34_BLOGTHEME . "/images/m34_logo.png"; ?>" alt="Inicio" /><br>
@@ -104,4 +104,4 @@ wp_head(); ?>
 		<div><?php echo MONTERA34_BLOGDESC ?></div>
 	</div> <!-- first side bar --> <!-- #pre -->
 	
-	<div id="content" class="col-md-9 col-md-offset-1">
+	<div id="content" class="col-md-9">
