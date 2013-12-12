@@ -3,10 +3,11 @@
 if ( is_home() ) {
 	$terms = get_the_terms($post_id,'montera34_type');
 	foreach ( $terms as $term ) {
-		$loop_tit = $term->name;
+		$loop_tit = $term->name. " [+]";
 		$term_perma = get_term_link($term);
 	}
 	$loop_desc = get_the_title();
+	$loop_excer = get_the_excerpt();
 } else {
 	$loop_tit = get_the_title();
 	$loop_desc = get_the_excerpt();
@@ -24,7 +25,13 @@ if ( has_post_thumbnail() ) {
 ?>
 
 <article>
+<?php if ( is_home() ) {?>
 	<header><h2><a href="<?php echo $term_perma ?>"><?php echo $loop_tit ?></a></h2></header>
-	<div><a href="<?php echo $project_perma ?>"><?php echo $loop_desc ?></a></div>
-	<?php echo $loop_featured ?>
+	<h3><a href="<?php echo $project_perma ?>"><?php echo $loop_desc ?></a></h3>
+	<?php echo $loop_excer ?>	
+<?php } else { ?>
+	<header><h2><a href="<?php echo $project_perma ?>"><?php echo $loop_tit ?></a></h2></header>
+	<?php echo $loop_desc ?>
+<?php } ?>
+<?php echo $loop_featured ?>
 </article>

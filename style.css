@@ -20,7 +20,7 @@ Tags: HTML5, CSS3
 h1 {
 	font-family: 'yanone_kaffeesatzbold';
 }
-h2{
+h2, h3{
 	font-weight:bold;
 }
 p a{
@@ -28,4 +28,7 @@ p a{
 }
 a:hover {
 	background-color:#fff100;
+}
+figure {
+	border-top:2px solid #000;
 }
