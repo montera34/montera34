@@ -104,4 +104,4 @@ wp_head(); ?>
 		<div><?php echo MONTERA34_BLOGDESC ?></div>
 	</div> <!-- first side bar --> <!-- #pre -->
 	
-	<div id="content" class="col-md-6 col-md-offset-1">
+	<div id="content" class="col-md-9 col-md-offset-1">

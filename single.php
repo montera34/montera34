@@ -35,24 +35,25 @@
 		</header>
 		
 		<?php if ( has_post_thumbnail() ) {
-			$art_featured = get_the_post_thumbnail($post_id,array(500,100)); // falta configurar $size correctamente
+			$art_featured = get_the_post_thumbnail($post_id,medium); // falta configurar $size correctamente
 			$loop_featured = "<figure>" .$art_featured. "</figure>";
 		} else { $loop_featured = ""; } 
 		echo $loop_featured ?>
-		
-		<section>
-		<?php the_content(); ?>
-		</section>
-	</div>
+		<div class="row">
+			<div class="col-md-8">
+				<section>
+				<?php the_content(); ?>
+				</section>
+			</div>
 	
-	<div class="col-md-3"><!-- side bar 2-->
-		<section>
-		<ul>
-			<?php foreach ($card_items as $item ) {
-				echo "<li><strong>" .$item[0]. "</strong>. " .$item[1]. "</li>";
-			} ?>
-		</ul>
-		</section>
+			<div class="col-md-4"><!-- side bar 2-->
+				<section>
+				<ul>
+					<?php foreach ($card_items as $item ) {
+						echo "<li><strong>" .$item[0]. "</strong>. " .$item[1]. "</li>";
+					} ?>
+				</ul>
+				</section>
 	<?php endwhile;
 	//wp_reset_postdata();
 
@@ -110,7 +111,9 @@ if ( $post->post_parent != '0' ) {
 ?>
 
 
-	</div><!-- end side bar 2-->
+			</div><!-- end side bar 2-->
+		</div>
+	</div>
 </div>
 
 <?php get_footer(); ?>
