@@ -39,3 +39,24 @@ figure {
 dd {
 	margin-bottom: 7px;
 }
+
+/* menu */
+#pre-menu{
+	margin-top:40px;
+	padding-left:0;
+}
+#pre-menu li{
+	font-weight:bold;
+}
+ul#pre-menu, #pre-menu li ul{
+	list-style-type:none;
+}
+#pre-menu li ul li{
+	font-weight:normal;
+}
+.sub-menu {
+	padding-left:7px;
+}
+.nav-pills > li > a {
+	padding:0
+}

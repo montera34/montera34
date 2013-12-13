@@ -102,6 +102,12 @@ wp_head(); ?>
 			</a>
 		</div>
 		<div><?php echo MONTERA34_BLOGDESC ?></div>
+		<?php $defaults = array(
+				'theme_location'  => 'sidebar-menu',
+				'menu_id' => 'pre-menu',
+				//'menu_class' => 'nav nav-pills nav-stacked'
+				);
+			wp_nav_menu( $defaults );?>	
 	</div> <!-- first side bar --> <!-- #pre -->
 	
 	<div id="content" class="col-md-9">
