@@ -105,7 +105,6 @@ wp_head(); ?>
 		<?php $defaults = array(
 				'theme_location'  => 'sidebar-menu',
 				'menu_id' => 'pre-menu',
-				//'menu_class' => 'nav nav-pills nav-stacked'
 				);
 			wp_nav_menu( $defaults );?>	
 	</div> <!-- first side bar --> <!-- #pre -->
