@@ -3,15 +3,21 @@
 <?php
 // MAIN CONTENT
 
+// build main title 
 if ( is_home() ) {
-// if is home
-	// main title
+	// if is home
 	$page_tit = "Desarrollamos webs e investigamos en internet, por ejemplo";
 
+} elseif ( is_search() ) {
+	// if search
+	$query_s = $wp_query->query_vars['s'];
+	$page_tit = "Search results for '<strong>$query_s</strong>'";
+
 } else {
-	// main title
+	// if archive
 	$page_tit = $wp_query->queried_object->name;
-} // end if home
+
+} // end build main title
 ?>
 		<header><h1><?php echo $page_tit ?></h1></header>
 		<div class="row">
