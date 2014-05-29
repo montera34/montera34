@@ -132,13 +132,6 @@ function montera34_build_taxonomies() {
 		'query_var' => 'type',
 		'rewrite' => array( 'slug' => 'type', 'with_front' => false ),
 	) );
-	register_taxonomy( 'montera34_status', 'montera34_project', array( // status taxonomy
-		'hierarchical' => false,
-		'label' => __( 'Status' ),
-		'name' => __( 'Status' ),
-		'query_var' => 'status',
-		'rewrite' => array( 'slug' => 'status', 'with_front' => false ),
-	) );
 } // end register taxonomies
 
 // custom metaboxes
@@ -172,27 +165,72 @@ function montera34_metaboxes( $meta_boxes ) {
 		'fields' => array(
 			array(
 				'name' => '',
+				'desc' => 'Project beginning',
+				'id' => $prefix . 'project_card_date_ini',
+				'type' => 'text_date_timestamp',
+				'repeatable' => false,
+			),
+			array(
+				'name' => '',
+				'desc' => 'Project ending',
+				'id' => $prefix . 'project_card_date_end',
+				'type' => 'text_date_timestamp',
+				'repeatable' => false,
+			),
+			array(
+				'name' => '',
+				'desc' => 'Project status.',
+				'id' => $prefix . 'project_card_status',
+				'type' => 'wysiwyg',
+				'options' => array(
+					'textarea_rows' => get_option('default_post_edit_rows', 2),
+				)
+			),
+			array(
+				'name' => '',
 				'desc' => 'Project URL',
-				'id' => $prefix . 'project_card_url',
-				'type' => 'text_medium'
+				'id' => $prefix . 'project_card_project_url',
+				'type' => 'text_url',
+				'protocols' => array( 'http', 'https' )
 			),
 			array(
 				'name' => '',
-				'desc' => 'Client. You can include HTML tags, but no <strong>"</strong>. Use instead <strong>\'</strong>',
-				'id' => $prefix . 'project_card_client',
-				'type' => 'text_medium'
+				'desc' => 'Code repo URL',
+				'id' => $prefix . 'project_card_repo_url',
+				'type' => 'text_url',
+				'protocols' => array( 'http', 'https' )
 			),
 			array(
 				'name' => '',
-				'desc' => 'Code repository URL. You can include HTML tags, but no <strong>"</strong>. Use instead <strong>\'</strong>',
-				'id' => $prefix . 'project_card_code_repo',
-				'type' => 'text_medium'
-			),
-			array(
-				'name' => '',
-				'desc' => 'Code license. You can include HTML tags, but no <strong>"</strong>. Use instead <strong>\'</strong>',
+				'desc' => 'Code license',
 				'id' => $prefix . 'project_card_code_license',
-				'type' => 'text_medium'
+				'type' => 'text_url',
+				'protocols' => array( 'http', 'https' )
+			),
+			array(
+				'name' => '',
+				'desc' => 'Presupuesto',
+				'id' => $prefix . 'project_card_money',
+				'type' => 'text_money',
+				'before' => '€', // Replaces default '$'
+			),
+			array(
+				'name' => '',
+				'desc' => 'Collaborators. Name, and URL if any.',
+				'id' => $prefix . 'project_card_colabora',
+				'type' => 'wysiwyg',
+				'options' => array(
+					'textarea_rows' => get_option('default_post_edit_rows', 2),
+				)
+			),
+			array(
+				'name' => '',
+				'desc' => 'Client. Name, and URL if any',
+				'id' => $prefix . 'project_card_client',
+				'type' => 'wysiwyg',
+				'options' => array(
+					'textarea_rows' => get_option('default_post_edit_rows', 2),
+				)
 			),
 		),
 	);
