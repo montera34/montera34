@@ -113,7 +113,7 @@ function montera34_create_post_type() {
 		//'menu_icon' => get_template_directory_uri() . '/images/icon-post.type-integrantes.png',
 		'hierarchical' => true, // if true this post type will be as pages
 		'query_var' => 'project',
-		'supports' => array('title', 'editor','excerpt','author','comments','trackbacks','thumbnail','page-attributes'),
+		'supports' => array('title', 'editor','excerpt','author','comments','trackbacks','thumbnail','page-attributes','revisions'),
 		'rewrite' => array('slug'=>'project','with_front'=>false),
 		'show_ui' => true,
 		'show_in_menu' => true,
