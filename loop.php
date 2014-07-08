@@ -1,7 +1,7 @@
 <?php
 // title
 if ( is_home() ) {
-	$terms = get_the_terms($post_id,'montera34_type');
+	$terms = get_the_terms($post->ID,'montera34_type');
 	foreach ( $terms as $term ) {
 		$loop_tit = $term->name. " [+]";
 		$term_perma = get_term_link($term);
@@ -18,7 +18,7 @@ $project_perma = get_permalink();
 
 // featured image
 if ( has_post_thumbnail() ) {
-	$art_featured = get_the_post_thumbnail($post_id,thumbnail,array('class'	=> 'img-responsive')); // falta configurar $size correctamente
+	$art_featured = get_the_post_thumbnail($post->ID,'thumbnail',array('class'	=> 'img-responsive')); // falta configurar $size correctamente
 	$loop_featured = "<figure>" .$art_featured. "</figure>";
 } else { $loop_featured = ""; }
 
