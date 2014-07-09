@@ -89,7 +89,7 @@ function montera34_load_scripts() {
 
 // register post types
 function montera34_create_post_type() {
-	// Documento custom post type
+	// Project custom post type
 	register_post_type( 'montera34_project', array(
 		'labels' => array(
 			'name' => __( 'Projects' ),
@@ -121,6 +121,38 @@ function montera34_create_post_type() {
 		'_builtin' => false,
 		'_edit_link' => 'post.php?post=%d',
 	));
+	// Collaborator custom post type
+	register_post_type( 'montera34_collabora', array(
+		'labels' => array(
+			'name' => __( 'Collaborators' ),
+			'singular_name' => __( 'Collaborator' ),
+			'add_new_item' => __( 'Add a collaborator' ),
+			'edit' => __( 'Edit' ),
+			'edit_item' => __( 'Edit this collaborator' ),
+			'new_item' => __( 'New collaborator' ),
+			'view' => __( 'View collaborator' ),
+			'view_item' => __( 'View this collaborator' ),
+			'search_items' => __( 'Search collaborator' ),
+			'not_found' => __( 'No collaborator found' ),
+			'not_found_in_trash' => __( 'No collaborators in trash' ),
+			'parent' => __( 'Parent' )
+		),
+		'has_archive' => true,
+		'public' => true,
+		'publicly_queryable' => true,
+		'exclude_from_search' => false,
+		'menu_position' => 5,
+		//'menu_icon' => get_template_directory_uri() . '/images/icon-post.type-integrantes.png',
+		'hierarchical' => true, // if true this post type will be as pages
+		'query_var' => 'collaborator',
+		'supports' => array('title', 'editor','excerpt','author','comments','trackbacks','thumbnail','page-attributes'),
+		'rewrite' => array('slug'=>'collaborator','with_front'=>false),
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'can_export' => true,
+		'_builtin' => false,
+		'_edit_link' => 'post.php?post=%d',
+	));
 } // end register post types
 
 // register taxonomies
@@ -134,9 +166,35 @@ function montera34_build_taxonomies() {
 	) );
 } // end register taxonomies
 
+// get all posts from a post type to be used in select or multicheck forms
+function montera34_get_list($post_type,$type='multicheck') {
+	$posts = get_posts(array(
+		'posts_per_page' => -1,
+		'post_type' => $post_type,
+	));
+	if ( $type == 'select' ) {
+		$list[] = "none";
+	}
+	if ( count($posts) > 0 ) {
+		foreach ( $posts as $post ) {
+			$list[$post->ID] = $post->post_title;
+		}
+		return $list;
+	}
+}
+
 // custom metaboxes
 function montera34_metaboxes( $meta_boxes ) {
 	$prefix = '_montera34_'; // Prefix for all fields
+
+	// get data for select and multicheck fields
+	//$itinerarios = quincem_get_list("itinerario");
+	$collaborators = montera34_get_list("montera34_collabora");
+	$projects = montera34_get_list("montera34_project","select");
+
+	// PROJECT CUSTOM FIELDS
+	////
+
 	// sticky project at home page
 	$meta_boxes[] = array(
 		'id' => 'project_sticky',
@@ -214,15 +272,15 @@ function montera34_metaboxes( $meta_boxes ) {
 				'type' => 'text_money',
 				'before' => '€', // Replaces default '$'
 			),
-			array(
-				'name' => '',
-				'desc' => 'Collaborators. Name, and URL if any.',
-				'id' => $prefix . 'project_card_colabora',
-				'type' => 'wysiwyg',
-				'options' => array(
-					'textarea_rows' => get_option('default_post_edit_rows', 2),
-				)
-			),
+//			array(
+//				'name' => '',
+//				'desc' => 'Collaborators. Name, and URL if any.',
+//				'id' => $prefix . 'project_card_colabora',
+//				'type' => 'wysiwyg',
+//				'options' => array(
+//					'textarea_rows' => get_option('default_post_edit_rows', 2),
+//				)
+//			),
 			array(
 				'name' => '',
 				'desc' => 'Client. Name, and URL if any',
@@ -234,6 +292,84 @@ function montera34_metaboxes( $meta_boxes ) {
 			),
 		),
 	);
+	// Collaborators multicheckbox
+	$meta_boxes[] = array(
+		'id' => 'montera34_collabora',
+		'title' => 'Collaborators',
+		'pages' => array('montera34_project'), // post type
+		'context' => 'side', //  'normal', 'advanced', or 'side'
+		'priority' => 'default',  //  'high', 'core', 'default' or 'low'
+		'show_names' => false, // Show field names on the left
+		'fields' => array(
+			array(
+				'name' => 'Collaborators',
+				'id' => $prefix . 'collabora',
+				'type' => 'multicheck',
+				'options' => $collaborators
+			),
+		),
+	);
+
+	// COLLABORATOR CUSTOM FIELDS
+	////
+	// collaborator data
+	$meta_boxes[] = array(
+		'id' => 'collabora_data',
+		'title' => 'Collaborator data',
+		'pages' => array('montera34_collabora'), // post type
+		'context' => 'normal', //  'normal', 'advanced', or 'side'
+		'priority' => 'high', // 'high', 'core', 'default' or 'low'
+		'show_names' => true, // Show field names on the left
+		'fields' => array(
+			array(
+				'name' => 'First name',
+				'desc' => '',
+				'id' => $prefix . 'collabora_firsname',
+				'type' => 'text',
+			),
+			array(
+				'name' => 'Last name',
+				'desc' => '',
+				'id' => $prefix . 'collabora_lastname',
+				'type' => 'text',
+			),
+			array(
+				'name' => 'URL',
+				'id'   => $prefix . 'collabora_url',
+				'type' => 'text_url',
+				'protocols' => array( 'http', 'https'), // Array of allowed protocols
+			),
+			array(
+				'id' => $prefix . 'collabora_projects',
+				'type' => 'group',
+				'description' => 'Projects',
+				'options' => array(
+					'group_title' => __( 'Project {#}', 'montera34' ), // since version 1.1.4, {#} gets replaced by row number
+					'add_button' => __( 'Add Another Project', 'montera34' ),
+					'remove_button' => __( 'Remove Project', 'montera34' ),
+					'sortable' => true, // beta
+				),
+				// Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
+ 				'fields' => array(
+					array(
+						'name' => 'Project',
+						'id'   => 'project',
+						'type' => 'select',
+						'options' => $projects,
+						'default' => 'none',
+						//'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+					),
+					array(
+						'name' => 'Rol',
+						'description' => '',
+ 						'id'   => 'rol',
+						'type' => 'text',
+					),
+				),
+			),
+		),
+	);
+
 	return $meta_boxes;
 } // end Add metaboxes
 // Initialize the metabox class
