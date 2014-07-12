@@ -51,7 +51,7 @@ function montera_theme_setup() {
 // set up media options
 function montera34_media_options() {
 	/* Add theme support for post thumbnails (featured images). */
-	add_theme_support( 'post-thumbnails', array( 'post','page','montera34_project') );
+	add_theme_support( 'post-thumbnails', array( 'post','page','montera34_project','montera34_collabora') );
 	set_post_thumbnail_size( 600, 0 ); // default Post Thumbnail dimensions
 	/* set up image sizes*/
 	update_option('thumbnail_size_w', 600);
@@ -163,6 +163,7 @@ function montera34_build_taxonomies() {
 		'name' => __( 'Types' ),
 		'query_var' => 'type',
 		'rewrite' => array( 'slug' => 'type', 'with_front' => false ),
+		'show_admin_column' => true
 	) );
 } // end register taxonomies
 
@@ -219,25 +220,25 @@ function montera34_metaboxes( $meta_boxes ) {
 		'pages' => array('montera34_project'), // post type
 		'context' => 'normal', //  'normal', 'advanced', or 'side'
 		'priority' => 'high', // 'high', 'core', 'default' or 'low'
-		'show_names' => false, // Show field names on the left
+		'show_names' => true, // Show field names on the left
 		'fields' => array(
 			array(
-				'name' => '',
-				'desc' => 'Project beginning',
+				'name' => 'Project beginning',
+				'desc' => '',
 				'id' => $prefix . 'project_card_date_ini',
 				'type' => 'text_date_timestamp',
 				'repeatable' => false,
 			),
 			array(
-				'name' => '',
-				'desc' => 'Project ending',
+				'name' => 'Project ending',
+				'desc' => '',
 				'id' => $prefix . 'project_card_date_end',
 				'type' => 'text_date_timestamp',
 				'repeatable' => false,
 			),
 			array(
-				'name' => '',
-				'desc' => 'Project status.',
+				'name' => 'Project status',
+				'desc' => '',
 				'id' => $prefix . 'project_card_status',
 				'type' => 'wysiwyg',
 				'options' => array(
@@ -245,25 +246,59 @@ function montera34_metaboxes( $meta_boxes ) {
 				)
 			),
 			array(
-				'name' => '',
-				'desc' => 'Project URL',
+				'name' => 'Project URL',
+				'desc' => '',
 				'id' => $prefix . 'project_card_project_url',
 				'type' => 'text_url',
 				'protocols' => array( 'http', 'https' )
 			),
 			array(
-				'name' => '',
-				'desc' => 'Code repo URL',
-				'id' => $prefix . 'project_card_repo_url',
-				'type' => 'text_url',
-				'protocols' => array( 'http', 'https' )
+				'id' => $prefix . 'project_card_code_repo',
+				'type' => 'group',
+				'description' => 'Code repo URL',
+				'options' => array(
+					'group_title' => __( 'Project code', 'montera34' ), // since version 1.1.4, {#} gets replaced by row number
+					//'add_button' => __( 'Add Another Project', 'montera34' ),
+					//'remove_button' => __( 'Remove Project', 'montera34' ),
+				),
+				// Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
+ 				'fields' => array(
+					array(
+						'name' => 'URL text',
+						'id'   => 'url_text',
+						'type' => 'text',
+					),
+					array(
+						'name' => 'URL',
+ 						'id'   => 'url',
+						'type' => 'text_url',
+						'protocols' => array( 'http', 'https' )
+					),
+				),
 			),
 			array(
-				'name' => '',
-				'desc' => 'Code license',
 				'id' => $prefix . 'project_card_code_license',
-				'type' => 'text_url',
-				'protocols' => array( 'http', 'https' )
+				'type' => 'group',
+				'description' => 'Code license URL',
+				'options' => array(
+					'group_title' => __( 'Code license', 'montera34' ), // since version 1.1.4, {#} gets replaced by row number
+					//'add_button' => __( 'Add Another Project', 'montera34' ),
+					//'remove_button' => __( 'Remove Project', 'montera34' ),
+				),
+				// Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
+ 				'fields' => array(
+					array(
+						'name' => 'URL text',
+						'id'   => 'url_text',
+						'type' => 'text',
+					),
+					array(
+						'name' => 'URL',
+ 						'id'   => 'url',
+						'type' => 'text_url',
+						'protocols' => array( 'http', 'https' )
+					),
+				),
 			),
 			array(
 				'name' => '',
@@ -272,15 +307,6 @@ function montera34_metaboxes( $meta_boxes ) {
 				'type' => 'text_money',
 				'before' => '€', // Replaces default '$'
 			),
-//			array(
-//				'name' => '',
-//				'desc' => 'Collaborators. Name, and URL if any.',
-//				'id' => $prefix . 'project_card_colabora',
-//				'type' => 'wysiwyg',
-//				'options' => array(
-//					'textarea_rows' => get_option('default_post_edit_rows', 2),
-//				)
-//			),
 			array(
 				'name' => '',
 				'desc' => 'Client. Name, and URL if any',
@@ -324,7 +350,7 @@ function montera34_metaboxes( $meta_boxes ) {
 			array(
 				'name' => 'First name',
 				'desc' => '',
-				'id' => $prefix . 'collabora_firsname',
+				'id' => $prefix . 'collabora_firstname',
 				'type' => 'text',
 			),
 			array(
@@ -336,6 +362,12 @@ function montera34_metaboxes( $meta_boxes ) {
 			array(
 				'name' => 'URL',
 				'id'   => $prefix . 'collabora_url',
+				'type' => 'text_url',
+				'protocols' => array( 'http', 'https'), // Array of allowed protocols
+			),
+			array(
+				'name' => 'Twitter',
+				'id'   => $prefix . 'collabora_twitter',
 				'type' => 'text_url',
 				'protocols' => array( 'http', 'https'), // Array of allowed protocols
 			),

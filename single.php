@@ -1,46 +1,77 @@
 <?php get_header(); ?>
 
 <?php
-//if ( have_posts() ) {
-
+if ( have_posts() ) {
 	while ( have_posts() ) : the_post();
-		// type tax
-		$types = get_the_terms($post->ID,'montera34_type');
+
+
+// if is a project
+if ( get_post_type() == 'montera34_project' ) {
+	// type tax
+	$types = get_the_terms($post->ID,'montera34_type');
+	if ( $types != '' ) {
 		$types_out = "";
 		foreach ( $types as $term ) {
 			$type_name = $term->name;
 			$type_perma = get_term_link($term);
 			$types_out .= "<a href='" .$type_perma. "' title='More projects in " .$type_name. "'>" .$type_name. "</a> ";
 		}
-		// card items array
-		$card_items = array(
-			array('Type',$types_out),
-			array('Status',get_post_meta( $post->ID, '_montera34_project_card_status', true )),
-			array('Project URL',get_post_meta( $post->ID, '_montera34_project_card_url', true )),
-			array('Client',get_post_meta( $post->ID, '_montera34_project_card_client', true )),
-			array('Code repository',get_post_meta( $post->ID, '_montera34_project_card_code_repo', true )),
-			array('Code license',get_post_meta( $post->ID, '_montera34_project_card_code_license', true )),
-		);
+	}
+	// project URL
+	$project_url = get_post_meta( $post->ID, '_montera34_project_card_url', true );
+	if ( $project_url != '' ) { $project_url = "<a href='" .$project_url. "'>" .$project_url. "</a>"; }
+	// project code repo URL
+	$project_code_repo = get_post_meta( $post->ID, '_montera34_project_card_code_repo', true ); //print_r($project_code_repo);
+	if ( $project_code_repo != '' ) { $project_code_repo_out = "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
+	// project code license URL
+	$project_code_license = get_post_meta( $post->ID, '_montera34_project_card_code_license', true );
+	if ( $project_code_license != '' ) { $project_code_license_out = "<a href='" .$project_code_license[0]['url']. "'>" .$project_code_license[0]['url_text']. "</a>"; }
+
+	// card items array
+	$card_items = array(
+		'Type' => $types_out,
+		'Status'=> get_post_meta( $post->ID, '_montera34_project_card_status', true ),
+		'Project URL' => $project_url,
+		'Client' => get_post_meta( $post->ID, '_montera34_project_card_client', true ),
+		'Code repository' => $project_code_repo_out,
+		'Code license' => $project_code_license_out,
+	);
+
+// if is a collaborator
+} elseif ( get_post_type() == 'montera34_collaborator' ) {
+	// card items array
+	$card_items = array(
+		'Firsname' => get_post_meta( $post->ID, '_montera34_collabora_firstname', true ),
+		'Lastname' => get_post_meta( $post->ID, '_montera34_collabora_lastname', true ),
+		'Website' => get_post_meta( $post->ID, '_montera34_collabora_url', true ),
+		'Twitter' => get_post_meta( $post->ID, '_montera34_collabora_twitter', true ),
+	);
+
+} // end vars depending on post type
+
+// common vars
+$tit = get_the_title();
+$content = apply_filters( 'the_content',get_the_content() );
+$desc = ": " .strip_tags( get_the_excerpt() );
 ?>
+
 		<header>
-		<h1><?php the_title();
-				$excerpt = strip_tags(get_the_excerpt());
-        echo ": " .$excerpt; ?></h1>
+		<h1><?php echo $tit; ?></h1>
 		</header>
 		
 		<div class="row">
 			<div class="col-md-8">
 				<section>
-				<?php the_content(); ?>
+				<?php echo $content; ?>
 				</section>
 			</div>
 	
-			<div class="col-md-4"><!-- side bar 2-->
+			<div class="col-md-4"><!-- side bar 2 -->
 				<section>
 				<dl>
-					<?php foreach ($card_items as $item ) {
-						echo "<dt><strong>" .$item[0]. "</strong></dt>
-									<dd>" .$item[1]. "</dd>";
+					<?php foreach ($card_items as $key => $value ) {
+						echo "<dt><strong>" .$key. "</strong></dt>
+									<dd>" .$value. "</dd>";
 					} ?>
 				</dl>
 				</section>
@@ -48,7 +79,7 @@
 	//wp_reset_postdata();
 
 //} else {
-//}
+}
 
 // related projects
 if ( $post->post_parent != '0' ) {
