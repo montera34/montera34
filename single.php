@@ -36,6 +36,37 @@ if ( get_post_type() == 'montera34_project' ) {
 		'Code repository' => $project_code_repo_out,
 		'Code license' => $project_code_license_out,
 	);
+	// building collaborators section
+	$project_collaboras = get_post_meta( $post->ID, '_montera34_collabora', true );
+	$args = array(
+		'posts_per_page' => -1,
+		'post__in' => $project_collaboras,
+		'post_type' => 'montera34_collabora'
+	);
+	$collaboras = get_posts($args);
+	if ( count($collaboras) != 0 ) {
+	$collaboras_out = "<section id='collaborators'><h3>Collaborators</h3><div class='media-list'>";
+		foreach ( $collaboras as $collabora ) {
+			$collabora_perma = get_permalink($collabora->ID);
+			$collabora_tit = $collabora->post_title;
+			if ( has_post_thumbnail($collabora->ID) ) {
+				$collabora_img = get_the_post_thumbnail( $collabora->ID, 'bigicon', array('class' => 'media-object') );
+				$collabora_img_out = "<a class='pull-left' href='" .$collabora_perma. "' title='" .$collabora_tit. "'>" .$collabora_img. "</a>";
+			} else { $collabora_img_out = ""; }
+			$collabora_roles = get_post_meta( $collabora->ID, '_montera34_collabora_projects', true );
+			foreach ( $collabora_roles as $rol ) {
+				if ( $rol['project'] == $post->ID ) { $collabora_rol = $rol['rol']; }
+			}
+			$collaboras_out .=
+			"<div class='media'>" .$collabora_img_out. "
+				<div class='media-body'>
+					<h4 class='media-heading'><a href='" .$collabora_perma. "' title='" .$collabora_tit. "'>" .$collabora_tit. "</a></h4>
+					<p>" .$collabora_rol. "</p>
+			</div>
+			";
+		} // end foreach collaborators
+	} // end if collaborators
+	$collaboras_out .= "</div></section>";
 
 // if is a collaborator
 } elseif ( get_post_type() == 'montera34_collaborator' ) {
@@ -75,11 +106,10 @@ $desc = ": " .strip_tags( get_the_excerpt() );
 					} ?>
 				</dl>
 				</section>
+				<?php echo $collaboras_out; ?>
 	<?php endwhile;
 	//wp_reset_postdata();
 
-//} else {
-}
 
 // related projects
 if ( $post->post_parent != '0' ) {
@@ -129,11 +159,13 @@ if ( $post->post_parent != '0' ) {
 } // end if project is parent
 // end related projects
 	
+} // end if posts
+
 ?>
 
 
 			</div><!-- end side bar 2-->
-		</div>
+		</div><!-- .row -->
 	</div>
 </div>
 

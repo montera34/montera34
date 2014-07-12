@@ -54,7 +54,6 @@ if ( is_single() || is_page() ) {
 
 <!-- generic meta -->
 <meta content="montera34" name="author" />
-<meta name="title" content="<?php echo MONTERA34_BLOGNAME ?>" />
 <meta content="<?php echo MONTERA34_BLOGDESC ?>" name="description" />
 <meta content="software libre, open software, software de codigo abierto, datos libres, open data, wordpress, desarrollo web, HTML5, processing, Linux, Debian" name="keywords" />
 <!-- facebook meta -->
