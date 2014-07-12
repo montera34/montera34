@@ -18,6 +18,7 @@ function montera_theme_setup() {
 
 	/* Set up media options: sizes, featured images... */
 	add_action( 'init', 'montera34_media_options' );
+	add_filter( 'image_size_names_choose', 'montera34_custom_sizes' );
 
 	/* Add your nav menus function to the 'init' action hook. */
 	add_action( 'init', 'montera34_register_menus' );
@@ -53,14 +54,31 @@ function montera34_media_options() {
 	/* Add theme support for post thumbnails (featured images). */
 	add_theme_support( 'post-thumbnails', array( 'post','page','montera34_project','montera34_collabora') );
 	set_post_thumbnail_size( 600, 0 ); // default Post Thumbnail dimensions
+
+	// add extra sizes
+	add_image_size( 'icon', '32', '32', true );
+	add_image_size( 'bigicon', '64', '64', true );
+	add_image_size( 'small', '293', '0', false );
+	add_image_size( 'extralarge', '1170', '0', false );
+
 	/* set up image sizes*/
-	update_option('thumbnail_size_w', 600);
-	update_option('thumbnail_size_h', 0);
-	update_option('medium_size_w', 474);
+	update_option('thumbnail_size_w', 100);
+	update_option('thumbnail_size_h', 100);
+	update_option('thumbnail_crop', 1);
+	update_option('medium_size_w', 585);
 	update_option('medium_size_h', 0);
-	update_option('large_size_w', 717);
+	update_option('large_size_w', 878);
 	update_option('large_size_h', 0);
 } // end set up media options
+
+function montera34_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'icon' => __('Icon','montera34'),
+        'bigicon' => __('Big Icon','montera34'),
+        'small' => __('Small','montera34'),
+        'extralarge' => __('Extra Large','montera34'),
+    ) );
+}
 
 // register custom menus
 function montera34_register_menus() {
@@ -301,15 +319,15 @@ function montera34_metaboxes( $meta_boxes ) {
 				),
 			),
 			array(
-				'name' => '',
-				'desc' => 'Presupuesto',
+				'name' => 'Budget',
+				'desc' => '',
 				'id' => $prefix . 'project_card_money',
 				'type' => 'text_money',
 				'before' => '€', // Replaces default '$'
 			),
 			array(
-				'name' => '',
-				'desc' => 'Client. Name, and URL if any',
+				'name' => 'Client. Name, and URL if any',
+				'desc' => '',
 				'id' => $prefix . 'project_card_client',
 				'type' => 'wysiwyg',
 				'options' => array(
@@ -366,7 +384,7 @@ function montera34_metaboxes( $meta_boxes ) {
 				'protocols' => array( 'http', 'https'), // Array of allowed protocols
 			),
 			array(
-				'name' => 'Twitter',
+				'name' => 'Twitter URL',
 				'id'   => $prefix . 'collabora_twitter',
 				'type' => 'text_url',
 				'protocols' => array( 'http', 'https'), // Array of allowed protocols
