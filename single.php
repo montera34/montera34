@@ -19,7 +19,7 @@ if ( get_post_type() == 'montera34_project' ) {
 	}
 	// project URL
 	$project_url = get_post_meta( $post->ID, '_montera34_project_card_url', true );
-	if ( $project_url != '' ) { $project_url = "<a href='" .$project_url. "'>" .$project_url. "</a>"; }
+	if ( $project_url != '' ) { $project_url_out = "<a href='" .$project_url. "'>" .$project_url. "</a>"; }
 	// project code repo URL
 	$project_code_repo = get_post_meta( $post->ID, '_montera34_project_card_code_repo', true ); //print_r($project_code_repo);
 	if ( $project_code_repo != '' ) { $project_code_repo_out = "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
@@ -31,7 +31,7 @@ if ( get_post_type() == 'montera34_project' ) {
 	$card_items = array(
 		'Type' => $types_out,
 		'Status'=> get_post_meta( $post->ID, '_montera34_project_card_status', true ),
-		'Project URL' => $project_url,
+		'Project URL' => $project_url_out,
 		'Client' => get_post_meta( $post->ID, '_montera34_project_card_client', true ),
 		'Code repository' => $project_code_repo_out,
 		'Code license' => $project_code_license_out,
@@ -68,15 +68,75 @@ if ( get_post_type() == 'montera34_project' ) {
 	} // end if collaborators
 	$collaboras_out .= "</div></section>";
 
+	// related projects
+	if ( $post->post_parent != '0' ) {
+	// if project is child
+		$args = array(
+			'post_parent' => $post->post_parent,
+			'posts_per_page' => -1,
+			'exclude' => $post->ID,
+			'post_type' => 'montera34_project'
+		);
+		$related_projects = get_posts($args);
+		$related_count = count($related_projects);
+		$related_type = "child";
+		//if ( $related_count == '0' ) { $related_count = 1; }
+		//echo count($related_projects);
+		//print_r($related_projects);
+		$related_out = "<section><h3>Parent Project</h3><ul>";
+		$related_out .= "<li><a href='" .get_permalink($post->post_parent). "'>" .get_the_title($post->post_parent). "</a></li>";
+		if ( $related_count != '0' ) {
+			foreach ( $related_projects as $related ) {
+				$related_out .= "<li><a href='" .get_permalink($related->ID). "'>" .$related->post_title. "</a></li>";
+			}
+		}
+		$related_out .= "</ul></section>";
+		echo $related_out;
+	
+	} else {
+	// if project is parent
+		$args = array(
+			'post_parent' => $post->ID,
+			'posts_per_page' => -1,
+			'post_type' => 'montera34_project'
+		);
+		$related_projects = get_posts($args);
+		$related_count = count($related_projects);
+	
+		if ( $related_count != '0' ) {
+		// if project has children
+			//echo "Project is parent and has children.";
+			$related_out = "<section><h3>Related Projects</h3><ul>";
+			foreach ( $related_projects as $related ) {
+				$related_out .= "<li><a href='" .get_permalink($related->ID). "'>" .$related->post_title. "</a></li>";
+			}
+			$related_out .= "</ul></section>";
+		}
+	} // end if project is parent
+	// end related projects
+	$collabora_img_out = "";
+
 // if is a collaborator
-} elseif ( get_post_type() == 'montera34_collaborator' ) {
+} elseif ( get_post_type() == 'montera34_collabora' ) {
+	if ( has_post_thumbnail() ) {
+		$collabora_img = get_the_post_thumbnail( $post->ID, 'small', array('class' => 'img-responsive') );
+		$collabora_img_out = "<figure>" .$collabora_img. "</figure>";
+	} else { $collabora_img_out = ""; }
 	// card items array
+	// collaborator URL
+	$collabora_url = get_post_meta( $post->ID, '_montera34_collabora_url', true );
+	if ( $collabora_url != '' ) { $collabora_url_out = "<a href='" .$collabora_url. "'>" .$collabora_url. "</a>"; }
+	// twitter URL
+	$collabora_twitter = get_post_meta( $post->ID, '_montera34_collabora_twitter', true );
+	if ( $collabora_twitter != '' ) { $collabora_twitter_out = "<a href='" .$collabora_twitter. "'>" .$collabora_twitter. "</a>"; }
 	$card_items = array(
-		'Firsname' => get_post_meta( $post->ID, '_montera34_collabora_firstname', true ),
+		'Firstname' => get_post_meta( $post->ID, '_montera34_collabora_firstname', true ),
 		'Lastname' => get_post_meta( $post->ID, '_montera34_collabora_lastname', true ),
-		'Website' => get_post_meta( $post->ID, '_montera34_collabora_url', true ),
-		'Twitter' => get_post_meta( $post->ID, '_montera34_collabora_twitter', true ),
+		'Website' => $collabora_url_out,
+		'Twitter' => $collabora_twitter_out,
 	);
+	$collaboras_out = "";
+	$related_out = "";
 
 } // end vars depending on post type
 
@@ -99,70 +159,19 @@ $desc = ": " .strip_tags( get_the_excerpt() );
 	
 			<div class="col-md-4"><!-- side bar 2 -->
 				<section>
-				<dl>
+					<?php echo $collabora_img_out; ?>
+					<dl>
 					<?php foreach ($card_items as $key => $value ) {
 						echo "<dt><strong>" .$key. "</strong></dt>
 									<dd>" .$value. "</dd>";
 					} ?>
-				</dl>
+					</dl>
 				</section>
-				<?php echo $collaboras_out; ?>
+				<?php echo $collaboras_out;
+				echo $related_out; ?>
 	<?php endwhile;
-	//wp_reset_postdata();
-
-
-// related projects
-if ( $post->post_parent != '0' ) {
-// if project is child
-	$args = array(
-		'post_parent' => $post->post_parent,
-		'posts_per_page' => -1,
-		'exclude' => $post->ID,
-		'post_type' => 'montera34_project'
-	);
-	$related_projects = get_posts($args);
-	$related_count = count($related_projects);
-	$related_type = "child";
-	//if ( $related_count == '0' ) { $related_count = 1; }
-	//echo count($related_projects);
-	//print_r($related_projects);
-	$related_out = "<section><h3>Parent Project</h3><ul>"; //TODO estart in cluding getext _e('Parent Project','montera34');
-	$related_out .= "<li><a href='" .get_permalink($post->post_parent). "'>" .get_the_title($post->post_parent). "</a></li>";
-	if ( $related_count != '0' ) {
-		foreach ( $related_projects as $related ) {
-			$related_out .= "<li><a href='" .get_permalink($related->ID). "'>" .$related->post_title. "</a></li>";
-		}
-	}
-	$related_out .= "</ul></section>";
-	echo $related_out;
-
-} else {
-// if project is parent
-	$args = array(
-		'post_parent' => $post->ID,
-		'posts_per_page' => -1,
-		'post_type' => 'montera34_project'
-	);
-	$related_projects = get_posts($args);
-	$related_count = count($related_projects);
-
-	if ( $related_count != '0' ) {
-	// if project has children
-		//echo "Project is parent and has children.";
-		$related_out = "<section><h3>Related Projects</h3><ul>";
-		foreach ( $related_projects as $related ) {
-			$related_out .= "<li><a href='" .get_permalink($related->ID). "'>" .$related->post_title. "</a></li>";
-		}
-		$related_out .= "</ul></section>";
-		echo $related_out;
-	}
-} // end if project is parent
-// end related projects
-	
 } // end if posts
-
 ?>
-
 
 			</div><!-- end side bar 2-->
 		</div><!-- .row -->
