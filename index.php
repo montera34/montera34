@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <?php
+global $wp_post_types;
 // MAIN CONTENT
 
 // build main title 
@@ -15,7 +16,12 @@ if ( is_home() ) {
 
 } else {
 	// if archive
-	$page_tit = $wp_query->queried_object->name;
+	$pt_current = get_post_type();
+	$page_tit = $wp_post_types[$pt_current]->labels->name;
+	if ( is_tax() ) {
+		$term_tit = single_term_title( ': ', FALSE );
+		$page_tit .= $term_tit;
+	}
 
 } // end build main title
 ?>
@@ -30,11 +36,6 @@ if ( is_home() ) {
 					while ( have_posts() ) : the_post();
 						include "loop.php";
 					endwhile;
-					/* Restore original Post Data 
-					 * NB: Because we are using new WP_Query we aren't stomping on the 
-					 * original $wp_query and it does not need to be reset.
-					*/
-					wp_reset_postdata();
 
 				} else {
 					echo "<p>no projects.</p>";
@@ -42,7 +43,6 @@ if ( is_home() ) {
 				</section>
 			</div>
 	
-			<div class="col-md-4"><!-- side bar 2--></div>
 		</div>
 	</div>
 </div>

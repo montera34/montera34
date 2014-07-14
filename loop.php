@@ -18,7 +18,7 @@ $project_perma = get_permalink();
 
 // featured image
 if ( has_post_thumbnail() ) {
-	$art_featured = get_the_post_thumbnail($post->ID,'thumbnail',array('class'	=> 'img-responsive')); // falta configurar $size correctamente
+	$art_featured = get_the_post_thumbnail($post->ID,'thumbnail',array('class' => 'img-responsive')); // falta configurar $size correctamente
 	$loop_featured = "<figure>" .$art_featured. "</figure>";
 } else { $loop_featured = ""; }
 
