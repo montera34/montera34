@@ -187,6 +187,14 @@ function montera34_build_taxonomies() {
 		'rewrite' => array( 'slug' => 'type', 'with_front' => false ),
 		'show_admin_column' => true
 	) );
+	register_taxonomy( 'montera34_tech', 'montera34_project', array( // type taxonomy
+		'hierarchical' => false,
+		'label' => __( 'Technology' ),
+		'name' => __( 'Technologies' ),
+		'query_var' => 'tech',
+		'rewrite' => array( 'slug' => 'tech', 'with_front' => false ),
+		'show_admin_column' => true
+	) );
 } // end register taxonomies
 
 // get all posts from a post type to be used in select or multicheck forms
@@ -246,17 +254,15 @@ function montera34_metaboxes( $meta_boxes ) {
 		'fields' => array(
 			array(
 				'name' => 'Project beginning',
-				'desc' => '',
+				'desc' => 'year',
 				'id' => $prefix . 'project_card_date_ini',
-				'type' => 'text_date_timestamp',
-				'repeatable' => false,
+				'type' => 'text',
 			),
 			array(
 				'name' => 'Project ending',
-				'desc' => '',
+				'desc' => 'year',
 				'id' => $prefix . 'project_card_date_end',
-				'type' => 'text_date_timestamp',
-				'repeatable' => false,
+				'type' => 'text',
 			),
 			array(
 				'name' => 'Project status',
@@ -303,11 +309,10 @@ function montera34_metaboxes( $meta_boxes ) {
 				'type' => 'group',
 				'description' => 'Code license URL',
 				'options' => array(
-					'group_title' => __( 'Code license', 'montera34' ), // since version 1.1.4, {#} gets replaced by row number
+					'group_title' => __( 'Code license', 'montera34' ),
 					//'add_button' => __( 'Add Another Project', 'montera34' ),
 					//'remove_button' => __( 'Remove Project', 'montera34' ),
 				),
-				// Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
  				'fields' => array(
 					array(
 						'name' => 'URL text',
