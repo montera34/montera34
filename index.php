@@ -39,7 +39,8 @@ if ( is_home() ) {
 
 				} else {
 					echo "<p>no projects.</p>";
-				} ?>
+				}
+				include "pagination.php"; ?>
 				</section>
 			</div>
 	
