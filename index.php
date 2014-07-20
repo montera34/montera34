@@ -7,16 +7,25 @@ global $wp_post_types;
 // build main title 
 if ( is_home() ) {
 	// if is home
+	$loop_name = "list";
 	$page_tit = "Desarrollamos webs e investigamos en internet, por ejemplo";
 
 } elseif ( is_search() ) {
 	// if search
+	$loop_name = "list";
 	$query_s = $wp_query->query_vars['s'];
 	$page_tit = "Search results for '<strong>$query_s</strong>'";
 
 } else {
 	// if archive
 	$pt_current = get_post_type();
+	if ( $pt_current == 'montera34_project' ) {
+		$loop_name = "list";
+
+	} elseif ( $pt_current == 'montera34_collabora' ) {
+		$loop_name = "media-list";
+
+	}
 	$page_tit = $wp_post_types[$pt_current]->labels->name;
 	if ( is_tax() ) {
 		$term_tit = single_term_title( ': ', FALSE );
@@ -28,20 +37,20 @@ if ( is_home() ) {
 		<header><h1><?php echo $page_tit ?></h1></header>
 		<div class="row">
 			<div class="col-md-8">
-				<section>
+				<div class='<?php echo $loop_name ?>'>
 				<?php
 				if ( have_posts() ) {
 
 					// The Loop
 					while ( have_posts() ) : the_post();
-						include "loop.php";
+						include "loop." .$loop_name. ".php";
 					endwhile;
 
 				} else {
-					echo "<p>no projects.</p>";
+					echo "<p>No content.</p>";
 				}
 				include "pagination.php"; ?>
-				</section>
+				</div><!-- .<?php echo $loop_name ?> -->
 			</div>
 	
 		</div>

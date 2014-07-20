@@ -80,6 +80,7 @@ if ( get_post_type() == 'montera34_project' ) {
 						<p>" .$collabora_rol. "</p>
 				</div>
 				";
+				unset($collabora_rol);
 			} // end foreach collaborators
 		} // end if collaborators
 		$collaboras_out .= "</div></section>";
