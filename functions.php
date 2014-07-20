@@ -202,6 +202,9 @@ function montera34_get_list($post_type,$type='multicheck') {
 	$posts = get_posts(array(
 		'posts_per_page' => -1,
 		'post_type' => $post_type,
+		'post_status' => array( 'publish', 'private' ),
+		'orderby' => 'title',
+		'order' => 'ASC'
 	));
 	if ( $type == 'select' ) {
 		$list[] = "none";
@@ -219,7 +222,6 @@ function montera34_metaboxes( $meta_boxes ) {
 	$prefix = '_montera34_'; // Prefix for all fields
 
 	// get data for select and multicheck fields
-	//$itinerarios = quincem_get_list("itinerario");
 	$collaborators = montera34_get_list("montera34_collabora");
 	$projects = montera34_get_list("montera34_project","select");
 
@@ -420,7 +422,6 @@ function montera34_metaboxes( $meta_boxes ) {
 					),
 					array(
 						'name' => 'Rol',
-						'description' => '',
  						'id'   => 'rol',
 						'type' => 'text',
 					),
