@@ -45,6 +45,9 @@ dd {
 #pre {
 	margin-top: 20px;
 }
+#pre-logo a {
+	display: inline-block;
+}
 /* menu */
 #pre-menu {
 	margin-top: 40px;
