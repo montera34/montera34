@@ -39,7 +39,7 @@ get_header(); ?>
 								?> </td>
 								<td>
 									<span class="label"><?php //echo get_the_term_list( $post->ID, 'montera34_type', ' ', ', ', '' ); ?></span> 
-									<?php $text = get_post_meta( $post->ID, '_montera34_project_card_url', true ); echo $text; ?>
+									<?php $text = get_post_meta( $post->ID, '_montera34_project_card_project_url', true ); echo $text; ?>
 								</td>
 								<td><?php echo get_the_term_list( $post->ID, 'montera34_type', ' ', ', ', '' ); ?>
 								</td>
