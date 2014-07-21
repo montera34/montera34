@@ -133,6 +133,7 @@ if ( get_post_type() == 'montera34_project' ) {
 	} // end if project is parent
 	// end related projects
 	$collabora_img_out = "";
+	$collabora_projects = "";
 
 // if is a collaborator
 } elseif ( get_post_type() == 'montera34_collabora' ) {
@@ -147,12 +148,51 @@ if ( get_post_type() == 'montera34_project' ) {
 	// twitter URL
 	$collabora_twitter = get_post_meta( $post->ID, '_montera34_collabora_twitter', true );
 	if ( $collabora_twitter != '' ) { $card_items['Twitter'] = "<a href='" .$collabora_twitter. "'>" .$collabora_twitter. "</a>"; }
-	$card_items = array(
-		'Firstname' => get_post_meta( $post->ID, '_montera34_collabora_firstname', true ),
-		'Lastname' => get_post_meta( $post->ID, '_montera34_collabora_lastname', true ),
-	);
+//	$card_items = array(
+//		'Firstname' => get_post_meta( $post->ID, '_montera34_collabora_firstname', true ),
+//		'Lastname' => get_post_meta( $post->ID, '_montera34_collabora_lastname', true ),
+//	);
 	$collaboras_out = "";
 	$related_out = "";
+
+	// projects
+	$collabora_projects = get_post_meta( $post->ID, '_montera34_collabora_projects', true );
+	if ( $collabora_projects != '' ) {
+		foreach ( $collabora_projects as $project ) {
+			$project_ids[] = $project['project'];
+		}
+		$args = array(
+			'posts_per_page' => -1,
+			'post__in' => $project_ids,
+			'post_status' => array( 'publish', 'private' ),
+			'post_type' => 'montera34_project'
+		);
+		$projects = get_posts($args);
+		$collabora_projects_out = "<section id='projects'><h3>Projects in which " .$tit. " has collaborated</h3><div class='list'>";
+			foreach ( $projects as $project ) {
+				$project_perma = get_permalink($project->ID);
+				$project_tit = $project->post_title;
+				$project_desc = $project->post_excerpt;
+				if ( has_post_thumbnail($project->ID) ) {
+					$project_img = "<figure><a href=" .$project_perma. ">" .get_the_post_thumbnail($project->ID,'thumbnail',array('class' => 'img-responsive')). "</a></figure>";
+				} else { $collabora_img = ""; }
+				$project_roles = get_post_meta( $post->ID, '_montera34_collabora_projects', true );
+				foreach ( $project_roles as $rol ) {
+					if ( $rol['project'] == $project->ID ) { $project_rol = $rol['rol']; }
+				}
+				$collabora_projects_out .=
+				"<div class='list-item list-project'>
+					<header><h4 class='list-item-tit'><a href='" .$project_perma. "' title='" .$project_tit. "'>" .$project_tit. "</a></h4>
+					<div class='list-item-desc'>
+						<div class='list-item-rol'>Rol: " .$project_rol. "</div>
+						<p>" .$project_desc. "</p>
+						" .$project_img. "
+					</div>
+				</div>
+				";
+			} // end foreach collaborators
+		$collabora_projects_out .= "</div></section>";
+	}
 
 } // end vars depending on post type
 ?>
@@ -166,6 +206,7 @@ if ( get_post_type() == 'montera34_project' ) {
 				<section>
 				<?php echo $content; ?>
 				</section>
+				<?php echo $collabora_projects_out; ?>
 			</div>
 	
 			<div class="col-md-4"><!-- side bar 2 -->
