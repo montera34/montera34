@@ -30,9 +30,13 @@ get_header(); ?>
 								
 							<tr <?php post_class(''); ?> id="post-<?php the_ID(); ?>">
 								<td> <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-									<?php the_title(); ?></a></div> 
+									<?php the_title(); ?></a>
+									<?php if ( is_user_logged_in() ) { ?><div class="btn btn-xs btn-default pull-right"> <?php edit_post_link(__('Edit This')); ?></div> <?php } ?>
 								</td>
-								<td><?php $text = get_post_meta( $post->ID, '_montera34_project_card_code_repo', true ); echo $text; ?> </td>
+								<td><?php
+								$project_code_repo = get_post_meta( $post->ID, '_montera34_project_card_code_repo', true );
+								if ( $project_code_repo != '' ) { echo "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
+								?> </td>
 								<td>
 									<span class="label"><?php //echo get_the_term_list( $post->ID, 'montera34_type', ' ', ', ', '' ); ?></span> 
 									<?php $text = get_post_meta( $post->ID, '_montera34_project_card_url', true ); echo $text; ?>
