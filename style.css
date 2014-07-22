@@ -38,6 +38,10 @@ figure {
 	max-width: 100%;
 	height: auto;
 }
+.wp-caption-text {
+	font-size: 0.85em;
+	color: #666;
+}
 dd {
 	margin-bottom: 1.42857em;
 }
@@ -75,10 +79,10 @@ ul#pre-menu,
 
 /* main page tit */
 .main-tit {
-	margin-bottom: 36px;
+	margin: 20px 0 36px;
 }
 .main-tit h1 {
-	display: inline-block;
+	display: inline;
 }
 .subtit {
 	display: block;

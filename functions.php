@@ -65,7 +65,7 @@ function montera34_media_options() {
 	update_option('thumbnail_size_w', 600);
 	update_option('thumbnail_size_h', 0);
 	update_option('thumbnail_crop', 0);
-	update_option('medium_size_w', 585);
+	update_option('medium_size_w', 565);
 	update_option('medium_size_h', 0);
 	update_option('large_size_w', 878);
 	update_option('large_size_h', 0);
