@@ -6,7 +6,7 @@ $loop_tit = get_the_title();
 $loop_desc = get_the_excerpt();
 // featured image
 if ( has_post_thumbnail() ) {
-	$loop_featured = get_the_post_thumbnail($post->ID,'thumbnail',array('class' => 'img-responsive'));
+	$loop_featured = get_the_post_thumbnail($post->ID,'bigicon',array('class' => 'img-responsive'));
 } else { $loop_featured = ""; }
 
 
