@@ -96,9 +96,9 @@ function montera34_register_menus() {
 function montera34_load_scripts() {
 	//wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css' );
 	// wp_enqueue_style( 'bootstrap-theme-css', get_template_directory_uri() . '/css/bootstrap-theme.min.css' );
-	//wp_enqueue_style( 'fonts-css', get_template_directory_uri() . '/fonts/stylesheet.css' );
+	wp_enqueue_style( 'glyphs-css', get_template_directory_uri() . '/glyphs.css' );
 
-	wp_enqueue_script('jquery');
+//	wp_enqueue_script('jquery');
 //	wp_enqueue_script(
 //		'bootstrap.min',
 //		get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js',

@@ -10,7 +10,7 @@ $content = apply_filters( 'the_content',get_the_content() );
 
 // if is a project
 if ( get_post_type() == 'montera34_project' ) {
-	$subtit = get_the_excerpt();
+	$subtit = "<div class='subtit'>" .get_the_excerpt(). "</div>";
 	// card items array
 	// description
 //	if ( $desc != '' ) { $card_items['Description'] = $desc; }
@@ -40,7 +40,10 @@ if ( get_post_type() == 'montera34_project' ) {
 	if ( $project_client != '' ) { $card_items['Client'] = $project_client; }
 	// project URL
 	$project_url = get_post_meta( $post->ID, '_montera34_project_card_project_url', true );
-	if ( $project_url != '' ) { $card_items['Project URL'] = "<a href='" .$project_url. "'>" .$project_url. "</a>"; }
+	if ( $project_url != '' ) {
+		$card_items['Project URL'] = "<a href='" .$project_url. "'>" .$project_url. "</a>";
+		$link_out = "<a class='link-out' href='" .$project_url. "' title='Go to this project website'><span class='icon-link'></span></a>";
+	} else { $link_out = ""; }
 	// project code repo URL
 	$project_code_repo = get_post_meta( $post->ID, '_montera34_project_card_code_repo', true ); 
 	if ( $project_code_repo != '' ) { $card_items['Code repository'] = "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
@@ -50,6 +53,8 @@ if ( get_post_type() == 'montera34_project' ) {
 	// status
 	$project_status = get_post_meta( $post->ID, '_montera34_project_card_status', true );
 	if ( $project_status != '' ) { $card_items['Status'] = $project_status; }
+
+	
 
 	// building collaborators section
 	$project_collaboras = get_post_meta( $post->ID, '_montera34_collabora', true );
@@ -146,6 +151,7 @@ if ( get_post_type() == 'montera34_project' ) {
 	// collaborator URL
 	$collabora_url = get_post_meta( $post->ID, '_montera34_collabora_url', true );
 	if ( $collabora_url != '' ) { $card_items['Website'] = "<a href='" .$collabora_url. "'>" .$collabora_url. "</a>"; }
+	$link_out = "";
 	// twitter URL
 	$collabora_twitter = get_post_meta( $post->ID, '_montera34_collabora_twitter', true );
 	if ( $collabora_twitter != '' ) { $card_items['Twitter'] = "<a href='" .$collabora_twitter. "'>" .$collabora_twitter. "</a>"; }
@@ -200,6 +206,7 @@ if ( get_post_type() == 'montera34_project' ) {
 
 		<header class="main-tit">
 			<h1><?php echo $tit; ?></h1>
+			<?php echo $link_out ?>
 			<?php echo $subtit ?>
 		</header>
 		

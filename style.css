@@ -77,6 +77,16 @@ ul#pre-menu,
 .main-tit {
 	margin-bottom: 36px;
 }
+.main-tit h1 {
+	display: inline-block;
+}
+.subtit {
+	display: block;
+}
+.link-out {
+	margin-left: 5px;
+	font-size: 1.5em;
+}
 
 /* home and projects archive list */
 .list-item {
