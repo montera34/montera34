@@ -60,10 +60,11 @@ if ( is_home() ) {
 
 <<?php echo $loop_tag ?> class="list-item <?php echo $loop_class ?>">
 	<header><h2 class="list-item-tit"><a href="<?php echo $loop_perma ?>"><?php echo $loop_tit ?></a></h2></header>
-	<div class="list-item-desc">
+	<div class="list-item-text">
+		<div class="list-item-desc"><?php echo $loop_subtit . $loop_desc; ?></div>
 		<?php echo $loop_terms ?>
-		<p><?php echo $loop_subtit . $loop_desc; ?></p>
-		<?php echo $loop_featured ?>
 	</div>
+	<?php echo $loop_featured ?>
+	
 </<?php echo $loop_tag ?>>
 
