@@ -83,6 +83,7 @@ if ( get_post_type() == 'montera34_project' ) {
 					<div class='media-body'>
 						<h4 class='media-heading'><a href='" .$collabora_perma. "' title='" .$collabora_tit. "'>" .$collabora_tit. "</a></h4>
 						<p>" .$collabora_rol. "</p>
+					</div>
 				</div>
 				";
 				unset($collabora_rol);

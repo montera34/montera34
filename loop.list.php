@@ -30,7 +30,7 @@ if ( is_home() ) {
 	$loop_perma = $project_perma;
 	$loop_subtit = "";
 	$terms = get_the_terms($post->ID,'montera34_tech');
-	if ( count($terms) > 0 ) {
+	if ( $terms == false ) { $loop_terms = "";  } else {
 		$loop_terms = "<ul class='list-inline'>";
 		foreach ( $terms as $term ) {
 			$term_tit = $term->name;
@@ -38,7 +38,7 @@ if ( is_home() ) {
 			$loop_terms .= "<li><a href='" .$term_perma. "'>" .$term_tit. "</a></li>";
 		}
 		$loop_terms .= "</ul>";
-	} else { $loop_terms = ""; }
+	}
 
 } else {
 	$loop_tag = "article";
@@ -47,13 +47,15 @@ if ( is_home() ) {
 	$loop_perma = $project_perma;
 	$loop_subtit = "";
 	$terms = get_the_terms($post->ID,'montera34_type');
-	$loop_terms = "<ul class='list-inline'>";
-	foreach ( $terms as $term ) {
-		$term_tit = $term->name;
-		$term_perma = get_term_link($term);
-		$loop_terms .= "<li><a href='" .$term_perma. "'>" .$term_tit. "</a></li>";
+	if ( $terms == false ) { $loop_terms = "";  } else {
+		$loop_terms = "<ul class='list-inline'>";
+		foreach ( $terms as $term ) {
+			$term_tit = $term->name;
+			$term_perma = get_term_link($term);
+			$loop_terms .= "<li><a href='" .$term_perma. "'>" .$term_tit. "</a></li>";
+		}
+		$loop_terms .= "</ul>";
 	}
-	$loop_terms .= "</ul>";
 
 }
 ?>
