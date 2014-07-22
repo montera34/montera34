@@ -70,9 +70,7 @@ get_header(); ?>
 						</tbody>
 					</table>
 				</section>
-			</div>
-		</div>
-	</div>
-</div>
+			</div><!-- .col-md-12 -->
+		</div><!-- .row -->
 
 <?php get_footer(); ?>

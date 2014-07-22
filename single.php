@@ -237,7 +237,5 @@ if ( get_post_type() == 'montera34_project' ) {
 
 			</div><!-- end side bar 2-->
 		</div><!-- .row -->
-	</div>
-</div>
 
 <?php get_footer(); ?>

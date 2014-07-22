@@ -60,8 +60,6 @@ if ( is_home() ) {
 				</div><!-- .<?php echo $loop_name ?> -->
 			</div>
 	
-		</div>
-	</div>
-</div>
+		</div><!-- .row -->
 
 <?php get_footer(); ?>

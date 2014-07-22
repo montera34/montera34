@@ -117,3 +117,15 @@ ul#pre-menu,
 .list-item .list-inline a:link {
 	text-decoration: underline;
 }
+
+/* footer */
+#epi {
+	margin-top: 4em;
+	margin-bottom: 1em;
+	padding-top: 1em;
+	border-top: 1px solid #ddd;
+	font-size: 0.85em;
+}
+#epi a:link {
+	text-decoration: underline;
+}
