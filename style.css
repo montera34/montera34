@@ -19,7 +19,7 @@ Tags: HTML5, CSS3
 */
 h1 {
 	font-weight: normal;
-	margin-bottom: 36px;
+	margin-bottom: 0;
 }
 h2, h3{
 }
@@ -73,12 +73,23 @@ ul#pre-menu,
 	padding:0;
 }
 
+/* main page tit */
+.main-tit {
+	margin-bottom: 36px;
+}
+
 /* home and projects archive list */
 .list-item {
 	margin-bottom: 4em;
 }
 .list-item-tit {
 	margin: 0;
+}
+.list-item-text {
+	margin-bottom: 1em;
+}
+.list-item-desc {
+	display: inline;
 }
 .list-home .list-item-tit:after {
 	content: " [+]";
@@ -88,6 +99,10 @@ ul#pre-menu,
 }
 .list-item .list-inline {
 	margin-bottom: 0;
+	display: inline;
+}
+.list-item .list-inline li:before {
+	content: "#";
 }
 .list-item .list-inline a:link {
 	text-decoration: underline;

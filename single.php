@@ -7,13 +7,13 @@ if ( have_posts() ) {
 // common vars
 $tit = get_the_title();
 $content = apply_filters( 'the_content',get_the_content() );
-$desc = get_the_excerpt();
 
 // if is a project
 if ( get_post_type() == 'montera34_project' ) {
+	$subtit = get_the_excerpt();
 	// card items array
 	// description
-	if ( $desc != '' ) { $card_items['Description'] = $desc; }
+//	if ( $desc != '' ) { $card_items['Description'] = $desc; }
 	// type and tech tax
 	$taxes = array(
 		'Type' => 'montera34_type',
@@ -137,6 +137,7 @@ if ( get_post_type() == 'montera34_project' ) {
 
 // if is a collaborator
 } elseif ( get_post_type() == 'montera34_collabora' ) {
+	$subtit = "";
 	if ( has_post_thumbnail() ) {
 		$collabora_img = get_the_post_thumbnail( $post->ID, 'small', array('class' => 'img-responsive') );
 		$collabora_img_out = "<figure>" .$collabora_img. "</figure>";
@@ -197,8 +198,9 @@ if ( get_post_type() == 'montera34_project' ) {
 } // end vars depending on post type
 ?>
 
-		<header>
-		<h1><?php echo $tit; ?></h1>
+		<header class="main-tit">
+			<h1><?php echo $tit; ?></h1>
+			<?php echo $subtit ?>
 		</header>
 		
 		<div class="row">
