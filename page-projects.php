@@ -41,9 +41,9 @@ get_header(); ?>
 								<td>
 									<?php echo $loop_featured ?>
 								</td>
-								<td> <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+								<td> <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to','montera34'; echo " "; the_title_attribute(); ?>">
 									<?php the_title(); ?></a>
-									<?php if ( is_user_logged_in() ) { ?><div class="btn btn-xs btn-default pull-right"> <?php edit_post_link(__('Edit This')); ?></div> <?php } ?>
+									<?php if ( is_user_logged_in() ) { ?><div class="btn btn-xs btn-default pull-right"> <?php edit_post_link(__('Edit This','montera34')); ?></div> <?php } ?>
 								</td>
 								<td><?php
 								$project_code_repo = get_post_meta( $post->ID, '_montera34_project_card_code_repo', true );
@@ -56,7 +56,7 @@ get_header(); ?>
 								<td><?php echo get_the_term_list( $post->ID, 'montera34_type', ' ', ', ', '' ); ?>
 								</td>
 							</tr>
-									
+
 								<?php endwhile;
 								/* Restore original Post Data 
 								 * NB: Because we are using new WP_Query we aren't stomping on the 
@@ -65,7 +65,7 @@ get_header(); ?>
 								wp_reset_postdata();
 
 							} else {
-								echo "<p>no projects.</p>";
+								echo "<p>" .__('No projects.','montera34'). "</p>";
 							} ?>
 						</tbody>
 					</table>

@@ -11,8 +11,8 @@ if ( $total > 1 ) {
 		'total' => $total,
 		'current' => $current,
 		'mid_size' => 3,
-		'prev_text' => __('&laquo;'),
-		'next_text' => __('&raquo;'),
+		'prev_text' => '&laquo;',
+		'next_text' => '&raquo;',
 		'type' => 'array',
 	);
 	

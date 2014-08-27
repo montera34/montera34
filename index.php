@@ -8,14 +8,14 @@ global $wp_post_types;
 if ( is_home() ) {
 	// if is home
 	$loop_name = "list";
-	$page_tit = "Desarrollamos webs e investigamos en internet, por ejemplo";
+	$page_tit = __('We\'ll make your website, only if you need it.','montera34');
 	$page_subtit = "";
 
 } elseif ( is_search() ) {
 	// if search
 	$loop_name = "list";
 	$query_s = $wp_query->query_vars['s'];
-	$page_tit = "Search results for '<strong>$query_s</strong>'";
+	$page_tit = sprintf( __('Search results for <strong>%s</strong>','montera34'), $query_s );
 	$page_subtit = "";
 
 } else {
@@ -23,11 +23,11 @@ if ( is_home() ) {
 	$pt_current = get_post_type();
 	if ( $pt_current == 'montera34_project' ) {
 		$loop_name = "list";
-		$page_subtit = "<small>By year of publication.</small>";
+		$page_subtit = "<small>" .__('By year of publication.','montera34'). "</small>";
 
 	} elseif ( $pt_current == 'montera34_collabora' ) {
 		$loop_name = "media-list";
-		$page_subtit = "<small>Alphabetical order.</small>";
+		$page_subtit = "<small>i" .__('Alphabetical order.','montera34'). "</small>";
 
 	}
 	$page_tit = $wp_post_types[$pt_current]->labels->name;
@@ -54,7 +54,7 @@ if ( is_home() ) {
 					endwhile;
 
 				} else {
-					echo "<p>No content.</p>";
+					echo "<p>i" __('No content.','montera34'). "</p>";
 				}
 				include "pagination.php"; ?>
 				</div><!-- .<?php echo $loop_name ?> -->

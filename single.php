@@ -16,8 +16,8 @@ if ( get_post_type() == 'montera34_project' ) {
 //	if ( $desc != '' ) { $card_items['Description'] = $desc; }
 	// type and tech tax
 	$taxes = array(
-		'Type' => 'montera34_type',
-		'Technologies' => 'montera34_tech'
+		__('Type','montera34') => 'montera34_type',
+		__('Technologies','montera34') => 'montera34_tech'
 	);
 	foreach ( $taxes as $tax_tit => $tax ) {
 		$terms = get_the_terms($post->ID,$tax);
@@ -26,7 +26,7 @@ if ( get_post_type() == 'montera34_project' ) {
 			foreach ( $terms as $term ) {
 				$term_name = $term->name;
 				$term_perma = get_term_link($term);
-				$term_out .= "<a href='" .$term_perma. "' title='More projects in " .$term_name. "'>" .$term_name. "</a> ";
+				$term_out .= "<a href='" .$term_perma. "' title='" .sprintf(__('More projects in %s'), $term_name). "'>" .$term_name. "</a> ";
 			}
 			$card_items[$tax_tit] = $term_out;
 			unset($term_out);
@@ -35,26 +35,26 @@ if ( get_post_type() == 'montera34_project' ) {
 	// year
 	$project_year_ini = get_post_meta( $post->ID, '_montera34_project_card_date_ini', true );
 	$project_year_end = get_post_meta( $post->ID, '_montera34_project_card_date_end', true );
-	if ( $project_year_ini != '' && $project_year_end == '' || $project_year_ini == $project_year_end ) { $card_items['Year of publication'] = $project_year_ini;
-	} else { $card_items['Year of publication'] = $project_year_ini. "&#8212;" .$project_year_end; }
+	if ( $project_year_ini != '' && $project_year_end == '' || $project_year_ini == $project_year_end ) { $card_items[__('Year of publication','montera34')] = $project_year_ini;
+	} else { $card_items[__('Year of publication','montera34')] = $project_year_ini. "&#8212;" .$project_year_end; }
 	// client
 	$project_client = get_post_meta( $post->ID, '_montera34_project_card_client', true );
-	if ( $project_client != '' ) { $card_items['Client'] = $project_client; }
+	if ( $project_client != '' ) { $card_items[__('Client','montera34')] = $project_client; }
 	// project URL
 	$project_url = get_post_meta( $post->ID, '_montera34_project_card_project_url', true );
 	if ( $project_url != '' ) {
-		$card_items['Project URL'] = "<a href='" .$project_url. "'>" .$project_url. "</a>";
-		$link_out = "<a class='link-out' href='" .$project_url. "' title='Go to this project website'><span class='icon-link'></span></a>";
+		$card_items[__('Project URL','montera34')] = "<a href='" .$project_url. "'>" .$project_url. "</a>";
+		$link_out = "<a class='link-out' href='" .$project_url. "' title='" .__('Go to this project website','montera34'). "'><span class='icon-link'></span></a>";
 	} else { $link_out = ""; }
 	// project code repo URL
 	$project_code_repo = get_post_meta( $post->ID, '_montera34_project_card_code_repo', true ); 
-	if ( $project_code_repo != '' ) { $card_items['Code repository'] = "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
+	if ( $project_code_repo != '' ) { $card_items[__('Code repository','montera34')] = "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
 	// project code license URL
 	$project_code_license = get_post_meta( $post->ID, '_montera34_project_card_code_license', true );
-	if ( $project_code_license != '' ) { $card_items['Code license'] = "<a href='" .$project_code_license[0]['url']. "'>" .$project_code_license[0]['url_text']. "</a>"; }
+	if ( $project_code_license != '' ) { $card_items[__('Code license','montera34')] = "<a href='" .$project_code_license[0]['url']. "'>" .$project_code_license[0]['url_text']. "</a>"; }
 	// status
 	$project_status = get_post_meta( $post->ID, '_montera34_project_card_status', true );
-	if ( $project_status != '' ) { $card_items['Status'] = $project_status; }
+	if ( $project_status != '' ) { $card_items[__('Status','montera34')] = $project_status; }
 
 	
 
@@ -68,7 +68,7 @@ if ( get_post_type() == 'montera34_project' ) {
 		);
 		$collaboras = get_posts($args);
 		if ( count($collaboras) != 0 ) {
-		$collaboras_out = "<section id='collaborators'><h3>Collaborators</h3><div class='media-list'>";
+		$collaboras_out = "<section id='collaborators'><h3>" .__('Collaborators','montera34'). "</h3><div class='media-list'>";
 			foreach ( $collaboras as $collabora ) {
 				$collabora_perma = get_permalink($collabora->ID);
 				$collabora_tit = $collabora->post_title;
@@ -109,7 +109,7 @@ if ( get_post_type() == 'montera34_project' ) {
 		//if ( $related_count == '0' ) { $related_count = 1; }
 		//echo count($related_projects);
 		//print_r($related_projects);
-		$related_out = "<section><h3>Parent Project</h3><ul>";
+		$related_out = "<section><h3>" .__('Parent Project','montera34'). "</h3><ul>";
 		$related_out .= "<li><a href='" .get_permalink($post->post_parent). "'>" .get_the_title($post->post_parent). "</a></li>";
 		if ( $related_count != '0' ) {
 			foreach ( $related_projects as $related ) {
@@ -132,7 +132,7 @@ if ( get_post_type() == 'montera34_project' ) {
 		if ( $related_count != '0' ) {
 		// if project has children
 			//echo "Project is parent and has children.";
-			$related_out = "<section><h3>Related Projects</h3><ul>";
+			$related_out = "<section><h3>" .__('Related Projects','montera34'). "</h3><ul>";
 			foreach ( $related_projects as $related ) {
 				$related_out .= "<li><a href='" .get_permalink($related->ID). "'>" .$related->post_title. "</a></li>";
 			}
@@ -153,7 +153,7 @@ if ( get_post_type() == 'montera34_project' ) {
 	// card items array
 	// collaborator URL
 	$collabora_url = get_post_meta( $post->ID, '_montera34_collabora_url', true );
-	if ( $collabora_url != '' ) { $card_items['Website'] = "<a href='" .$collabora_url. "'>" .$collabora_url. "</a>"; }
+	if ( $collabora_url != '' ) { $card_items[__('Website','montera34')] = "<a href='" .$collabora_url. "'>" .$collabora_url. "</a>"; }
 	$link_out = "";
 	// twitter URL
 	$collabora_twitter = get_post_meta( $post->ID, '_montera34_collabora_twitter', true );
@@ -178,7 +178,7 @@ if ( get_post_type() == 'montera34_project' ) {
 			'post_type' => 'montera34_project'
 		);
 		$projects = get_posts($args);
-		$collabora_projects_out = "<section id='projects'><h3>Projects in which " .$tit. " has collaborated</h3><div class='list'>";
+		$collabora_projects_out = "<section id='projects'><h3>" .sprintf( __('Projects in which %s has collaborated','montera34'), $tit ). "</h3><div class='list'>";
 			foreach ( $projects as $project ) {
 				$project_perma = get_permalink($project->ID);
 				$project_tit = $project->post_title;
@@ -194,7 +194,7 @@ if ( get_post_type() == 'montera34_project' ) {
 				"<div class='list-item list-project'>
 					<header><h4 class='list-item-tit'><a href='" .$project_perma. "' title='" .$project_tit. "'>" .$project_tit. "</a></h4>
 					<div class='list-item-desc'>
-						<div class='list-item-rol'>Rol: " .$project_rol. "</div>
+						<div class='list-item-rol'>" .__('Rol','montera34'). ": " .$project_rol. "</div>
 						<p>" .$project_desc. "</p>
 						" .$project_img. "
 					</div>

@@ -55,7 +55,7 @@ if ( is_single() || is_page() ) {
 <!-- generic meta -->
 <meta content="montera34" name="author" />
 <meta content="<?php echo MONTERA34_BLOGDESC ?>" name="description" />
-<meta content="software libre, open software, software de codigo abierto, datos libres, open data, wordpress, desarrollo web, HTML5, processing, Linux, Debian" name="keywords" />
+<meta content="<?php _e('free software, open data, wordpress, web development, HTML5, twitter API, processing, Linux, Debian, data visualization','montera34' ); ?>" name="keywords" />
 <!-- facebook meta -->
 <meta property="og:title" content="<?php echo $metatit ?>" />
 <meta property="og:type" content="<?php echo $metatype ?>" />
@@ -93,8 +93,8 @@ wp_head(); ?>
 <div class="row">
 	<div id="pre" class="col-md-3">
 		<div id="pre-logo">
-			<a href="<?php echo MONTERA34_BLOGURL ?>" title="Ir a la portada">
-			<img src="<?php echo MONTERA34_BLOGTHEME . "/images/m34_logo.png"; ?>" alt="Inicio" /><br />
+			<a href="<?php echo MONTERA34_BLOGURL ?>" title="<?php _e('Go to home page','montera34'); ?>">
+			<img src="<?php echo MONTERA34_BLOGTHEME . "/images/m34_logo.png"; ?>" alt="montera34 logo" /><br />
 			<strong><?php echo MONTERA34_BLOGNAME ?></strong>
 			</a>
 		</div>

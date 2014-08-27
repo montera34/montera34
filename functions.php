@@ -85,8 +85,8 @@ function montera34_register_menus() {
         if ( function_exists( 'register_nav_menus' ) ) {
                 register_nav_menus(
                 array(
-                        'sidebar-menu' => 'Menú lateral',
-                        'sidebar-icon-menu' => 'Menú lateral con iconos',
+                        'sidebar-menu' => __('Sidebar menu','montera34'),
+                        'footer-menu' => __('Footer menu','montera34'),
                 )
                 );
         }
@@ -114,18 +114,18 @@ function montera34_create_post_type() {
 	// Project custom post type
 	register_post_type( 'montera34_project', array(
 		'labels' => array(
-			'name' => __( 'Projects' ),
-			'singular_name' => __( 'Project' ),
-			'add_new_item' => __( 'Add a project' ),
-			'edit' => __( 'Edit' ),
-			'edit_item' => __( 'Edit this project' ),
-			'new_item' => __( 'New project' ),
-			'view' => __( 'View project' ),
-			'view_item' => __( 'View this project' ),
-			'search_items' => __( 'Search project' ),
-			'not_found' => __( 'No project found' ),
-			'not_found_in_trash' => __( 'No projects in trash' ),
-			'parent' => __( 'Parent' )
+			'name' => __( 'Projects','montera34' ),
+			'singular_name' => __( 'Project','montera34' ),
+			'add_new_item' => __( 'Add a project','montera34' ),
+			'edit' => __( 'Edit','montera34' ),
+			'edit_item' => __( 'Edit this project','montera34' ),
+			'new_item' => __( 'New project','montera34' ),
+			'view' => __( 'View project','montera34' ),
+			'view_item' => __( 'View this project','montera34' ),
+			'search_items' => __( 'Search project','montera34' ),
+			'not_found' => __( 'No project found','montera34' ),
+			'not_found_in_trash' => __( 'No projects in trash','montera34' ),
+			'parent' => __( 'Parent','montera34' )
 		),
 		'has_archive' => true,
 		'public' => true,
@@ -146,18 +146,18 @@ function montera34_create_post_type() {
 	// Collaborator custom post type
 	register_post_type( 'montera34_collabora', array(
 		'labels' => array(
-			'name' => __( 'Collaborators' ),
-			'singular_name' => __( 'Collaborator' ),
-			'add_new_item' => __( 'Add a collaborator' ),
-			'edit' => __( 'Edit' ),
-			'edit_item' => __( 'Edit this collaborator' ),
-			'new_item' => __( 'New collaborator' ),
-			'view' => __( 'View collaborator' ),
-			'view_item' => __( 'View this collaborator' ),
-			'search_items' => __( 'Search collaborator' ),
-			'not_found' => __( 'No collaborator found' ),
-			'not_found_in_trash' => __( 'No collaborators in trash' ),
-			'parent' => __( 'Parent' )
+			'name' => __( 'Collaborators','montera34' ),
+			'singular_name' => __( 'Collaborator','montera34' ),
+			'add_new_item' => __( 'Add a collaborator','montera34' ),
+			'edit' => __( 'Edit','montera34' ),
+			'edit_item' => __( 'Edit this collaborator','montera34' ),
+			'new_item' => __( 'New collaborator','montera34' ),
+			'view' => __( 'View collaborator','montera34' ),
+			'view_item' => __( 'View this collaborator','montera34' ),
+			'search_items' => __( 'Search collaborator','montera34' ),
+			'not_found' => __( 'No collaborator found','montera34' ),
+			'not_found_in_trash' => __( 'No collaborators in trash','montera34' ),
+			'parent' => __( 'Parent','montera34' )
 		),
 		'has_archive' => true,
 		'public' => true,
@@ -181,16 +181,16 @@ function montera34_create_post_type() {
 function montera34_build_taxonomies() {
 	register_taxonomy( 'montera34_type', 'montera34_project', array( // type taxonomy
 		'hierarchical' => true,
-		'label' => __( 'Type' ),
-		'name' => __( 'Types' ),
+		'label' => __( 'Type','montera34' ),
+		'name' => __( 'Types','montera34' ),
 		'query_var' => 'type',
 		'rewrite' => array( 'slug' => 'type', 'with_front' => false ),
 		'show_admin_column' => true
 	) );
 	register_taxonomy( 'montera34_tech', 'montera34_project', array( // type taxonomy
 		'hierarchical' => false,
-		'label' => __( 'Technology' ),
-		'name' => __( 'Technologies' ),
+		'label' => __( 'Technology','montera34' ),
+		'name' => __( 'Technologies','montera34' ),
 		'query_var' => 'tech',
 		'rewrite' => array( 'slug' => 'tech', 'with_front' => false ),
 		'show_admin_column' => true
@@ -231,7 +231,7 @@ function montera34_metaboxes( $meta_boxes ) {
 	// sticky project at home page
 	$meta_boxes[] = array(
 		'id' => 'project_sticky',
-		'title' => 'Show at home page',
+		'title' => __( 'Show at home page','montera34' ),
 		'pages' => array('montera34_project'), // post type
 		'context' => 'side', //  'normal', 'advanced', or 'side'
 		'priority' => 'high', // 'high', 'core', 'default' or 'low'
@@ -248,26 +248,26 @@ function montera34_metaboxes( $meta_boxes ) {
 	// project card
 	$meta_boxes[] = array(
 		'id' => 'project_card',
-		'title' => 'Project card',
+		'title' => __( 'Project card','montera34' ),
 		'pages' => array('montera34_project'), // post type
 		'context' => 'normal', //  'normal', 'advanced', or 'side'
 		'priority' => 'high', // 'high', 'core', 'default' or 'low'
 		'show_names' => true, // Show field names on the left
 		'fields' => array(
 			array(
-				'name' => 'Project beginning',
+				'name' => __( 'Project beginning','montera34' ),
 				'desc' => 'year',
 				'id' => $prefix . 'project_card_date_ini',
 				'type' => 'text',
 			),
 			array(
-				'name' => 'Project ending',
+				'name' => __( 'Project ending','montera34' ),
 				'desc' => 'year',
 				'id' => $prefix . 'project_card_date_end',
 				'type' => 'text',
 			),
 			array(
-				'name' => 'Project status',
+				'name' => __( 'Project status','montera34' ),
 				'desc' => '',
 				'id' => $prefix . 'project_card_status',
 				'type' => 'wysiwyg',
@@ -276,7 +276,7 @@ function montera34_metaboxes( $meta_boxes ) {
 				)
 			),
 			array(
-				'name' => 'Project URL',
+				'name' => __( 'Project URL','montera34' ),
 				'desc' => '',
 				'id' => $prefix . 'project_card_project_url',
 				'type' => 'text_url',
@@ -285,7 +285,7 @@ function montera34_metaboxes( $meta_boxes ) {
 			array(
 				'id' => $prefix . 'project_card_code_repo',
 				'type' => 'group',
-				'description' => 'Code repo URL',
+				'description' => __( 'Code repo URL','montera34' ),
 				'options' => array(
 					'group_title' => __( 'Project code', 'montera34' ), // since version 1.1.4, {#} gets replaced by row number
 					//'add_button' => __( 'Add Another Project', 'montera34' ),
@@ -294,7 +294,7 @@ function montera34_metaboxes( $meta_boxes ) {
 				// Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
  				'fields' => array(
 					array(
-						'name' => 'URL text',
+						'name' => __( 'URL text','montera34' ),
 						'id'   => 'url_text',
 						'type' => 'text',
 					),
@@ -309,7 +309,7 @@ function montera34_metaboxes( $meta_boxes ) {
 			array(
 				'id' => $prefix . 'project_card_code_license',
 				'type' => 'group',
-				'description' => 'Code license URL',
+				'description' => __( 'Code license URL','montera34' ),
 				'options' => array(
 					'group_title' => __( 'Code license', 'montera34' ),
 					//'add_button' => __( 'Add Another Project', 'montera34' ),
@@ -317,7 +317,7 @@ function montera34_metaboxes( $meta_boxes ) {
 				),
  				'fields' => array(
 					array(
-						'name' => 'URL text',
+						'name' => __( 'URL text','montera34' ),
 						'id'   => 'url_text',
 						'type' => 'text',
 					),
@@ -330,14 +330,14 @@ function montera34_metaboxes( $meta_boxes ) {
 				),
 			),
 			array(
-				'name' => 'Budget',
+				'name' => __( 'Budget','montera34' ),
 				'desc' => '',
 				'id' => $prefix . 'project_card_money',
 				'type' => 'text_money',
 				'before' => '€', // Replaces default '$'
 			),
 			array(
-				'name' => 'Client. Name, and URL if any',
+				'name' => __( 'Client. Name, and URL if any','montera34' ),
 				'desc' => '',
 				'id' => $prefix . 'project_card_client',
 				'type' => 'wysiwyg',
@@ -350,14 +350,14 @@ function montera34_metaboxes( $meta_boxes ) {
 	// Collaborators multicheckbox
 	$meta_boxes[] = array(
 		'id' => 'montera34_collabora',
-		'title' => 'Collaborators',
+		'title' => __( 'Collaborators','montera34' ),
 		'pages' => array('montera34_project'), // post type
 		'context' => 'side', //  'normal', 'advanced', or 'side'
 		'priority' => 'default',  //  'high', 'core', 'default' or 'low'
 		'show_names' => false, // Show field names on the left
 		'fields' => array(
 			array(
-				'name' => 'Collaborators',
+				'name' => __( 'Collaborators','montera34' ),
 				'id' => $prefix . 'collabora',
 				'type' => 'multicheck',
 				'options' => $collaborators
@@ -370,20 +370,20 @@ function montera34_metaboxes( $meta_boxes ) {
 	// collaborator data
 	$meta_boxes[] = array(
 		'id' => 'collabora_data',
-		'title' => 'Collaborator data',
+		'title' => __( 'Collaborator data','montera34' ),
 		'pages' => array('montera34_collabora'), // post type
 		'context' => 'normal', //  'normal', 'advanced', or 'side'
 		'priority' => 'high', // 'high', 'core', 'default' or 'low'
 		'show_names' => true, // Show field names on the left
 		'fields' => array(
 			array(
-				'name' => 'First name',
+				'name' => __( 'First name','montera34' ),
 				'desc' => '',
 				'id' => $prefix . 'collabora_firstname',
 				'type' => 'text',
 			),
 			array(
-				'name' => 'Last name',
+				'name' => __( 'Last name','montera34' ),
 				'desc' => '',
 				'id' => $prefix . 'collabora_lastname',
 				'type' => 'text',
@@ -395,7 +395,7 @@ function montera34_metaboxes( $meta_boxes ) {
 				'protocols' => array( 'http', 'https'), // Array of allowed protocols
 			),
 			array(
-				'name' => 'Twitter URL',
+				'name' => __( 'Twitter URL','montera34' ),
 				'id'   => $prefix . 'collabora_twitter',
 				'type' => 'text_url',
 				'protocols' => array( 'http', 'https'), // Array of allowed protocols
@@ -403,7 +403,7 @@ function montera34_metaboxes( $meta_boxes ) {
 			array(
 				'id' => $prefix . 'collabora_projects',
 				'type' => 'group',
-				'description' => 'Projects',
+				'description' => __( 'Projects','montera34' ),
 				'options' => array(
 					'group_title' => __( 'Project {#}', 'montera34' ), // since version 1.1.4, {#} gets replaced by row number
 					'add_button' => __( 'Add Another Project', 'montera34' ),
@@ -413,7 +413,7 @@ function montera34_metaboxes( $meta_boxes ) {
 				// Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
  				'fields' => array(
 					array(
-						'name' => 'Project',
+						'name' => __( 'Project','montera34' ),
 						'id'   => 'project',
 						'type' => 'select',
 						'options' => $projects,
@@ -421,7 +421,7 @@ function montera34_metaboxes( $meta_boxes ) {
 						//'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
 					),
 					array(
-						'name' => 'Rol',
+						'name' => __( 'Rol','montera34' ),
  						'id'   => 'rol',
 						'type' => 'text',
 					),
