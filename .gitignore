@@ -12,5 +12,5 @@ wp-content/cache/
 wp-content/backups/
 sitemap.xml.gz
 insert/
-home.php
+home.php*
 old-*
