@@ -33,8 +33,10 @@ if ( get_post_type() == 'montera34_project' ) {
 		}
 	} // end loop taxes
 	// year
-	$project_year = get_post_meta( $post->ID, '_montera34_project_card_date_ini', true );
-	if ( $project_year != '' ) { $card_items['Year'] = $project_year; }
+	$project_year_ini = get_post_meta( $post->ID, '_montera34_project_card_date_ini', true );
+	$project_year_end = get_post_meta( $post->ID, '_montera34_project_card_date_end', true );
+	if ( $project_year_ini != '' && $project_year_end == '' || $project_year_ini == $project_year_end ) { $card_items['Year of publication'] = $project_year_ini;
+	} else { $card_items['Year of publication'] = $project_year_ini. "&#8212;" .$project_year_end; }
 	// client
 	$project_client = get_post_meta( $post->ID, '_montera34_project_card_client', true );
 	if ( $project_client != '' ) { $card_items['Client'] = $project_client; }
@@ -212,14 +214,14 @@ if ( get_post_type() == 'montera34_project' ) {
 		</header>
 		
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-9">
 				<section>
 				<?php echo $content; ?>
 				</section>
 				<?php echo $collabora_projects_out; ?>
 			</div>
 	
-			<div class="col-md-4"><!-- side bar 2 -->
+			<div class="col-md-3">
 				<section>
 					<?php echo $collabora_img_out; ?>
 					<dl>
