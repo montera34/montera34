@@ -43,7 +43,7 @@ if ( is_home() ) {
 			<?php echo $page_subtit ?>
 		</header>
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-9">
 				<div class='<?php echo $loop_name ?>'>
 				<?php
 				if ( have_posts() ) {

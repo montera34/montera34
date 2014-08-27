@@ -35,7 +35,7 @@ figure {
 }
 #content img {
 	display: block;
-	max-width: 100%;
+	/*max-width: 100%;*/
 	height: auto;
 }
 .wp-caption-text {
@@ -100,7 +100,7 @@ ul#pre-menu,
 	margin: 0;
 }
 .list-item-text {
-	margin-bottom: 1em;
+	margin-bottom: 0.5em;
 }
 .list-item-desc {
 	display: inline;
