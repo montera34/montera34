@@ -54,7 +54,7 @@ if ( is_home() ) {
 					endwhile;
 
 				} else {
-					echo "<p>i" __('No content.','montera34'). "</p>";
+					echo "<p>i".__('No content.','montera34'). "</p>";
 				}
 				include "pagination.php"; ?>
 				</div><!-- .<?php echo $loop_name ?> -->
