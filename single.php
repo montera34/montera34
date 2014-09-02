@@ -143,7 +143,7 @@ if ( get_post_type() == 'montera34_project' ) {
 	$collabora_img_out = "";
 	$collabora_projects = "";
 
-// if is a collaborator
+// if it is a collaborator
 } elseif ( get_post_type() == 'montera34_collabora' ) {
 	$subtit = "";
 	if ( has_post_thumbnail() ) {
@@ -203,7 +203,32 @@ if ( get_post_type() == 'montera34_project' ) {
 			} // end foreach collaborators
 		$collabora_projects_out .= "</div></section>";
 	}
-
+// if it is an attachement
+} elseif  (is_attachment()) {
+	$tit = __('Attachment','montera34'). ": ". get_the_title();
+	$tit_attachment = get_the_title();
+	$subtit = "
+	<div class='subtit'>
+		<a href='".get_permalink($post->post_parent). "' rev='attachment' title='".__('Back to project','montera34'). " " .get_the_title($post->post_parent)."'>
+			&laquo; ". __("Back to project","montera34"). " " .get_the_title($post->post_parent)."
+		</a>
+	</div>
+	";
+	$link_out = "";
+	$collabora_img_out = "";
+	$collaboras_out = "";
+	$collabora_projects_out = "";
+	$related_out = "";
+	$imageurl = wp_get_attachment_image_src( $post->ID, 'large');
+	$imageurlfull = wp_get_attachment_image_src( $post->ID, 'full');
+	
+	$content =
+	"<div class='row'>
+		<div class='col-md-12'>
+			<a href='" .$imageurlfull[0]. "'><img src='" .$imageurl[0]. "' class='img-responsive'></a>" .$tit_attachment. "
+		</div>
+	</div>
+	";
 } // end vars depending on post type
 ?>
 
