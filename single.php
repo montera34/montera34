@@ -250,9 +250,11 @@ if ( get_post_type() == 'montera34_project' ) {
 				<section>
 					<?php echo $collabora_img_out; ?>
 					<dl>
-					<?php foreach ($card_items as $key => $value ) {
-						echo "<dt><strong>" .$key. "</strong></dt>
-									<dd>" .$value. "</dd>";
+					<?php if (is_attachment()==false) { //if it is not an attachment
+						foreach ($card_items as $key => $value ) {
+							echo "<dt><strong>" .$key. "</strong></dt>
+										<dd>" .$value. "</dd>";
+						}
 					} ?>
 					</dl>
 				</section>
