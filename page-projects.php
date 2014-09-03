@@ -41,7 +41,7 @@ get_header(); ?>
 								<td>
 									<?php echo $loop_featured ?>
 								</td>
-								<td> <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to','montera34'; echo " "; the_title_attribute(); ?>">
+								<td> <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to','montera34'); echo ' '.the_title_attribute(); ?>">
 									<?php the_title(); ?></a>
 									<?php if ( is_user_logged_in() ) { ?><div class="btn btn-xs btn-default pull-right"> <?php edit_post_link(__('Edit This','montera34')); ?></div> <?php } ?>
 								</td>
