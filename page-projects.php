@@ -1,11 +1,6 @@
 <?php /* Template Name: Page Projects List */ 
 get_header(); ?>
-
-<?php
-// MAIN CONTENT
-	$page_tit = $wp_query->queried_object->name;
-?>
-		<header><h1><?php echo $page_tit ?></h1></header>
+		<header><h1><?php the_title(); ?></h1></header>
 		<div class="row">
 			<div class="col-md-12">
 				<section>
@@ -16,6 +11,7 @@ get_header(); ?>
 								<th><?php _e('Name','montera34'); ?></th>
 								<th><?php _e('Code Repository','montera34'); ?></th>
 								<th><?php _e('URL','montera34'); ?></th>
+								<th><?php _e('Year','montera34'); ?></th>
 								<th><?php _e('Type','montera34'); ?></th>
 							</tr>
 						</thead>
@@ -52,6 +48,8 @@ get_header(); ?>
 								<td>
 									<span class="label"><?php //echo get_the_term_list( $post->ID, 'montera34_type', ' ', ', ', '' ); ?></span> 
 									<?php $text = get_post_meta( $post->ID, '_montera34_project_card_project_url', true ); echo $text; ?>
+								</td>
+								<td><?php echo get_post_meta( $post->ID, '_montera34_project_card_date_ini', true ); ?>
 								</td>
 								<td><?php echo get_the_term_list( $post->ID, 'montera34_type', ' ', ', ', '' ); ?>
 								</td>
