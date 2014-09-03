@@ -205,8 +205,8 @@ if ( get_post_type() == 'montera34_project' ) {
 	}
 // if it is an attachement
 } elseif  (is_attachment()) {
-	$tit = __('Attachment','montera34'). ": ". get_the_title();
-	$tit_attachment = get_the_title();
+	$caption_attachment = get_the_excerpt();
+	$alt_attachment = get_post_meta( $post->ID, '_wp_attachment_image_alt', true );
 	$subtit = "
 	<div class='subtit'>
 		<a href='".get_permalink($post->post_parent). "' rev='attachment' title='".__('Back to project','montera34'). " " .get_the_title($post->post_parent)."'>
@@ -217,18 +217,24 @@ if ( get_post_type() == 'montera34_project' ) {
 	$link_out = "";
 	$collabora_img_out = "";
 	$collaboras_out = "";
-	$collabora_projects_out = "";
 	$related_out = "";
 	$imageurl = wp_get_attachment_image_src( $post->ID, 'large');
 	$imageurlfull = wp_get_attachment_image_src( $post->ID, 'full');
+	$link_prev_image = previous_image_link( false, '&laquo; Prev' ); //TODO: these links should appear below the image
+	$link_next_image = next_image_link( false, 'Next &raquo;' );
 	
 	$content =
 	"<div class='row'>
 		<div class='col-md-12'>
-			<a href='" .$imageurlfull[0]. "'><img src='" .$imageurl[0]. "' class='img-responsive'></a>" .$tit_attachment. "
+			<a href='" .$imageurlfull[0]. "'><img src='" .$imageurl[0]. "' class='img-responsive' alt='" .$alt_attachment. "'></a>" .$caption_attachment. "
 		</div>
 	</div>
 	";
+	$collabora_projects_out = //buttons should be conditional, show up only when there is link available
+	"<div class='row'>
+		<div class='col-md-1 btn btn-default pull-left'>" .$link_prev_image. "</div>
+		<div class='col-md-1 btn btn-default pull-right'>" .$link_prev_image. "</div>
+	</div>";
 } // end vars depending on post type
 ?>
 
