@@ -245,25 +245,24 @@ if ( get_post_type() == 'montera34_project' ) {
 		</header>
 		
 		<div class="row">
-			<div class="col-md-9">
+			<div class="<?php echo (is_attachment()==false) ? 'col-md-9' : 'col-md-12'; ?>">
 				<section>
 				<?php echo $content; ?>
 				</section>
 				<?php echo $collabora_projects_out; ?>
 			</div>
-	
+			<?php if (is_attachment()==false) { //if it is not an attachment ?>
 			<div class="col-md-3">
 				<section>
 					<?php echo $collabora_img_out; ?>
 					<dl>
-					<?php if (is_attachment()==false) { //if it is not an attachment
-						foreach ($card_items as $key => $value ) {
-							echo "<dt><strong>" .$key. "</strong></dt>
-										<dd>" .$value. "</dd>";
-						}
+					<?php foreach ($card_items as $key => $value ) {
+						echo "<dt><strong>" .$key. "</strong></dt>
+									<dd>" .$value. "</dd>";
 					} ?>
 					</dl>
 				</section>
+				<?php	} ?>
 				<?php echo $collaboras_out;
 				echo $related_out; ?>
 	<?php endwhile;
