@@ -27,7 +27,7 @@ if ( is_home() ) {
 
 	} elseif ( $pt_current == 'montera34_collabora' ) {
 		$loop_name = "media-list";
-		$page_subtit = "<small>i" .__('Alphabetical order.','montera34'). "</small>";
+		$page_subtit = "<small>" .__('Alphabetical order.','montera34'). "</small>";
 
 	}
 	$page_tit = $wp_post_types[$pt_current]->labels->name;
