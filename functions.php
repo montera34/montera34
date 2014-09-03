@@ -58,16 +58,16 @@ function montera34_media_options() {
 	// add extra sizes
 	add_image_size( 'icon', '32', '32', true );
 	add_image_size( 'bigicon', '64', '64', true );
-	add_image_size( 'small', '293', '0', false );
-	add_image_size( 'extralarge', '1170', '0', false );
+	add_image_size( 'small', '263', '0', false );
+	add_image_size( 'extralarge', '1200', '0', false );
 
 	/* set up image sizes*/
-	update_option('thumbnail_size_w', 600);
+	update_option('thumbnail_size_w', 628);
 	update_option('thumbnail_size_h', 0);
 	update_option('thumbnail_crop', 0);
-	update_option('medium_size_w', 565);
+	update_option('medium_size_w', 555);
 	update_option('medium_size_h', 0);
-	update_option('large_size_w', 878);
+	update_option('large_size_w', 848);
 	update_option('large_size_h', 0);
 } // end set up media options
 
