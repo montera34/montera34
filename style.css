@@ -123,6 +123,13 @@ ul#pre-menu,
 	text-decoration: underline;
 }
 
+.media-collabora {
+	margin-top: 30px;
+}
+.media-footer a {
+	text-decoration: underline;
+}
+
 /* footer */
 #epi {
 	margin-top: 4em;
