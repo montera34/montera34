@@ -44,6 +44,7 @@ figure {
 }
 dd {
 	margin-bottom: 1.42857em;
+	overflow: hidden;
 }
 
 #pre {
@@ -88,9 +89,8 @@ ul#pre-menu,
 .subtit {
 	display: block;
 }
-.link-out {
-	margin-left: 5px;
-	font-size: 1.5em;
+.subtit-url a {
+	text-decoration: underline;
 }
 
 /* home and projects archive list */

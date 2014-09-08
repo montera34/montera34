@@ -42,10 +42,7 @@ if ( get_post_type() == 'montera34_project' ) {
 	if ( $project_client != '' ) { $card_items[__('Client','montera34')] = $project_client; }
 	// project URL
 	$project_url = get_post_meta( $post->ID, '_montera34_project_card_project_url', true );
-	if ( $project_url != '' ) {
-		$card_items[__('Project URL','montera34')] = "<a href='" .$project_url. "'>" .$project_url. "</a>";
-		$link_out = "<a class='link-out' href='" .$project_url. "' title='" .__('Go to this project website','montera34'). "'><span class='icon-link'></span></a>";
-	} else { $link_out = ""; }
+	if ( $project_url != '' ) {$card_items[__('Project URL','montera34')] = "<a href='" .$project_url. "' title='" .__('Go to this project website','montera34'). "'>" .$project_url. "</a>";}
 	// project code repo URL
 	$project_code_repo = get_post_meta( $post->ID, '_montera34_project_card_code_repo', true ); 
 	if ( $project_code_repo != '' ) { $card_items[__('Code repository','montera34')] = "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
@@ -154,7 +151,6 @@ if ( get_post_type() == 'montera34_project' ) {
 	// collaborator URL
 	$collabora_url = get_post_meta( $post->ID, '_montera34_collabora_url', true );
 	if ( $collabora_url != '' ) { $card_items[__('Website','montera34')] = "<a href='" .$collabora_url. "'>" .$collabora_url. "</a>"; }
-	$link_out = "";
 	// twitter URL
 	$collabora_twitter = get_post_meta( $post->ID, '_montera34_collabora_twitter', true );
 	if ( $collabora_twitter != '' ) { $card_items['Twitter'] = "<a href='" .$collabora_twitter. "'>" .$collabora_twitter. "</a>"; }
@@ -214,7 +210,6 @@ if ( get_post_type() == 'montera34_project' ) {
 		</a>
 	</div>
 	";
-	$link_out = "";
 	$collabora_img_out = "";
 	$collaboras_out = "";
 	$related_out = "";
@@ -240,8 +235,8 @@ if ( get_post_type() == 'montera34_project' ) {
 
 		<header class="main-tit">
 			<h1><?php echo $tit; ?></h1>
-			<?php echo $link_out ?>
 			<?php echo $subtit ?>
+			<?php echo "<div class='subtit-url'><span class='icon-link'></span> " .$card_items[__('Project URL','montera34')]. "</div>"; ?>
 		</header>
 		
 		<div class="row">
