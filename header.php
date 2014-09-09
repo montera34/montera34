@@ -106,6 +106,7 @@ wp_head(); ?>
 			wp_nav_menu( $defaults );?>	
 
 		<?php get_search_form(); ?>
+		<ul class="pre-lang-switcher"><?php pll_the_languages();?></ul>
 	</div> <!-- first side bar --> <!-- #pre -->
 
 	<div id="content" class="col-md-9">

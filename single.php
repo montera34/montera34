@@ -43,9 +43,9 @@ if ( get_post_type() == 'montera34_project' ) {
 	// project URL
 	$project_url = get_post_meta( $post->ID, '_montera34_project_card_project_url', true );
 	if ( $project_url != '' ) {
-		$card_items[__('Project URL','montera34')] = "<a href='" .$project_url. "'>" .$project_url. "</a>";
-		$link_out = "<a class='link-out' href='" .$project_url. "' title='" .__('Go to this project website','montera34'). "'><span class='icon-link'></span></a>";
-	} else { $link_out = ""; }
+		$card_items[__('Project URL','montera34')] = "<a href='" .$project_url. "' title='" .__('Go to this project website','montera34'). "'>" .$project_url. "</a>";
+		$subtit_url = "<div class='subtit-url'><span class='icon-link'></span> " .$card_items[__('Project URL','montera34')]. "</div>";
+	} else { $subtit_link = ""; }
 	// project code repo URL
 	$project_code_repo = get_post_meta( $post->ID, '_montera34_project_card_code_repo', true ); 
 	if ( $project_code_repo != '' ) { $card_items[__('Code repository','montera34')] = "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
@@ -141,7 +141,7 @@ if ( get_post_type() == 'montera34_project' ) {
 	} // end if project is parent
 	// end related projects
 	$collabora_img_out = "";
-	$collabora_projects = "";
+	$collabora_projects_out = "";
 
 // if it is a collaborator
 } elseif ( get_post_type() == 'montera34_collabora' ) {
@@ -154,7 +154,6 @@ if ( get_post_type() == 'montera34_project' ) {
 	// collaborator URL
 	$collabora_url = get_post_meta( $post->ID, '_montera34_collabora_url', true );
 	if ( $collabora_url != '' ) { $card_items[__('Website','montera34')] = "<a href='" .$collabora_url. "'>" .$collabora_url. "</a>"; }
-	$link_out = "";
 	// twitter URL
 	$collabora_twitter = get_post_meta( $post->ID, '_montera34_collabora_twitter', true );
 	if ( $collabora_twitter != '' ) { $card_items['Twitter'] = "<a href='" .$collabora_twitter. "'>" .$collabora_twitter. "</a>"; }
@@ -164,6 +163,7 @@ if ( get_post_type() == 'montera34_project' ) {
 //	);
 	$collaboras_out = "";
 	$related_out = "";
+	$subtit_link = "";
 
 	// projects
 	$collabora_projects = get_post_meta( $post->ID, '_montera34_collabora_projects', true );
@@ -203,6 +203,7 @@ if ( get_post_type() == 'montera34_project' ) {
 			} // end foreach collaborators
 		$collabora_projects_out .= "</div></section>";
 	}
+
 // if it is an attachement
 } elseif  (is_attachment()) {
 	$caption_attachment = get_the_excerpt();
@@ -214,14 +215,14 @@ if ( get_post_type() == 'montera34_project' ) {
 		</a>
 	</div>
 	";
-	$link_out = "";
 	$collabora_img_out = "";
 	$collaboras_out = "";
+	$collabora_projects_out = "";
 	$related_out = "";
+	$subtit_link = "";
+
 	$imageurl = wp_get_attachment_image_src( $post->ID, 'large');
 	$imageurlfull = wp_get_attachment_image_src( $post->ID, 'full');
-	$link_prev_image = previous_image_link( false, '&laquo; Prev' ); //TODO: these links should appear below the image
-	$link_next_image = next_image_link( false, 'Next &raquo;' );
 	
 	$content =
 	"<div class='row'>
@@ -230,24 +231,25 @@ if ( get_post_type() == 'montera34_project' ) {
 		</div>
 	</div>
 	";
-	$collabora_projects_out = //buttons should be conditional, show up only when there is link available
-	"<div class='row'>
-		<div class='col-md-1 btn btn-default pull-left'>" .$link_prev_image. "</div>
-		<div class='col-md-1 btn btn-default pull-right'>" .$link_prev_image. "</div>
-	</div>";
 } // end vars depending on post type
 ?>
 
 		<header class="main-tit">
 			<h1><?php echo $tit; ?></h1>
-			<?php echo $link_out ?>
 			<?php echo $subtit ?>
+			<?php echo $subtit_url; ?>
 		</header>
 		
 		<div class="row">
 			<div class="<?php echo (is_attachment()==false) ? 'col-md-9' : 'col-md-12'; ?>">
 				<section>
-				<?php echo $content; ?>
+				<?php echo $content;
+				if ( is_attachment() ) { ?>
+					<ul class="pager">
+						<li class="previous"><?php previous_image_link( false, '&laquo; Previous image' ); ?></li>
+						<li class="next"><?php next_image_link( false, 'Next image &raquo;' ); ?></li>
+					</ul>
+				<?php } ?>
 				</section>
 				<?php echo $collabora_projects_out; ?>
 			</div>
@@ -262,14 +264,15 @@ if ( get_post_type() == 'montera34_project' ) {
 					} ?>
 					</dl>
 				</section>
-				<?php	} ?>
 				<?php echo $collaboras_out;
 				echo $related_out; ?>
+			</div><!-- .col-md-3 -->
+			<?php	} ?>
+		</div><!-- .row -->
+
 	<?php endwhile;
 } // end if posts
 ?>
 
-			</div><!-- end side bar 2-->
-		</div><!-- .row -->
 
 <?php get_footer(); ?>
