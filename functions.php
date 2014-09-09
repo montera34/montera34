@@ -135,7 +135,7 @@ function montera34_create_post_type() {
 		//'menu_icon' => get_template_directory_uri() . '/images/icon-post.type-integrantes.png',
 		'hierarchical' => true, // if true this post type will be as pages
 		'query_var' => 'project',
-		'supports' => array('title', 'editor','excerpt','author','comments','trackbacks','thumbnail','page-attributes','revisions'),
+		'supports' => array('title', 'editor','excerpt','author','comments','trackbacks','thumbnail','page-attributes','revisions','custom-fields'),
 		'rewrite' => array('slug'=>'project','with_front'=>false),
 		'show_ui' => true,
 		'show_in_menu' => true,
@@ -167,7 +167,7 @@ function montera34_create_post_type() {
 		//'menu_icon' => get_template_directory_uri() . '/images/icon-post.type-integrantes.png',
 		'hierarchical' => true, // if true this post type will be as pages
 		'query_var' => 'collaborator',
-		'supports' => array('title', 'editor','excerpt','author','comments','trackbacks','thumbnail','page-attributes'),
+		'supports' => array('title', 'editor','excerpt','author','comments','trackbacks','thumbnail','page-attributes','custom_fields'),
 		'rewrite' => array('slug'=>'collaborator','with_front'=>false),
 		'show_ui' => true,
 		'show_in_menu' => true,
@@ -464,4 +464,9 @@ function montera34_custom_args_for_loops( $query ) {
 	return $query;
 }
 
+add_filter('pll_copy_post_metas', 'montera34_translate_copy_post_metas');
+function montera34_translate_copy_post_metas($metas) {
+	$prefix = "_montera34_";
+      return array_merge($metas, array($prefix. 'project_card_date_ini',$prefix. 'project_card_date_end',$prefix. 'project_card_project_url',$prefix. 'project_card_code_repo',$prefix. 'project_card_code_license',$prefix. 'project_card_money',$prefix . 'collabora_firstname',$prefix . 'collabora_lastname',$prefix . 'collabora_url',$prefix . 'collabora_twitter'));
+}
 ?>
