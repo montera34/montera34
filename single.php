@@ -244,13 +244,13 @@ if ( get_post_type() == 'montera34_project' ) {
 		<article class="row single-content">
 			<div class="<?php echo (is_attachment()==false) ? 'col-md-9' : 'col-md-12'; ?>">
 				<section>
-				<?php echo $content;
-				if ( is_attachment() ) { ?>
+				<?php if ( is_attachment() ) { ?>
 					<ul class="pager">
 						<li class="previous"><?php previous_image_link( false, '&laquo; Previous image' ); ?></li>
 						<li class="next"><?php next_image_link( false, 'Next image &raquo;' ); ?></li>
 					</ul>
-				<?php } ?>
+				<?php }
+				 echo $content; ?>
 				</section>
 				<?php echo $collabora_projects_out; ?>
 			</div>
