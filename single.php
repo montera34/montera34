@@ -226,9 +226,10 @@ if ( get_post_type() == 'montera34_project' ) {
 	
 	$content =
 	"<div class='row'>
-		<div class='col-md-12'>
-			<a href='" .$imageurlfull[0]. "'><img src='" .$imageurl[0]. "' class='img-responsive' alt='" .$alt_attachment. "'></a>" .$caption_attachment. "
-		</div>
+		<figure id='attachment' class='col-md-12 wp-caption' aria-describedby='figcaption_attachment' itemscope='' itemtype='http://schema.org/ImageObject'>
+			<a href='" .$imageurlfull[0]. "'><img src='" .$imageurl[0]. "' class='img-responsive' alt='" .$alt_attachment. "' ></a>
+			<figcaption id='figcaption_attachment' class='wp-caption-text' itemprop='description'>" .$caption_attachment. "</figcaption>
+		</figure>
 	</div>
 	";
 } // end vars depending on post type
