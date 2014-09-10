@@ -19,6 +19,8 @@ function montera_theme_setup() {
 	/* Set up media options: sizes, featured images... */
 	add_action( 'init', 'montera34_media_options' );
 	add_filter( 'image_size_names_choose', 'montera34_custom_sizes' );
+	/* Filter caption shortcode */
+	add_filter( 'img_caption_shortcode', 'montera34_img_caption_shortcode_filter', 10, 3 );
 
 	/* Add your nav menus function to the 'init' action hook. */
 	add_action( 'init', 'montera34_register_menus' );
@@ -78,6 +80,39 @@ function montera34_custom_sizes( $sizes ) {
         'small' => __('Small','montera34'),
         'extralarge' => __('Extra Large','montera34'),
     ) );
+}
+
+/**
+ * Improves the caption shortcode with HTML5 figure & figcaption; microdata & wai-aria attributes
+ * by JoostKiens
+ * https://gist.github.com/JoostKiens/4477366
+ * modified to remove width style from output to make it more responsive.
+ * 
+ * @param  string $val     Empty
+ * @param  array  $attr    Shortcode attributes
+ * @param  string $content Shortcode content
+ * @return string          Shortcode output
+ */
+function montera34_img_caption_shortcode_filter($val, $attr, $content = null)
+{
+	extract(shortcode_atts(array(
+		'id'      => '',
+		'align'   => 'aligncenter',
+		'width'   => '',
+		'caption' => ''
+	), $attr));
+	
+	// No caption, no dice... But why width? 
+	if ( 1 > (int) $width || empty($caption) )
+		return $val;
+ 
+	if ( $id )
+		$id = esc_attr( $id );
+     
+	// Add itemprop="contentURL" to image - Ugly hack
+	$content = str_replace('<img', '<img itemprop="contentURL"', $content);
+
+	return '<figure id="' . $id . '" aria-describedby="figcaption_' . $id . '" class="wp-caption ' . esc_attr($align) . '" itemscope itemtype="http://schema.org/ImageObject">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="wp-caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
 }
 
 // register custom menus
