@@ -240,7 +240,7 @@ if ( get_post_type() == 'montera34_project' ) {
 			<?php echo $subtit_url; ?>
 		</header>
 		
-		<div class="row">
+		<article class="row single-content">
 			<div class="<?php echo (is_attachment()==false) ? 'col-md-9' : 'col-md-12'; ?>">
 				<section>
 				<?php echo $content;
@@ -268,7 +268,7 @@ if ( get_post_type() == 'montera34_project' ) {
 				echo $related_out; ?>
 			</div><!-- .col-md-3 -->
 			<?php	} ?>
-		</div><!-- .row -->
+		</article><!-- .row -->
 
 	<?php endwhile;
 } // end if posts

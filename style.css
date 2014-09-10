@@ -33,14 +33,21 @@ a:hover, .current-menu-item > a {
 figure {
 	/*border-top:3px solid #000;*/
 }
-#content img {
+.single-content img {
 	display: block;
-	/*max-width: 100%;*/
+	max-width: 100%;
 	height: auto;
+	margin-bottom: 2em;
 }
 .wp-caption-text {
 	font-size: 0.85em;
 	color: #666;
+}
+.wp-caption {
+	margin-bottom: 2em;
+}
+.wp-caption img {
+	margin-bottom: 0 !important;
 }
 dd {
 	margin-bottom: 1.42857em;
