@@ -61,7 +61,10 @@ if ( is_home() ) {
 ?>
 
 <<?php echo $loop_tag ?> class="list-item <?php echo $loop_class ?>">
-	<header><h2 class="list-item-tit"><a href="<?php echo $loop_perma ?>"><?php echo $loop_tit ?></a></h2></header>
+	<header>
+		<h2 class="list-item-tit"><a href="<?php echo $loop_perma ?>"><?php echo $loop_tit ?></a></h2>
+		<?php if ( is_user_logged_in() ) { ?><div class="btn btn-xs btn-default pull-right"> <?php edit_post_link(__('Edit This','montera34')); ?></div> <?php } ?>
+	</header>
 	<div class="list-item-text">
 		<div class="list-item-desc"><?php echo $loop_subtit . $loop_desc; ?></div>
 		<?php echo $loop_terms ?>
