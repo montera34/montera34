@@ -47,7 +47,8 @@ function montera_theme_setup() {
 	// custom loops for each template
 	add_filter( 'pre_get_posts', 'montera34_custom_args_for_loops' );
 
-	// montera34 shortcodes
+	// count how many projects a collaborator has and add the number as a CF
+	add_action('wp_insert_post', 'montera34_cf_count_collabora_projects');
 
 } // end montera34 theme setup function
 
@@ -474,6 +475,26 @@ function montera34_init_metaboxes() {
 	}
 } // end Init metaboxes
 
+// count how many projects a collaborator has and add the number as a CF
+function montera34_cf_count_collabora_projects() {
+
+	global $post;
+	if ( $post ) {
+
+	// If this is just a revision, don't continue
+	if ( wp_is_post_revision( $post->ID ) )
+		return;
+
+	if ( $post->post_type == 'montera34_collabora' && $post->post_status == 'publish' ) {
+		$collabora_projects_count = count( get_post_meta( $post->ID, '_montera34_collabora_projects', true ) );
+		if ( $collabora_projects_count >= 1 ) {
+			update_post_meta($post->ID, '_montera34_collabora_projects_count', $collabora_projects_count);
+		}
+	}
+	}
+
+} // END count how many projects a collaborator has and add the number as a CF
+
 // custom args for loops
 function montera34_custom_args_for_loops( $query ) {
 	if ( is_home() && $query->is_main_query() ) {
@@ -493,12 +514,11 @@ function montera34_custom_args_for_loops( $query ) {
 		$query->set( 'meta_key','_montera34_project_card_date_ini');
 	}
 	if ( !is_admin() && is_post_type_archive('montera34_collabora') && $query->is_main_query() ) {
-		$query->set( 'order','ASC');
-		$query->set( 'orderby','meta_value');
-		$query->set( 'meta_key','_montera34_collabora_lastname');
+		$query->set( 'orderby', array ('meta_value_num' => 'DESC', 'title' => 'ASC' ) );
+		$query->set( 'meta_key','_montera34_collabora_projects_count');
 	}
 	return $query;
-}
+} // END custom args for loops
 
 add_filter('pll_copy_post_metas', 'montera34_translate_copy_post_metas');
 function montera34_translate_copy_post_metas($metas) {
