@@ -486,9 +486,10 @@ function montera34_custom_args_for_loops( $query ) {
 		));
 		$query->set( 'post_type',array('montera34_project'));
 	}
-	if ( !is_admin() && is_post_type_archive('montera34_project') && $query->is_main_query() ) {
+	if ( !is_admin() && is_post_type_archive('montera34_project') && false == $query->query_vars['suppress_filters'] ||
+	!is_admin() && is_tax('montera34_type') && false == $query->query_vars['suppress_filters'] ) {
 		$query->set( 'order','DESC');
-		$query->set( 'orderby','meta_value_num');
+		$query->set( 'orderby','meta_value_num title');
 		$query->set( 'meta_key','_montera34_project_card_date_ini');
 	}
 	if ( !is_admin() && is_post_type_archive('montera34_collabora') && $query->is_main_query() ) {
