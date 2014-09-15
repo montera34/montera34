@@ -11,7 +11,8 @@ if ( has_post_thumbnail() ) {
 
 // collaborator's projects
 $collabora_projects = get_post_meta( $post->ID, '_montera34_collabora_projects', true );
-if ( count($collabora_projects) >= 1 ) {
+$projects_count = count($collabora_projects);
+if ( $projects_count >= 1 ) {
 	foreach ( $collabora_projects as $project ) {
 		$project_ids[] = $project['project'];
 	}
@@ -23,19 +24,18 @@ if ( count($collabora_projects) >= 1 ) {
 	);
 	$projects = get_posts($args);
 	unset($project_ids);
-	$collabora_projects_out = sprintf( __('Projects with us','montera34'), $tit ). ": ";
+	$collabora_projects_out = sprintf( __('<strong>%s projects</strong> with us','montera34'), $projects_count ). ": ";
 			foreach ( $projects as $project ) {
 				$project_perma = get_permalink($project->ID);
 				$project_tit = $project->post_title;
 				//$project_roles = get_post_meta( $post->ID, '_montera34_collabora_projects', true );
+				$project_rol_out = "";
 				foreach ( $collabora_projects as $rol ) {
 					if ( $rol['project'] == $project->ID && $rol['rol'] != '' ) {
-						$project_rol_out = " <em>(" .$rol['rol']. ")</em>";
-					} else { $project_rol_out = ""; }
-					
+						$project_rol_out .= " <em>(" .$rol['rol']. ")</em>";
+					}
 				}
-				$collabora_projects_out .=
-				"<span class='media-footer-item'><a href='" .$project_perma. "' title='" .$project_tit. "'>" .$project_tit. "</a>" .$project_rol_out. "</span>, ";
+				$collabora_projects_out .= "<span class='media-footer-item'><a href='" .$project_perma. "' title='" .$project_tit. "'>" .$project_tit. "</a>" .$project_rol_out. "</span>, ";
 			} // end foreach collaborator's projects
 			$collabora_projects_out = substr($collabora_projects_out, 0, -2);
 } else { $collabora_projects_out = ""; } // end if collaborator has projects
