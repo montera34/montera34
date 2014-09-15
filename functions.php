@@ -53,7 +53,11 @@ function montera_theme_setup() {
 	// Filter body_class function
 	add_filter('body_class', 'montera34_body_classes');
 
+	// load language files
+	load_theme_textdomain('montera34', get_template_directory(). '/languages');
+
 } // end montera34 theme setup function
+
 
 // set up media options
 function montera34_media_options() {

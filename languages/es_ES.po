@@ -1,0 +1,726 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: montera34\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-15 10:54+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: skotperez <skotperez@voragine.net>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../header.php:26
+#, php-format
+msgid "Page %s"
+msgstr "Página %sPágina %s"
+
+#: ../header.php:58
+msgid "free software, open data, wordpress, web development, HTML5, twitter API, processing, Linux, Debian, data visualization"
+msgstr "software libre, datos abiertos, wordpress, desarrollo web, HTML5, Twitter API, processing, Linux, Debian, visualización de datos"
+
+#: ../header.php:96
+msgid "Go to home page"
+msgstr "Ir a la portada"
+
+#: ../searchform.php:3
+#: ../searchform.php:4
+msgid "Search projects"
+msgstr "Buscar proyectos"
+
+#: ../single.php:19
+#: ../page-projects.php:15
+#: ../functions.php:227
+msgid "Type"
+msgstr "Tipo"
+
+#: ../single.php:20
+#: ../functions.php:236
+msgid "Technologies"
+msgstr "Tecnología"
+
+#: ../single.php:29
+#, php-format
+msgid "More projects in %s"
+msgstr "Más proyectos en %s"
+
+#: ../single.php:38
+#: ../single.php:39
+msgid "Year of publication"
+msgstr "Año de publicación"
+
+#: ../single.php:42
+msgid "Client"
+msgstr "Cliente"
+
+#: ../single.php:46
+#: ../single.php:47
+#: ../functions.php:322
+msgid "Project URL"
+msgstr "URL del proyecto"
+
+#: ../single.php:46
+msgid "Go to this project website"
+msgstr "Ir a la web del proyecto"
+
+#: ../single.php:51
+msgid "Code repository"
+msgstr "Repositorio de código"
+
+#: ../single.php:54
+#: ../functions.php:357
+msgid "Code license"
+msgstr "Licencia del código"
+
+#: ../single.php:57
+msgid "Status"
+msgstr "Estado"
+
+#: ../single.php:71
+#: ../functions.php:192
+#: ../functions.php:396
+#: ../functions.php:403
+msgid "Collaborators"
+msgstr "Colaboradores"
+
+#: ../single.php:112
+msgid "Parent Project"
+msgstr "Proyecto superior"
+
+#: ../single.php:135
+msgid "Related Projects"
+msgstr "Proyectos relacionados"
+
+#: ../single.php:156
+msgid "Website"
+msgstr "Sitio web"
+
+#: ../single.php:181
+#, php-format
+msgid "Projects in which %s has collaborated"
+msgstr "Proyectos en los que %s ha colaborado"
+
+#: ../single.php:197
+#: ../functions.php:467
+msgid "Rol"
+msgstr "Rol"
+
+#: ../single.php:213
+#: ../single.php:214
+msgid "Back to project"
+msgstr "Volver al proyecto"
+
+#: ../footer.php:6
+msgid "In <strong>montera34</strong> we are"
+msgstr "En <strong>montera34</strong> somos"
+
+#: ../index.php:11
+msgid "We'll make your website, only if you need it."
+msgstr "Desarrollamos tu sitio web, solo si lo necesitas"
+
+#: ../index.php:18
+#, php-format
+msgid "Search results for <strong>%s</strong>"
+msgstr "Resultados de la búsqueda <strong>%s</strong>"
+
+#: ../index.php:26
+msgid "by year of publication."
+msgstr "por año de publicación."
+
+#: ../index.php:30
+msgid "by number of projects."
+msgstr "por número de proyectos."
+
+#: ../index.php:57
+msgid "No content."
+msgstr "Ningún contenido."
+
+#: ../old-footer.php:3
+#, php-format
+msgid "%d queries. %s seconds."
+msgstr "%d queries. %s segundos."
+
+#: ../page-projects.php:11
+msgid "Name"
+msgstr "Nombre"
+
+#: ../page-projects.php:12
+msgid "Code Repository"
+msgstr "Repositorio de código"
+
+#: ../page-projects.php:13
+msgid "URL"
+msgstr "URL"
+
+#: ../page-projects.php:14
+msgid "Year"
+msgstr "Año"
+
+#: ../page-projects.php:40
+msgid "Permanent Link to"
+msgstr "Enlace permanente a"
+
+#: ../page-projects.php:42
+#: ../loop.list.php:66
+msgid "Edit This"
+msgstr "Editar"
+
+#: ../page-projects.php:66
+msgid "No projects."
+msgstr "Ningún proyecto."
+
+#: ../functions.php:86
+msgid "Icon"
+msgstr "Icono"
+
+#: ../functions.php:87
+msgid "Big Icon"
+msgstr "Icono grande"
+
+#: ../functions.php:88
+msgid "Small"
+msgstr "Pequeña"
+
+#: ../functions.php:89
+msgid "Extra Large"
+msgstr "Muy grande"
+
+#: ../functions.php:131
+msgid "Sidebar menu"
+msgstr "Menú de la barra lateral"
+
+#: ../functions.php:132
+msgid "Footer menu"
+msgstr "Menú del pie de página"
+
+#: ../functions.php:160
+#: ../functions.php:449
+msgid "Projects"
+msgstr "Proyectos"
+
+#: ../functions.php:161
+#: ../functions.php:459
+msgid "Project"
+msgstr "Proyecto"
+
+#: ../functions.php:162
+msgid "Add a project"
+msgstr "Añadir proyecto"
+
+#: ../functions.php:163
+#: ../functions.php:195
+msgid "Edit"
+msgstr "Editar"
+
+#: ../functions.php:164
+msgid "Edit this project"
+msgstr "Editar este proyecto"
+
+#: ../functions.php:165
+msgid "New project"
+msgstr "Nuevo proyecto"
+
+#: ../functions.php:166
+msgid "View project"
+msgstr "Ver proyecto"
+
+#: ../functions.php:167
+msgid "View this project"
+msgstr "Ver este proyecto"
+
+#: ../functions.php:168
+msgid "Search project"
+msgstr "Buscar proyectos"
+
+#: ../functions.php:169
+msgid "No project found"
+msgstr "Ningún proyecto encontrado"
+
+#: ../functions.php:170
+msgid "No projects in trash"
+msgstr "Ningún proyecto en la papelera"
+
+#: ../functions.php:171
+#: ../functions.php:203
+msgid "Parent"
+msgstr "Superior"
+
+#: ../functions.php:193
+msgid "Collaborator"
+msgstr "Colaborador"
+
+#: ../functions.php:194
+msgid "Add a collaborator"
+msgstr "Añadir colaborador"
+
+#: ../functions.php:196
+msgid "Edit this collaborator"
+msgstr "Editar este colaborador"
+
+#: ../functions.php:197
+msgid "New collaborator"
+msgstr "Nuevo colaborador"
+
+#: ../functions.php:198
+msgid "View collaborator"
+msgstr "Ver colaborador"
+
+#: ../functions.php:199
+msgid "View this collaborator"
+msgstr "Ver este colaborador"
+
+#: ../functions.php:200
+msgid "Search collaborator"
+msgstr "Buscar colaboradores"
+
+#: ../functions.php:201
+msgid "No collaborator found"
+msgstr "Ningún colaborador encontrado"
+
+#: ../functions.php:202
+msgid "No collaborators in trash"
+msgstr "Ningún colaborador en la papelera"
+
+#: ../functions.php:228
+msgid "Types"
+msgstr "Tipos"
+
+#: ../functions.php:235
+msgid "Technology"
+msgstr "Tecnología"
+
+#: ../functions.php:277
+msgid "Show at home page"
+msgstr "Mostrar en la portada"
+
+#: ../functions.php:294
+msgid "Project card"
+msgstr "Ficha del proyecto"
+
+#: ../functions.php:301
+msgid "Project beginning"
+msgstr "Inicio del proyecto"
+
+#: ../functions.php:307
+msgid "Project ending"
+msgstr "Fin del proyecto"
+
+#: ../functions.php:313
+msgid "Project status"
+msgstr "Estado"
+
+#: ../functions.php:331
+msgid "Code repo URL"
+msgstr "URL del repositorio de código"
+
+#: ../functions.php:333
+msgid "Project code"
+msgstr "Código del proyecto"
+
+#: ../functions.php:340
+#: ../functions.php:363
+msgid "URL text"
+msgstr "Texto de la URL"
+
+#: ../functions.php:355
+msgid "Code license URL"
+msgstr "URL de la licencia del código"
+
+#: ../functions.php:376
+msgid "Budget"
+msgstr "Presupuesto"
+
+#: ../functions.php:383
+msgid "Client. Name, and URL if any"
+msgstr "Cliente. Nombre, y URL si existe"
+
+#: ../functions.php:416
+msgid "Collaborator data"
+msgstr "Datos del colaborador"
+
+#: ../functions.php:423
+msgid "First name"
+msgstr "Nombre"
+
+#: ../functions.php:429
+msgid "Last name"
+msgstr "Apellidos"
+
+#: ../functions.php:441
+msgid "Twitter URL"
+msgstr "URL de Twitter"
+
+#: ../functions.php:451
+msgid "Project {#}"
+msgstr "Proyecto {#}"
+
+#: ../functions.php:452
+msgid "Add Another Project"
+msgstr "Añadir otro proyecto"
+
+#: ../functions.php:453
+msgid "Remove Project"
+msgstr "Eliminar proyecto"
+
+#: ../old-header.php:17
+#, php-format
+msgid "%s RSS Feed"
+msgstr "%s feed RSS"
+
+#: ../old-header.php:18
+#, php-format
+msgid "%s Atom Feed"
+msgstr "%s feed Atom"
+
+#: ../loop.media-list.php:27
+#, php-format
+msgid "<strong>%s projects</strong> with us"
+msgstr "<strong>%s proyectos</strong> con nosotros"
+
+#: ../lib/metabox/init.php:258
+msgid "Clear"
+msgstr "Limpiar"
+
+#: ../lib/metabox/init.php:259
+msgid "Default"
+msgstr "Por omisión"
+
+#: ../lib/metabox/init.php:260
+msgid "Select Color"
+msgstr "Seleccionar color"
+
+#: ../lib/metabox/init.php:261
+msgid "Current Color"
+msgstr "Color actual"
+
+#: ../lib/metabox/init.php:288
+msgid "Select / Deselect All"
+msgstr "Seleccionar / Deseleccionar todo"
+
+#: ../lib/metabox/init.php:1177
+msgid "Save"
+msgstr "Guardar"
+
+#: ../lib/metabox/example-functions.php:28
+msgid "Test Metabox"
+msgstr "Metabox de prueba"
+
+#: ../lib/metabox/example-functions.php:36
+#: ../lib/metabox/example-functions.php:270
+msgid "Test Text"
+msgstr "Texto de prueba"
+
+#: ../lib/metabox/example-functions.php:37
+#: ../lib/metabox/example-functions.php:48
+#: ../lib/metabox/example-functions.php:55
+#: ../lib/metabox/example-functions.php:62
+#: ../lib/metabox/example-functions.php:70
+#: ../lib/metabox/example-functions.php:77
+#: ../lib/metabox/example-functions.php:89
+#: ../lib/metabox/example-functions.php:95
+#: ../lib/metabox/example-functions.php:102
+#: ../lib/metabox/example-functions.php:117
+#: ../lib/metabox/example-functions.php:125
+#: ../lib/metabox/example-functions.php:132
+#: ../lib/metabox/example-functions.php:138
+#: ../lib/metabox/example-functions.php:144
+#: ../lib/metabox/example-functions.php:156
+#: ../lib/metabox/example-functions.php:167
+#: ../lib/metabox/example-functions.php:178
+#: ../lib/metabox/example-functions.php:189
+#: ../lib/metabox/example-functions.php:197
+#: ../lib/metabox/example-functions.php:204
+#: ../lib/metabox/example-functions.php:212
+#: ../lib/metabox/example-functions.php:218
+#: ../lib/metabox/example-functions.php:230
+#: ../lib/metabox/example-functions.php:271
+#: ../lib/metabox/example-functions.php:337
+#: ../lib/metabox/example-functions.php:344
+#: ../lib/metabox/example-functions.php:351
+#: ../lib/metabox/example-functions.php:357
+#: ../lib/metabox/example-functions.php:363
+#: ../lib/metabox/example-functions.php:369
+#: ../lib/metabox/example-functions.php:375
+#: ../lib/metabox/example-functions.php:393
+msgid "field description (optional)"
+msgstr "descripción (facultativa)"
+
+#: ../lib/metabox/example-functions.php:47
+msgid "Test Text Small"
+msgstr "Texto corto de prueba"
+
+#: ../lib/metabox/example-functions.php:54
+msgid "Test Text Medium"
+msgstr "Texto medio de prueba"
+
+#: ../lib/metabox/example-functions.php:61
+msgid "Website URL"
+msgstr "URL del sitio"
+
+#: ../lib/metabox/example-functions.php:69
+msgid "Test Text Email"
+msgstr "Email de prueba"
+
+#: ../lib/metabox/example-functions.php:76
+msgid "Test Time"
+msgstr "Hora"
+
+#: ../lib/metabox/example-functions.php:82
+#: ../lib/metabox/example-functions.php:83
+msgid "Time zone"
+msgstr "Zona horaria"
+
+#: ../lib/metabox/example-functions.php:88
+msgid "Test Date Picker"
+msgstr "Fecha"
+
+#: ../lib/metabox/example-functions.php:94
+msgid "Test Date Picker (UNIX timestamp)"
+msgstr "Fecha (formato UNIX)"
+
+#: ../lib/metabox/example-functions.php:101
+msgid "Test Date/Time Picker Combo (UNIX timestamp)"
+msgstr "Fecha y hora (formato UNIX)"
+
+#: ../lib/metabox/example-functions.php:116
+msgid "Test Money"
+msgstr "Moneda"
+
+#: ../lib/metabox/example-functions.php:124
+msgid "Test Color Picker"
+msgstr "Selector de color"
+
+#: ../lib/metabox/example-functions.php:131
+msgid "Test Text Area"
+msgstr "Área de texto"
+
+#: ../lib/metabox/example-functions.php:137
+msgid "Test Text Area Small"
+msgstr "Área de texto pequeña"
+
+#: ../lib/metabox/example-functions.php:143
+msgid "Test Text Area for Code"
+msgstr "Área de texto para código"
+
+#: ../lib/metabox/example-functions.php:149
+msgid "Test Title Weeeee"
+msgstr "Título"
+
+#: ../lib/metabox/example-functions.php:150
+msgid "This is a title description"
+msgstr "Esto es un título de la descripción"
+
+#: ../lib/metabox/example-functions.php:155
+msgid "Test Select"
+msgstr "Campo select de prueba"
+
+#: ../lib/metabox/example-functions.php:160
+#: ../lib/metabox/example-functions.php:171
+#: ../lib/metabox/example-functions.php:182
+msgid "Option One"
+msgstr "Opción uno"
+
+#: ../lib/metabox/example-functions.php:161
+#: ../lib/metabox/example-functions.php:172
+#: ../lib/metabox/example-functions.php:183
+msgid "Option Two"
+msgstr "Opción dos"
+
+#: ../lib/metabox/example-functions.php:162
+#: ../lib/metabox/example-functions.php:173
+#: ../lib/metabox/example-functions.php:184
+msgid "Option Three"
+msgstr "Opción tres"
+
+#: ../lib/metabox/example-functions.php:166
+msgid "Test Radio inline"
+msgstr "Botón radio inline"
+
+#: ../lib/metabox/example-functions.php:177
+msgid "Test Radio"
+msgstr "Botón radio"
+
+#: ../lib/metabox/example-functions.php:188
+msgid "Test Taxonomy Radio"
+msgstr "Botón radio para taxonomía"
+
+#: ../lib/metabox/example-functions.php:196
+msgid "Test Taxonomy Select"
+msgstr "Botón select para taxonomía"
+
+#: ../lib/metabox/example-functions.php:203
+msgid "Test Taxonomy Multi Checkbox"
+msgstr "Botón multi checkbox para taxonomía"
+
+#: ../lib/metabox/example-functions.php:211
+msgid "Test Checkbox"
+msgstr "Botón checkbox"
+
+#: ../lib/metabox/example-functions.php:217
+msgid "Test Multi Checkbox"
+msgstr "Botón multi chackbox de prueba"
+
+#: ../lib/metabox/example-functions.php:222
+msgid "Check One"
+msgstr "Check uno"
+
+#: ../lib/metabox/example-functions.php:223
+msgid "Check Two"
+msgstr "Check dos"
+
+#: ../lib/metabox/example-functions.php:224
+msgid "Check Three"
+msgstr "Check tres"
+
+#: ../lib/metabox/example-functions.php:229
+msgid "Test wysiwyg"
+msgstr "Editor wysiwyg"
+
+#: ../lib/metabox/example-functions.php:236
+msgid "Test Image"
+msgstr "Imagen de prueba"
+
+#: ../lib/metabox/example-functions.php:237
+msgid "Upload an image or enter a URL."
+msgstr "Subir imagen o añadir URL"
+
+#: ../lib/metabox/example-functions.php:242
+msgid "Multiple Files"
+msgstr "Varios archivos"
+
+#: ../lib/metabox/example-functions.php:243
+msgid "Upload or add multiple images/attachments."
+msgstr "Subir o añadir múltiples imágenes u otro tipo de archivos"
+
+#: ../lib/metabox/example-functions.php:249
+msgid "oEmbed"
+msgstr "oEmbed"
+
+#: ../lib/metabox/example-functions.php:250
+msgid "Enter a youtube, twitter, or instagram URL. Supports services listed at <a href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/Embeds</a>."
+msgstr "Añadir una URL de youtube, twitter o instagram. Lista completa de servicios soportados: <a href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/Embeds</a>."
+
+#: ../lib/metabox/example-functions.php:262
+msgid "About Page Metabox"
+msgstr "Sobre Metabox"
+
+#: ../lib/metabox/example-functions.php:283
+msgid "Repeating Field Group"
+msgstr "Replicar grupo"
+
+#: ../lib/metabox/example-functions.php:289
+msgid "Generates reusable form entries"
+msgstr "Generar elementos reutilizables para el formulario"
+
+#: ../lib/metabox/example-functions.php:291
+msgid "Entry {#}"
+msgstr "Entrada {#}"
+
+#: ../lib/metabox/example-functions.php:292
+msgid "Add Another Entry"
+msgstr "Añadir otra entrada"
+
+#: ../lib/metabox/example-functions.php:293
+msgid "Remove Entry"
+msgstr "Eliminar entrada"
+
+#: ../lib/metabox/example-functions.php:330
+msgid "User Profile Metabox"
+msgstr "Perfil de usuario"
+
+#: ../lib/metabox/example-functions.php:336
+msgid "Extra Info"
+msgstr "Información adicional"
+
+#: ../lib/metabox/example-functions.php:343
+msgid "Avatar"
+msgstr "Avatar"
+
+#: ../lib/metabox/example-functions.php:350
+msgid "Facebook URL"
+msgstr "URL de Facebook"
+
+#: ../lib/metabox/example-functions.php:362
+msgid "Google+ URL"
+msgstr "URL de Google+"
+
+#: ../lib/metabox/example-functions.php:368
+msgid "Linkedin URL"
+msgstr "URL de Linkedin"
+
+#: ../lib/metabox/example-functions.php:374
+msgid "User Field"
+msgstr "Usuario"
+
+#: ../lib/metabox/example-functions.php:388
+msgid "Theme Options Metabox"
+msgstr "Opciones del theme"
+
+#: ../lib/metabox/example-functions.php:392
+msgid "Site Background Color"
+msgstr "Color de fondo del sitio"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_field.php:459
+msgid "Add Group"
+msgstr "Añadir gupo"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_field.php:460
+msgid "Remove Group"
+msgstr "Eliminar grupo"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_ajax.php:47
+msgid "Please Try Again"
+msgstr "Por favor, inténtalo de nuevo"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_ajax.php:131
+msgid "Remove Embed"
+msgstr "Eliminar Embed"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_ajax.php:134
+#, php-format
+msgid "No oEmbed Results Found for %s. View more info at"
+msgstr "Ningún oEmbed encontrado para %s. Ver más en"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:250
+msgid "Add Row"
+msgstr "Añadir fila"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:306
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:706
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:768
+msgid "Remove"
+msgstr "Eliminar"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:601
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:635
+msgid "No terms"
+msgstr "Ningún término"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:674
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:728
+msgid "Add or Upload File"
+msgstr "Añadir o subir archivo"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:695
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:760
+msgid "Remove Image"
+msgstr "Eliminar imagen"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:706
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:768
+msgid "File:"
+msgstr "Archivo:"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:706
+#: ../lib/metabox/helpers/cmb_Meta_Box_types.php:768
+msgid "Download"
+msgstr "Descargar"
+
