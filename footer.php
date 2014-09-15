@@ -3,7 +3,7 @@
 </div><!-- .row -->
 <div class="row">
 	<div id="epi" class="col-md-12">
-		<?php _e('In <strong>montera34</strong> we are','montera34'); ?> <a href="http://twitter.com/tutuytu">Juan López-Aranguren Blázquez</a>, Rubén Lorenzo Montero, <a href="http://numeroteca.org">Pablo Rey Mazón</a> y <a href="http://voragine.net">Alfonso Sánchez Uzábal</a>.
+		<?php _e('In <strong>montera34</strong> we are','montera34'); ?> <a href="http://numeroteca.org">Pablo Rey Mazón</a> y <a href="http://voragine.net">Alfonso Sánchez Uzábal</a>.
 	</div><!-- #epi -->
 </div><!-- .row -->
 
