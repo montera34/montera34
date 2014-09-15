@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html <?php language_attributes(); ?>>
 
 <head>
@@ -35,21 +34,30 @@ if ( is_single() || is_page() ) {
 	if ( $metadesc == '' ) { $metadesc = $post->post_content; }
 	$metadesc = wp_strip_all_tags($post->post_content);
 	$metadesc = strip_shortcodes( $metadesc );
+	$metadesc = str_replace( array('"','\''), '', $metadesc );
 	$metadesc_fb = substr( $metadesc, 0, 297 );
 	$metadesc_tw = substr( $metadesc, 0, 200 );
 	$metadesc = substr( $metadesc, 0, 154 );
-	$metatit = $post->post_title;
-	//$metatit = wp_title("",FALSE);
+	$metatit = str_replace( array('"','\''), '', $post->post_title );
+	$img_id = get_post_thumbnail_id();
+	if ( $img_id != '' ) {
+		$img_array = wp_get_attachment_image_src($img_id,'large', true);
+		$metaimg = $img_array[0];
+	} else {
+		$metaimg = "http://montera34.com/wp-content/themes/montera34/screenshot.png";
+	}
 	$metatype = "article";
+	$metaperma = get_permalink();
+
 } else {
 	$metadesc = MONTERA34_BLOGDESC;
 	$metadesc_tw = MONTERA34_BLOGDESC;
 	$metadesc_fb = MONTERA34_BLOGDESC;
 	$metatit = MONTERA34_BLOGNAME;
-	//$metatit = wp_title("",FALSE);
-	$metatype = "blog";
+	$metatype = "website";
+	$metaimg = "http://montera34.com/wp-content/themes/montera34/screenshot.png";
+	$metaperma = QUINCEM_BLOGURL;
 }
-	$metaperma = get_permalink();
 ?>
 
 <!-- generic meta -->
@@ -62,14 +70,12 @@ if ( is_single() || is_page() ) {
 <meta property="og:description" content="<?php echo $metadesc_fb ?>" />
 <meta property="og:url" content="<?php echo $metaperma ?>" />
 <!-- twitter meta -->
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@montera34">
 <meta name="twitter:title" content="<?php echo $metatit ?>" />
 <meta name="twitter:description" content="<?php echo $metadesc_tw ?>" />
 <meta name="twitter:creator" content="@montera34">
-
-<!-- twitter analytics
-<meta property="twitter:account_id" content="1491442110" />-->
+<meta name="twitter:image:src" content="<?php echo $metaimg ?>">
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <!-- Bootstrap stylesheet -->
@@ -81,7 +87,7 @@ if ( is_single() || is_page() ) {
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 <?php
-if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
+// if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 wp_head(); ?>
 
 </head>

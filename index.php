@@ -23,11 +23,11 @@ if ( is_home() ) {
 	$pt_current = get_post_type();
 	if ( $pt_current == 'montera34_project' ) {
 		$loop_name = "list";
-		$page_subtit = "<small>" .__('By year of publication.','montera34'). "</small>";
+		$page_subtit = "<small>" .__('by year of publication.','montera34'). "</small>";
 
 	} elseif ( $pt_current == 'montera34_collabora' ) {
 		$loop_name = "media-list";
-		$page_subtit = "<small>" .__('Alphabetical order.','montera34'). "</small>";
+		$page_subtit = "<small>" .__('by number of projects.','montera34'). "</small>";
 
 	}
 	$page_tit = $wp_post_types[$pt_current]->labels->name;
@@ -54,7 +54,7 @@ if ( is_home() ) {
 					endwhile;
 
 				} else {
-					echo "<p>i".__('No content.','montera34'). "</p>";
+					echo "<p>".__('No content.','montera34'). "</p>";
 				}
 				include "pagination.php"; ?>
 				</div><!-- .<?php echo $loop_name ?> -->

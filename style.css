@@ -26,7 +26,16 @@ h2, h3{
 p a, dd a, #content article ul li a, #content article ol li a {
 	text-decoration: underline;
 }
-a:hover, .current-menu-item > a {
+a:hover,
+.single-montera34_collabora .post-type-collabora > a,
+.single-montera34_project .post-type-project > a,
+.tax-montera34_type .post-type-project > a,
+.type-investigacion .type-investigacion > a,
+.type-consultoria .type-consultoria > a,
+.type-desarrollo-web .type-desarrollo-web > a,
+.type-diseno .type-diseno > a,
+.type-visualizacion-de-datos .type-visualizacion-de-datos > a,
+.current-menu-item > a {
 	background-color: #fff100;
 	text-decoration: none !important;
 }
@@ -59,7 +68,6 @@ dd {
 }
 #pre-logo a {
 	display: inline-block;
-	padding: 2px 5px 0;
 }
 /* menu */
 #pre-menu {
