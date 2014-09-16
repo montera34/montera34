@@ -167,7 +167,7 @@ if ( get_post_type() == 'montera34_project' ) {
 
 	// projects
 	$collabora_projects = get_post_meta( $post->ID, '_montera34_collabora_projects', true );
-	if ( $collabora_projects != '' ) {
+	if ( count($collabora_projects) >= 1 ) {
 		foreach ( $collabora_projects as $project ) {
 			$project_ids[] = $project['project'];
 		}
