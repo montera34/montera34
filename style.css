@@ -23,7 +23,7 @@ h1 {
 }
 h2, h3{
 }
-p a, dd a, #content article ul li a {
+p a, dd a, #content article ul li a, #content article ol li a {
 	text-decoration: underline;
 }
 a:hover,
