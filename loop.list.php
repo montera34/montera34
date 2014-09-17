@@ -6,7 +6,7 @@
 $project_perma = get_permalink();
 // featured image
 if ( has_post_thumbnail() ) {
-	$loop_featured = "<figure><a href=" .$project_perma. ">" .get_the_post_thumbnail($post->ID,'thumbnail',array('class' => 'img-responsive')). "</a></figure>";
+	$loop_featured = "<figure class='list-item-img'><a href=" .$project_perma. ">" .get_the_post_thumbnail($post->ID,'thumbnail',array('class' => 'img-responsive')). "</a></figure>";
 } else { $loop_featured = ""; }
 
 $loop_desc = get_the_excerpt();

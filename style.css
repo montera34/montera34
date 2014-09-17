@@ -137,6 +137,12 @@ ul#pre-menu,
 .list-item-desc {
 	display: inline;
 }
+.list-item-img img {
+	border-bottom: 3px solid #000;
+}
+.list-item-img img:hover {
+	border-bottom: 3px solid #fff100;
+}
 .list-home .list-item-tit:after {
 	content: " [+]";
 }
