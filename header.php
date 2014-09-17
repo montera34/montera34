@@ -112,7 +112,12 @@ wp_head(); ?>
 			wp_nav_menu( $defaults );?>	
 
 		<?php get_search_form(); ?>
-		<ul class="pre-lang-switcher"><?php pll_the_languages();?></ul>
+		<?php if ( function_exists('pll_the_languages') ) {
+			$args = array(
+				'hide_if_no_translation' => 1
+			);
+			echo '<ul class="pre-lang-switcher">'; pll_the_languages($args); echo '</ul>';
+		} ?>
 	</div> <!-- first side bar --> <!-- #pre -->
 
 	<div id="content" class="col-md-9">
