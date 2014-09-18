@@ -24,7 +24,7 @@ if ( $projects_count >= 1 ) {
 	);
 	$projects = get_posts($args);
 	unset($project_ids);
-	$collabora_projects_out = sprintf( __('<strong>%s projects</strong> with us','montera34'), $projects_count ). ": ";
+	$collabora_projects_out = sprintf( _n('<strong>1 project</strong> with us','<strong>%s projects</strong> with us',$projects_count,'montera34' ),$projects_count). ": ";
 			foreach ( $projects as $project ) {
 				$project_perma = get_permalink($project->ID);
 				$project_tit = $project->post_title;
