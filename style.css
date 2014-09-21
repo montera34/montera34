@@ -171,6 +171,9 @@ ul#pre-menu,
 .media-collabora {
 	margin-top: 30px;
 }
+.media-list img {
+	margin-bottom: 0;
+}
 .media-footer a {
 	text-decoration: underline;
 }
