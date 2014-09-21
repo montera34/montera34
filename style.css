@@ -139,6 +139,12 @@ ul#pre-menu,
 .list-item-desc {
 	display: inline;
 }
+.list-item-year:before {
+	content: ' [';
+}
+.list-item-year:after {
+	content: '] ';
+}
 .list-item-img img {
 	border-bottom: 3px solid #000;
 }

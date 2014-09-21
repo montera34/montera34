@@ -187,6 +187,9 @@ if ( get_post_type() == 'montera34_project' ) {
 				$project_perma = get_permalink($project->ID);
 				$project_tit = $project->post_title;
 				$project_desc = $project->post_excerpt;
+				$project_year_ini = get_post_meta( $project->ID, '_montera34_project_card_date_ini', true );
+				if ( $project_year_ini != '' ) { $project_year = "<span class='list-item-year'>" .$project_year_ini. "</span>"; }
+				else { $project_year = ""; }
 				if ( has_post_thumbnail($project->ID) ) {
 					$project_img = "<figure class='list-item-img'><a href=" .$project_perma. ">" .get_the_post_thumbnail($project->ID,'thumbnail',array('class' => 'img-responsive')). "</a></figure>";
 				} else { $collabora_img = ""; }
@@ -199,7 +202,7 @@ if ( get_post_type() == 'montera34_project' ) {
 					<header><h4 class='list-item-tit'><a href='" .$project_perma. "' title='" .$project_tit. "'>" .$project_tit. "</a></h4>
 					<div class='list-item-desc'>
 						<div class='list-item-rol'>" .__('Rol','montera34'). ": " .$project_rol. "</div>
-						<p>" .$project_desc. "</p>
+						<p>" .$project_desc . $project_year. "</p>
 						" .$project_img. "
 					</div>
 				</div>
