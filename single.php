@@ -176,7 +176,10 @@ if ( get_post_type() == 'montera34_project' ) {
 			'posts_per_page' => -1,
 			'post__in' => $project_ids,
 			'post_status' => array( 'publish', 'private' ),
-			'post_type' => 'montera34_project'
+			'post_type' => 'montera34_project',
+			'order' => 'DESC',
+			'orderby' => 'meta_value_num title',
+			'meta_key' => '_montera34_project_card_date_ini'
 		);
 		$projects = get_posts($args);
 		$collabora_projects_out = "<section id='projects'><h3>" .sprintf( __('Projects in which %s has collaborated','montera34'), $tit ). "</h3><div class='list'>";
@@ -185,7 +188,7 @@ if ( get_post_type() == 'montera34_project' ) {
 				$project_tit = $project->post_title;
 				$project_desc = $project->post_excerpt;
 				if ( has_post_thumbnail($project->ID) ) {
-					$project_img = "<figure><a href=" .$project_perma. ">" .get_the_post_thumbnail($project->ID,'thumbnail',array('class' => 'img-responsive')). "</a></figure>";
+					$project_img = "<figure class='list-item-img'><a href=" .$project_perma. ">" .get_the_post_thumbnail($project->ID,'thumbnail',array('class' => 'img-responsive')). "</a></figure>";
 				} else { $collabora_img = ""; }
 				$project_roles = get_post_meta( $post->ID, '_montera34_collabora_projects', true );
 				foreach ( $project_roles as $rol ) {

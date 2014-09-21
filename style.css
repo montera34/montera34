@@ -27,6 +27,7 @@ p a, dd a, #content article ul li a, #content article ol li a {
 	text-decoration: underline;
 }
 a:hover,
+.current-lang a,
 .single-montera34_collabora .post-type-collabora > a,
 .single-montera34_project .post-type-project > a,
 .tax-montera34_type .post-type-project > a,
