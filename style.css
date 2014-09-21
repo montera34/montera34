@@ -42,6 +42,7 @@ a:hover,
 figure {
 	/*border-top:3px solid #000;*/
 }
+#sidebar-right img,
 .single-content img {
 	display: block;
 	max-width: 100%;

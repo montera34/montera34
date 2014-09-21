@@ -524,6 +524,9 @@ function montera34_custom_args_for_loops( $query ) {
 		$query->set( 'orderby', array ('meta_value_num' => 'DESC', 'title' => 'ASC' ) );
 		$query->set( 'meta_key','_montera34_collabora_projects_count');
 	}
+	if ( !is_admin() && is_author() && $query->is_main_query() ) {
+		$query->set( 'post_type',array('montera34_project'));
+	}
 	return $query;
 } // END custom args for loops
 

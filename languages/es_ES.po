@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: montera34\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-18 22:52+0100\n"
+"POT-Creation-Date: 2014-09-20 17:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: skotperez <skotperez@voragine.net>\n"
 "Language-Team: montera34 <info@montera34.com>\n"
@@ -85,37 +85,41 @@ msgstr "Licencia del código"
 msgid "Status"
 msgstr "Estado"
 
-#: ../single.php:71
+#: ../single.php:60
+msgid "In charge"
+msgstr "Responsable"
+
+#: ../single.php:72
 #: ../functions.php:192
 #: ../functions.php:396
 #: ../functions.php:403
 msgid "Collaborators"
 msgstr "Colaboradores"
 
-#: ../single.php:112
+#: ../single.php:113
 msgid "Parent Project"
 msgstr "Proyecto superior"
 
-#: ../single.php:135
+#: ../single.php:136
 msgid "Related Projects"
 msgstr "Proyectos relacionados"
 
-#: ../single.php:156
+#: ../single.php:157
 msgid "Website"
 msgstr "Sitio web"
 
-#: ../single.php:181
+#: ../single.php:182
 #, php-format
 msgid "Projects in which %s has collaborated"
 msgstr "Proyectos en los que %s ha colaborado"
 
-#: ../single.php:197
+#: ../single.php:198
 #: ../functions.php:467
 msgid "Rol"
 msgstr "Rol"
 
-#: ../single.php:213
 #: ../single.php:214
+#: ../single.php:215
 msgid "Back to project"
 msgstr "Volver al proyecto"
 

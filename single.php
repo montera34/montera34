@@ -56,7 +56,8 @@ if ( get_post_type() == 'montera34_project' ) {
 	$project_status = get_post_meta( $post->ID, '_montera34_project_card_status', true );
 	if ( $project_status != '' ) { $card_items[__('Status','montera34')] = $project_status; }
 
-	
+	$project_responsible = "<a href='" .get_author_posts_url( get_the_author_meta( 'ID' ) ). "'>" .get_the_author_meta( 'display_name' ). "</a>";
+	$card_items[__('In charge','montera34')] = $project_responsible;
 
 	// building collaborators section
 	$project_collaboras = get_post_meta( $post->ID, '_montera34_collabora', true );
