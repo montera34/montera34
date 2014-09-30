@@ -116,7 +116,7 @@ wp_head(); ?>
 			$args = array(
 				'hide_if_no_translation' => 1
 			);
-			echo '<ul class="pre-lang-switcher">'; pll_the_languages($args); echo '</ul>';
+			//echo '<ul class="pre-lang-switcher">'; pll_the_languages($args); echo '</ul>';
 		} ?>
 	</div> <!-- first side bar --> <!-- #pre -->
 
