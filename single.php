@@ -65,6 +65,7 @@ if ( get_post_type() == 'montera34_project' ) {
 		$args = array(
 			'posts_per_page' => -1,
 			'post__in' => $project_collaboras,
+			'post_status' => array( 'publish' ),
 			'post_type' => 'montera34_collabora'
 		);
 		$collaboras = get_posts($args);
@@ -175,7 +176,7 @@ if ( get_post_type() == 'montera34_project' ) {
 		$args = array(
 			'posts_per_page' => -1,
 			'post__in' => $project_ids,
-			'post_status' => array( 'publish', 'private' ),
+			'post_status' => array( 'publish' ),
 			'post_type' => 'montera34_project',
 			'order' => 'DESC',
 			'orderby' => 'meta_value_num title',
