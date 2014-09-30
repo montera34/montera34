@@ -1,31 +1,33 @@
 <?php
 // collaborators list loop
 
-$loop_perma = get_permalink();
-$loop_tit = get_the_title();
-$loop_desc = get_the_excerpt();
-// featured image
-if ( has_post_thumbnail() ) {
-	$loop_featured = get_the_post_thumbnail($post->ID,'bigicon',array('class' => 'img-responsive'));
-} else { $loop_featured = ""; }
-
 // collaborator's projects
 $collabora_projects = get_post_meta( $post->ID, '_montera34_collabora_projects', true );
-$projects_count = count($collabora_projects);
-if ( $projects_count >= 1 ) {
+if ( count($collabora_projects) >= 1 ) {
 	foreach ( $collabora_projects as $project ) {
 		$project_ids[] = $project['project'];
 	}
 	$args = array(
 		'posts_per_page' => -1,
 		'post__in' => $project_ids,
-		'post_status' => array( 'publish', 'private' ),
+		'post_status' => array( 'publish' ),
 		'post_type' => 'montera34_project'
 	);
-	$projects = get_posts($args);
+	$public_projects = get_posts($args);
 	unset($project_ids);
-	$collabora_projects_out = sprintf( _n('<strong>1 project</strong> with us','<strong>%s projects</strong> with us',$projects_count,'montera34' ),$projects_count). ": ";
-			foreach ( $projects as $project ) {
+	$public_projects_count = count($public_projects);
+	if ( $public_projects_count >= 1 ) {
+
+		$loop_perma = get_permalink();
+		$loop_tit = get_the_title();
+		$loop_desc = get_the_excerpt();
+		// featured image
+		if ( has_post_thumbnail() ) {
+			$loop_featured = get_the_post_thumbnail($post->ID,'bigicon',array('class' => 'img-responsive'));
+		} else { $loop_featured = ""; }
+
+		$collabora_projects_out = sprintf( _n('<strong>1 project</strong> with us','<strong>%s projects</strong> with us',$public_projects_count,'montera34' ),$public_projects_count). ": ";
+			foreach ( $public_projects as $project ) {
 				$project_perma = get_permalink($project->ID);
 				$project_tit = $project->post_title;
 				//$project_roles = get_post_meta( $post->ID, '_montera34_collabora_projects', true );
@@ -37,9 +39,7 @@ if ( $projects_count >= 1 ) {
 				}
 				$collabora_projects_out .= "<span class='media-footer-item'><a href='" .$project_perma. "' title='" .$project_tit. "'>" .$project_tit. "</a>" .$project_rol_out. "</span>, ";
 			} // end foreach collaborator's projects
-			$collabora_projects_out = substr($collabora_projects_out, 0, -2);
-} else { $collabora_projects_out = ""; } // end if collaborator has projects
-?>
+			$collabora_projects_out = substr($collabora_projects_out, 0, -2); ?>
 
 <article class="media-collabora media">
 	<a class="pull-left" href="<?php echo $loop_perma ?>"><?php echo $loop_featured ?></a>
@@ -50,3 +50,5 @@ if ( $projects_count >= 1 ) {
 	</div>
 </article>
 
+<?php } else { $collabora_projects_out = ""; } // end if collaborator has PUBLIC projects
+} // end if collaborator has projects ?>
