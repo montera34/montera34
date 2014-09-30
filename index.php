@@ -8,7 +8,7 @@ global $wp_post_types;
 if ( is_home() ) {
 	// if is home
 	$loop_name = "list";
-	$page_tit = __('We\'ll make your website, only if you need it.','montera34');
+	$page_tit = __('We make projects in the internet, for us and for others. For example:','montera34');
 	$page_subtit = "";
 
 } elseif ( is_search() ) {
