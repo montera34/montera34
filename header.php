@@ -56,7 +56,7 @@ if ( is_single() || is_page() ) {
 	$metatit = MONTERA34_BLOGNAME;
 	$metatype = "website";
 	$metaimg = "http://montera34.com/wp-content/themes/montera34/screenshot.png";
-	$metaperma = QUINCEM_BLOGURL;
+	$metaperma = MONTERA34_BLOGURL;
 }
 ?>
 
@@ -100,7 +100,7 @@ wp_head(); ?>
 	<div id="pre" class="col-md-3">
 		<div id="pre-logo">
 			<a href="<?php echo MONTERA34_BLOGURL ?>" title="<?php _e('Go to home page','montera34'); ?>">
-			<img src="<?php echo MONTERA34_BLOGTHEME . "/images/m34_logo.png"; ?>" alt="montera34 logo" /><br />
+			<img src="<?php echo MONTERA34_BLOGTHEME . '/images/m34_logo.png'; ?>" alt="montera34 logo" /><br />
 			<strong><?php echo MONTERA34_BLOGNAME ?></strong>
 			</a>
 		</div>
