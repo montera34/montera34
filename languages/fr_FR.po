@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: montera34\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-15 10:54+0100\n"
+"POT-Creation-Date: 2014-09-18 23:00+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Cécile Le Galliard <cecile@jusdolive.fr>\n"
-"Language-Team: \n"
+"Last-Translator: skotperez <skotperez@voragine.net>\n"
+"Language-Team: montera34 <info@montera34.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,20 +14,21 @@ msgstr ""
 "X-Poedit-Language: French\n"
 "X-Poedit-Country: FRANCE\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-KeywordsList: __;_e;_n;_n:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../header.php:26
+#: ../header.php:25
 #, php-format
 msgid "Page %s"
 msgstr "Page %s"
 
-#: ../header.php:58
+#: ../header.php:66
 msgid "free software, open data, wordpress, web development, HTML5, twitter API, processing, Linux, Debian, data visualization"
 msgstr "logiciel libre, open data, wordpress, développement web, HTML5, Twitter API, processing, Linux, Debian, visualisation de données"
 
-#: ../header.php:96
+#: ../header.php:102
 msgid "Go to home page"
 msgstr "Aller à la page d'accueil"
 
@@ -382,8 +383,10 @@ msgstr "%s Feed Atom"
 
 #: ../loop.media-list.php:27
 #, php-format
-msgid "<strong>%s projects</strong> with us"
-msgstr "<strong>%s projets</strong> avec nous"
+msgid "<strong>1 project</strong> with us"
+msgid_plural "<strong>%s projects</strong> with us"
+msgstr[0] "<strong>1 projet</strong> avec nous"
+msgstr[1] "<strong>%s projets</strong> avec nous"
 
 #: ../lib/metabox/init.php:258
 msgid "Clear"

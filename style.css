@@ -27,6 +27,7 @@ p a, dd a, #content article ul li a, #content article ol li a {
 	text-decoration: underline;
 }
 a:hover,
+.current-lang a,
 .single-montera34_collabora .post-type-collabora > a,
 .single-montera34_project .post-type-project > a,
 .tax-montera34_type .post-type-project > a,
@@ -42,6 +43,7 @@ a:hover,
 figure {
 	/*border-top:3px solid #000;*/
 }
+#sidebar-right img,
 .single-content img {
 	display: block;
 	max-width: 100%;
@@ -137,6 +139,18 @@ ul#pre-menu,
 .list-item-desc {
 	display: inline;
 }
+.list-item-year:before {
+	content: ' [';
+}
+.list-item-year:after {
+	content: '] ';
+}
+.list-item-img img {
+	border-bottom: 3px solid #000;
+}
+.list-item-img img:hover {
+	border-bottom: 3px solid #fff100;
+}
 .list-home .list-item-tit:after {
 	content: " [+]";
 }
@@ -156,6 +170,9 @@ ul#pre-menu,
 
 .media-collabora {
 	margin-top: 30px;
+}
+.media-list img {
+	margin-bottom: 0;
 }
 .media-footer a {
 	text-decoration: underline;

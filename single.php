@@ -48,15 +48,16 @@ if ( get_post_type() == 'montera34_project' ) {
 	} else { $subtit_link = ""; }
 	// project code repo URL
 	$project_code_repo = get_post_meta( $post->ID, '_montera34_project_card_code_repo', true );
-	if ( !isset($project_code_repo) ) { $card_items[__('Code repository','montera34')] = "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
+	if ( $project_code_repo[0] != '' ) { $card_items[__('Code repository','montera34')] = "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
 	// project code license URL
 	$project_code_license = get_post_meta( $post->ID, '_montera34_project_card_code_license', true );
-	if ( !isset($project_code_license)) { $card_items[__('Code license','montera34')] = "<a href='" .$project_code_license[0]['url']. "'>" .$project_code_license[0]['url_text']. "</a>"; }
+	if ( $project_code_license[0] != '' ) { $card_items[__('Code license','montera34')] = "<a href='" .$project_code_license[0]['url']. "'>" .$project_code_license[0]['url_text']. "</a>"; }
 	// status
 	$project_status = get_post_meta( $post->ID, '_montera34_project_card_status', true );
 	if ( $project_status != '' ) { $card_items[__('Status','montera34')] = $project_status; }
 
-	
+	$project_responsible = "<a href='" .get_author_posts_url( get_the_author_meta( 'ID' ) ). "'>" .get_the_author_meta( 'display_name' ). "</a>";
+	$card_items[__('In charge','montera34')] = $project_responsible;
 
 	// building collaborators section
 	$project_collaboras = get_post_meta( $post->ID, '_montera34_collabora', true );
@@ -64,6 +65,7 @@ if ( get_post_type() == 'montera34_project' ) {
 		$args = array(
 			'posts_per_page' => -1,
 			'post__in' => $project_collaboras,
+			'post_status' => array( 'publish' ),
 			'post_type' => 'montera34_collabora'
 		);
 		$collaboras = get_posts($args);
@@ -167,15 +169,18 @@ if ( get_post_type() == 'montera34_project' ) {
 
 	// projects
 	$collabora_projects = get_post_meta( $post->ID, '_montera34_collabora_projects', true );
-	if ( $collabora_projects != '' ) {
+	if ( count($collabora_projects) >= 1 ) {
 		foreach ( $collabora_projects as $project ) {
 			$project_ids[] = $project['project'];
 		}
 		$args = array(
 			'posts_per_page' => -1,
 			'post__in' => $project_ids,
-			'post_status' => array( 'publish', 'private' ),
-			'post_type' => 'montera34_project'
+			'post_status' => array( 'publish' ),
+			'post_type' => 'montera34_project',
+			'order' => 'DESC',
+			'orderby' => 'meta_value_num title',
+			'meta_key' => '_montera34_project_card_date_ini'
 		);
 		$projects = get_posts($args);
 		$collabora_projects_out = "<section id='projects'><h3>" .sprintf( __('Projects in which %s has collaborated','montera34'), $tit ). "</h3><div class='list'>";
@@ -183,8 +188,11 @@ if ( get_post_type() == 'montera34_project' ) {
 				$project_perma = get_permalink($project->ID);
 				$project_tit = $project->post_title;
 				$project_desc = $project->post_excerpt;
+				$project_year_ini = get_post_meta( $project->ID, '_montera34_project_card_date_ini', true );
+				if ( $project_year_ini != '' ) { $project_year = "<span class='list-item-year'>" .$project_year_ini. "</span>"; }
+				else { $project_year = ""; }
 				if ( has_post_thumbnail($project->ID) ) {
-					$project_img = "<figure><a href=" .$project_perma. ">" .get_the_post_thumbnail($project->ID,'thumbnail',array('class' => 'img-responsive')). "</a></figure>";
+					$project_img = "<figure class='list-item-img'><a href=" .$project_perma. ">" .get_the_post_thumbnail($project->ID,'thumbnail',array('class' => 'img-responsive')). "</a></figure>";
 				} else { $collabora_img = ""; }
 				$project_roles = get_post_meta( $post->ID, '_montera34_collabora_projects', true );
 				foreach ( $project_roles as $rol ) {
@@ -195,7 +203,7 @@ if ( get_post_type() == 'montera34_project' ) {
 					<header><h4 class='list-item-tit'><a href='" .$project_perma. "' title='" .$project_tit. "'>" .$project_tit. "</a></h4>
 					<div class='list-item-desc'>
 						<div class='list-item-rol'>" .__('Rol','montera34'). ": " .$project_rol. "</div>
-						<p>" .$project_desc. "</p>
+						<p>" .$project_desc . $project_year. "</p>
 						" .$project_img. "
 					</div>
 				</div>

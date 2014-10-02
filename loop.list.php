@@ -2,14 +2,14 @@
 // projects list loop
 
 // common vars
-// permalink
 $project_perma = get_permalink();
-// featured image
 if ( has_post_thumbnail() ) {
-	$loop_featured = "<figure><a href=" .$project_perma. ">" .get_the_post_thumbnail($post->ID,'thumbnail',array('class' => 'img-responsive')). "</a></figure>";
+	$loop_featured = "<figure class='list-item-img'><a href=" .$project_perma. ">" .get_the_post_thumbnail($post->ID,'thumbnail',array('class' => 'img-responsive')). "</a></figure>";
 } else { $loop_featured = ""; }
-
 $loop_desc = get_the_excerpt();
+$loop_year_ini = get_post_meta( $post->ID, '_montera34_project_card_date_ini', true );
+if ( $loop_year_ini != '' ) { $loop_year = "<span class='list-item-year'>" .$loop_year_ini. "</span>"; }
+else { $loop_year = ""; }
 
 // vars depending on the view
 if ( is_home() ) {
@@ -48,7 +48,7 @@ if ( is_home() ) {
 	$loop_subtit = "";
 	$terms = get_the_terms($post->ID,'montera34_type');
 	if ( $terms == false ) { $loop_terms = "";  } else {
-		$loop_terms = "<ul class='list-inline'>";
+		$loop_terms = "<ul class='list-item-context list-inline'>";
 		foreach ( $terms as $term ) {
 			$term_tit = $term->name;
 			$term_perma = get_term_link($term);
@@ -58,6 +58,7 @@ if ( is_home() ) {
 	}
 
 }
+
 ?>
 
 <<?php echo $loop_tag ?> class="list-item <?php echo $loop_class ?>">
@@ -66,7 +67,7 @@ if ( is_home() ) {
 		<?php if ( is_user_logged_in() ) { ?><div class="btn btn-xs btn-default pull-right"> <?php edit_post_link(__('Edit This','montera34')); ?></div> <?php } ?>
 	</header>
 	<div class="list-item-text">
-		<div class="list-item-desc"><?php echo $loop_subtit . $loop_desc; ?></div>
+		<div class="list-item-desc"><?php echo $loop_subtit . $loop_desc. " " .$loop_year; ?></div>
 		<?php echo $loop_terms ?>
 	</div>
 	<?php echo $loop_featured ?>

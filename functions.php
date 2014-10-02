@@ -56,6 +56,10 @@ function montera_theme_setup() {
 	// load language files
 	load_theme_textdomain('montera34', get_template_directory(). '/languages');
 
+	// polylang translation plugin functions
+	add_filter('pll_copy_post_metas', 'montera34_translate_copy_post_metas');
+	add_filter('pll_translation_url', 'montera34_author_translation_url', 10, 2);
+
 } // end montera34 theme setup function
 
 
@@ -524,13 +528,24 @@ function montera34_custom_args_for_loops( $query ) {
 		$query->set( 'orderby', array ('meta_value_num' => 'DESC', 'title' => 'ASC' ) );
 		$query->set( 'meta_key','_montera34_collabora_projects_count');
 	}
+	if ( !is_admin() && is_author() && $query->is_main_query() ) {
+		$query->set( 'post_type',array('montera34_project'));
+	}
 	return $query;
 } // END custom args for loops
 
-add_filter('pll_copy_post_metas', 'montera34_translate_copy_post_metas');
+// polylang translation plugin functions
 function montera34_translate_copy_post_metas($metas) {
 	$prefix = "_montera34_";
       return array_merge($metas, array($prefix. 'project_card_date_ini',$prefix. 'project_card_date_end',$prefix. 'project_card_project_url',$prefix. 'project_card_code_repo',$prefix. 'project_card_code_license',$prefix. 'project_card_money',$prefix . 'collabora_firstname',$prefix . 'collabora_lastname',$prefix . 'collabora_url',$prefix . 'collabora_twitter'));
+}
+
+function montera34_author_translation_url($url, $lang) {
+	if (is_author()) {
+		global $polylang;
+		return $polylang->links->get_archive_url($polylang->model->get_language($lang));
+	}
+	return $url;
 }
 
 // Filter body_class function
