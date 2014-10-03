@@ -90,7 +90,6 @@ ul#pre-menu,
 	padding-left: 7px;
 }
 #pre-menu .sub-menu li:before {
-	content: "+ ";
 }
 .nav-pills > li > a {
 	padding:0;
@@ -152,7 +151,6 @@ ul#pre-menu,
 	border-bottom: 3px solid #fff100;
 }
 .list-home .list-item-tit:after {
-	content: " [+]";
 }
 .list-home .list-item-tit a {
 	background-color: #fff100;
