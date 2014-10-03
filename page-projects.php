@@ -18,9 +18,25 @@ get_header(); ?>
 						<tbody>
 							<?php //TODO move this to functions.php
 										$args = array( 
-									 'post_type' => 'montera34_project', 
-									 'posts_per_page' => -1, 
-									 'post_parent' => 0
+											'post_type' => 'montera34_project',
+											'posts_per_page' => -1,
+											'post_parent' => 0,
+											'order' => 'DESC',
+											'orderby' => 'meta_value_num title',
+											'meta_key' => '_montera34_project_card_date_ini',
+									 		'tax_query' => array(
+													array(
+														'taxonomy' => 'montera34_type',
+														'field'    => 'slug',
+														'terms'    => 'desarrollo-web',//TODO localize
+													),
+												),
+											'meta_query' => array(
+												array(
+														'key'     => '_montera34_project_card_code_repo',
+														'compare'   => 'EXISTS', //TODO it must check if 'url' is filled!
+													),
+												),
 										);
 									$my_query = new WP_Query($args);
 								if ( $my_query->have_posts() ) { while ( $my_query->have_posts() ) :  $my_query->the_post(); ?>
@@ -43,11 +59,11 @@ get_header(); ?>
 								</td>
 								<td><?php
 								$project_code_repo = get_post_meta( $post->ID, '_montera34_project_card_code_repo', true );
-								if ( $project_code_repo != '' ) { echo "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
+								if ( !empty($project_code_repo[0]) ) { echo "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
 								?> </td>
 								<td>
-									<span class="label"><?php //echo get_the_term_list( $post->ID, 'montera34_type', ' ', ', ', '' ); ?></span> 
-									<?php $text = get_post_meta( $post->ID, '_montera34_project_card_project_url', true ); echo $text; ?>
+									<?php $text = get_post_meta( $post->ID, '_montera34_project_card_project_url', true );
+										echo "<a href='".$text."'>".$text."</a>"; ?>
 								</td>
 								<td><?php echo get_post_meta( $post->ID, '_montera34_project_card_date_ini', true ); ?>
 								</td>
