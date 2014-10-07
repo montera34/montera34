@@ -68,6 +68,7 @@ if ( is_single() || is_page() ) {
 <meta property="og:title" content="<?php echo $metatit ?>" />
 <meta property="og:type" content="<?php echo $metatype ?>" />
 <meta property="og:description" content="<?php echo $metadesc_fb ?>" />
+<meta property="og:image" content="<?php echo $metaimg ?>" />
 <meta property="og:url" content="<?php echo $metaperma ?>" />
 <!-- twitter meta -->
 <meta name="twitter:card" content="summary_large_image" />
