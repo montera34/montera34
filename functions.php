@@ -183,7 +183,7 @@ function montera34_create_post_type() {
 		'hierarchical' => true, // if true this post type will be as pages
 		'query_var' => 'project',
 		'supports' => array('title', 'editor','excerpt','author','comments','trackbacks','thumbnail','page-attributes','revisions','custom-fields'),
-		'rewrite' => array('slug'=>'project','with_front'=>false),
+		'rewrite' => array('slug'=>'projects','with_front'=>false),
 		'show_ui' => true,
 		'show_in_menu' => true,
 		'can_export' => true,
@@ -215,7 +215,7 @@ function montera34_create_post_type() {
 		'hierarchical' => true, // if true this post type will be as pages
 		'query_var' => 'collaborator',
 		'supports' => array('title', 'editor','excerpt','author','comments','trackbacks','thumbnail','page-attributes','custom_fields'),
-		'rewrite' => array('slug'=>'collaborator','with_front'=>false),
+		'rewrite' => array('slug'=>'collaborators','with_front'=>false),
 		'show_ui' => true,
 		'show_in_menu' => true,
 		'can_export' => true,
