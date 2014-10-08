@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: montera34\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-29 18:07+0100\n"
+"POT-Creation-Date: 2014-10-08 10:52+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: skotperez <skotperez@voragine.net>\n"
 "Language-Team: montera34 <info@montera34.com>\n"
@@ -28,7 +28,7 @@ msgstr "Página %s"
 msgid "free software, open data, wordpress, web development, HTML5, twitter API, processing, Linux, Debian, data visualization"
 msgstr "software libre, datos abiertos, wordpress, desarrollo web, HTML5, Twitter API, processing, Linux, Debian, visualización de datos"
 
-#: ../header.php:102
+#: ../header.php:103
 msgid "Go to home page"
 msgstr "Ir a la portada"
 
@@ -89,37 +89,37 @@ msgstr "Estado"
 msgid "In charge"
 msgstr "Responsable"
 
-#: ../single.php:72
+#: ../single.php:73
 #: ../functions.php:196
 #: ../functions.php:400
 #: ../functions.php:407
 msgid "Collaborators"
 msgstr "Colaboradores"
 
-#: ../single.php:113
+#: ../single.php:114
 msgid "Parent Project"
 msgstr "Proyecto superior"
 
-#: ../single.php:136
+#: ../single.php:137
 msgid "Related Projects"
 msgstr "Proyectos relacionados"
 
-#: ../single.php:157
+#: ../single.php:158
 msgid "Website"
 msgstr "Sitio web"
 
-#: ../single.php:185
+#: ../single.php:186
 #, php-format
 msgid "Projects in which %s has collaborated"
 msgstr "Proyectos en los que %s ha colaborado"
 
-#: ../single.php:204
+#: ../single.php:205
 #: ../functions.php:471
 msgid "Rol"
 msgstr "Rol"
 
-#: ../single.php:220
 #: ../single.php:221
+#: ../single.php:222
 msgid "Back to project"
 msgstr "Volver al proyecto"
 
@@ -128,8 +128,8 @@ msgid "In <strong>montera34</strong> we are"
 msgstr "En <strong>montera34</strong> somos"
 
 #: ../index.php:11
-msgid "We make projects in the internet, for us and for others. For example:"
-msgstr "Desarrollamos proyectos en internet, propios y ajenos. Por ejemplo:"
+msgid "We make projects in the internet, for us and for others. Always with free software. For example:"
+msgstr "Desarrollamos proyectos en internet, propios y ajenos, usando software libre. Por ejemplo:"
 
 #: ../index.php:18
 #, php-format
@@ -177,16 +177,16 @@ msgstr "URL"
 msgid "Year"
 msgstr "Año"
 
-#: ../page-projects.php:40
+#: ../page-projects.php:56
 msgid "Permanent Link to"
 msgstr "Enlace permanente a"
 
-#: ../page-projects.php:42
+#: ../page-projects.php:58
 #: ../loop.list.php:67
 msgid "Edit This"
 msgstr "Editar"
 
-#: ../page-projects.php:66
+#: ../page-projects.php:82
 msgid "No projects."
 msgstr "Ningún proyecto."
 
@@ -393,7 +393,7 @@ msgstr "%s feed RSS"
 msgid "%s Atom Feed"
 msgstr "%s feed Atom"
 
-#: ../loop.media-list.php:27
+#: ../loop.media-list.php:29
 #, php-format
 msgid "<strong>1 project</strong> with us"
 msgid_plural "<strong>%s projects</strong> with us"
