@@ -95,6 +95,9 @@ ul#pre-menu,
 .nav-pills > li > a {
 	padding:0;
 }
+#social-networks {
+	margin-top:15px;
+}
 
 /* lang switcher */
 .pre-lang-switcher {

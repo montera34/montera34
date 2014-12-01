@@ -119,6 +119,10 @@ wp_head(); ?>
 			);
 			//echo '<ul class="pre-lang-switcher">'; pll_the_languages($args); echo '</ul>';
 		} ?>
+		<div id="social-networks">
+			<a href="https://www.facebook.com/pages/Montera34/779543418757603"><img src="<?php echo MONTERA34_BLOGTHEME . '/images/facebook_logo.png'; ?>" /> Facebook</a><br />
+			<a href="https://twitter.com/montera34"><img src="<?php echo MONTERA34_BLOGTHEME . '/images/twitter_logo.png'; ?>" /> Twitter</a>
+		</div>
 	</div> <!-- first side bar --> <!-- #pre -->
 
 	<div id="content" class="col-md-9">
