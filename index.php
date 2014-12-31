@@ -51,12 +51,20 @@ if ( is_author() ) {
 	$author_bio = get_the_author_meta( 'description' );
 	$author_website = get_the_author_meta( 'user_url' );
 	$author_website_out = "<a href='" .$author_website. "'>" .$author_website. "</a>";
+	$author_twitter = get_the_author_meta('twitter');
+		$author_twitter_name = preg_replace('/^\w+:\/\//','',$author_twitter);
+		$author_twitter_name = preg_replace('/\/$/','',$author_twitter_name);
+	$author_twitter_name = preg_replace('/^twitter.com\/([^\/]*)$/','@$1',$author_twitter_name);
+	$author_twitter_out = "<a href='" .$author_twitter. "'>" .$author_twitter_name. "</a>";
+	$author_img = get_the_author_meta('custom_avatar');
+	if ( $author_img == '' ) { $author_img = get_avatar( $author_id, 190 ); }
+	else { $author_img = "<img src='".$author_img."' alt='".$author_name."' />"; }
+	$author_img_out = "<figure>" .$author_img. "</figure>";
 
 	$sidebar_right_out[$author_name] = $author_bio;
 	$sidebar_right_out[__('Website','montera34')] = $author_website_out;
+	$sidebar_right_out['Twitter'] = $author_twitter_out;
 
-	//$author_img_out = get_avatar( $author_id, 190, $author_img, $author_alt );
-	$author_img_out = "<figure>" .get_avatar( $author_id, 190 ). "</figure>";
 } else {
 	$sidebar_right_out = "";
 	$author_img_out = "";

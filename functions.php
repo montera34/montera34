@@ -25,6 +25,9 @@ function montera_theme_setup() {
 	/* Add your nav menus function to the 'init' action hook. */
 	add_action( 'init', 'montera34_register_menus' );
 
+	/* user profile extra field: custom avatar */
+	add_filter('user_contactmethods', 'montera34_user_extra_fields' );
+
 	/* Load JavaScript files on the 'wp_enqueue_scripts' action hook. */
 	add_action( 'wp_enqueue_scripts', 'montera34_load_scripts' );
 
@@ -125,6 +128,13 @@ function montera34_img_caption_shortcode_filter($val, $attr, $content = null)
 	$content = str_replace('<img', '<img itemprop="contentURL"', $content);
 
 	return '<figure id="' . $id . '" aria-describedby="figcaption_' . $id . '" class="wp-caption ' . esc_attr($align) . '" itemscope itemtype="http://schema.org/ImageObject">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="wp-caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
+}
+
+// user profile extra field: custom avatar
+function montera34_user_extra_fields($profile_fields) {
+	$profile_fields['twitter'] = __('Twitter URL','montera34');
+	$profile_fields['custom_avatar'] = __('Custom avatar','montera34');
+	return $profile_fields;
 }
 
 // register custom menus
