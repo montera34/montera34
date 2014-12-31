@@ -53,7 +53,7 @@ if ( is_author() ) {
 	$author_website_out = "<a href='" .$author_website. "'>" .$author_website. "</a>";
 
 	$sidebar_right_out[$author_name] = $author_bio;
-	$sidebar_right_out[__('Sitio web','montera34')] = $author_website_out;
+	$sidebar_right_out[__('Website','montera34')] = $author_website_out;
 
 	//$author_img_out = get_avatar( $author_id, 190, $author_img, $author_alt );
 	$author_img_out = "<figure>" .get_avatar( $author_id, 190 ). "</figure>";

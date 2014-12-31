@@ -100,7 +100,7 @@ wp_head(); ?>
 <div class="row">
 	<div id="pre" class="col-md-3">
 		<div id="pre-logo">
-			<a href="<?php echo MONTERA34_BLOGURL ?>" title="<?php _e('Go to home page','montera34'); ?>">
+			<a href="<?php echo get_home_url(); ?>" title="<?php _e('Go to home page','montera34'); ?>">
 			<img src="<?php echo MONTERA34_BLOGTHEME . '/images/m34_logo.png'; ?>" alt="montera34 logo" /><br />
 			<strong><?php echo MONTERA34_BLOGNAME ?></strong>
 			</a>
@@ -117,7 +117,7 @@ wp_head(); ?>
 			$args = array(
 				'hide_if_no_translation' => 1
 			);
-			//echo '<ul class="pre-lang-switcher">'; pll_the_languages($args); echo '</ul>';
+			echo '<ul class="pre-lang-switcher">'; pll_the_languages($args); echo '</ul>';
 		} ?>
 		<div id="social-networks">
 			<a href="https://www.facebook.com/pages/Montera34/779543418757603"><img src="<?php echo MONTERA34_BLOGTHEME . '/images/facebook_logo.png'; ?>" /> Facebook</a><br />

@@ -1,4 +1,4 @@
-<form method="get" id="searchform" action="<?php echo MONTERA34_BLOGURL; ?>/">
+<form method="get" id="searchform" action="<?php echo get_home_url(); ?>/">
 	<input type="hidden" name="post_type" value="montera34_project" />
 	<label class="sr-only" for="s"><?php _e('Search projects','montera34'); ?></label>
 	<input type="text" value="" name="s" id="s" placeholder="<?php _e('Search projects','montera34'); ?>" />
