@@ -34,9 +34,12 @@ a:hover,
 .type-investigacion .type-investigacion > a,
 .type-consultoria .type-consultoria > a,
 .type-desarrollo-web .type-desarrollo-web > a,
+.type-developpement-web .type-desarrollo-web > a,
+.type-web-development .type-desarrollo-web > a,
 .type-mapas .type-mapas > a,
 .type-diseno .type-diseno > a,
 .type-visualizacion-de-datos .type-visualizacion-de-datos > a,
+.type-visualisation-de-donnes .type-visualizacion-de-datos > a,
 .current-menu-item > a {
 	background-color: #fff100;
 	text-decoration: none !important;
