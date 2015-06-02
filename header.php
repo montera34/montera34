@@ -43,10 +43,20 @@ if ( is_single() || is_page() ) {
 	$metadesc = substr( $metadesc, 0, 154 );
 	$img_id = get_post_thumbnail_id();
 	if ( $img_id != '' ) {
-		$img_array = wp_get_attachment_image_src($img_id,'large', true);
-		$metaimg = $img_array[0];
+		$wp_size = "large";
+		$img_src = wp_get_attachment_image_src($img_id,$wp_size, true);
+		$img_metadata = wp_get_attachment_metadata($img_id);
+		$metaimg = $img_src[0];
+		$metaimg_width = $img_metadata['sizes'][$wp_size]['width'];
+		$metaimg_height = $img_metadata['sizes'][$wp_size]['height'];
+		$metaimg_type = $img_metadata['sizes'][$wp_size]['mime-type'];
+
 	} else {
 		$metaimg = "http://montera34.com/wp-content/themes/montera34/screenshot.png";
+		$metaimg_width = '880';
+		$metaimg_height = '660';
+		$metaimg_type = 'image/png';
+
 	}
 	$metatype = "article";
 	$metaperma = get_permalink();
@@ -58,6 +68,9 @@ if ( is_single() || is_page() ) {
 	$metatit = MONTERA34_BLOGNAME;
 	$metatype = "website";
 	$metaimg = "http://montera34.com/wp-content/themes/montera34/screenshot.png";
+	$metaimg_width = '880';
+	$metaimg_height = '660';
+	$metaimg_type = 'image/png';
 	$metaperma = MONTERA34_BLOGURL;
 }
 ?>
@@ -67,11 +80,16 @@ if ( is_single() || is_page() ) {
 <meta content="<?php echo $metadesc ?>" name="description" />
 <meta content="<?php _e('free software, open data, wordpress, web development, HTML5, twitter API, processing, Linux, Debian, data visualization','montera34' ); ?>" name="keywords" />
 <!-- facebook meta -->
+<meta property="og:site_name" content="Archivo montera34"/>
 <meta property="og:title" content="<?php echo $metatit ?>" />
 <meta property="og:type" content="<?php echo $metatype ?>" />
 <meta property="og:description" content="<?php echo $metadesc_fb ?>" />
 <meta property="og:image" content="<?php echo $metaimg ?>" />
+<meta property="og:image:type" content="<?php echo $metaimg_type ?>" />
+<meta property="og:image:width" content="<?php echo $metaimg_width ?>" />
+<meta property="og:image:height" content="<?php echo $metaimg_height ?>" />
 <meta property="og:url" content="<?php echo $metaperma ?>" />
+<meta property="og:locale" content="<?php echo get_locale(); ?>" />
 <!-- twitter meta -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@montera34">
