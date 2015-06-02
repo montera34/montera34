@@ -33,13 +33,14 @@
 if ( is_single() || is_page() ) {
 	$metadesc = $post->post_excerpt;
 	if ( $metadesc == '' ) { $metadesc = $post->post_content; }
-	$metadesc = wp_strip_all_tags($post->post_content);
+	$metadesc = wp_strip_all_tags($metadesc);
 	$metadesc = strip_shortcodes( $metadesc );
 	$metadesc = str_replace( array('"','\''), '', $metadesc );
 	$metadesc_fb = substr( $metadesc, 0, 297 );
 	$metadesc_tw = substr( $metadesc, 0, 200 );
-	$metadesc = substr( $metadesc, 0, 154 );
 	$metatit = str_replace( array('"','\''), '', $post->post_title );
+	$metadesc = $metatit.": ".$metadesc;
+	$metadesc = substr( $metadesc, 0, 154 );
 	$img_id = get_post_thumbnail_id();
 	if ( $img_id != '' ) {
 		$img_array = wp_get_attachment_image_src($img_id,'large', true);
@@ -63,7 +64,7 @@ if ( is_single() || is_page() ) {
 
 <!-- generic meta -->
 <meta content="montera34" name="author" />
-<meta content="<?php echo MONTERA34_BLOGDESC ?>" name="description" />
+<meta content="<?php echo $metadesc ?>" name="description" />
 <meta content="<?php _e('free software, open data, wordpress, web development, HTML5, twitter API, processing, Linux, Debian, data visualization','montera34' ); ?>" name="keywords" />
 <!-- facebook meta -->
 <meta property="og:title" content="<?php echo $metatit ?>" />
