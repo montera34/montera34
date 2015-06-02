@@ -130,7 +130,7 @@ msgstr "À <strong>montera34</strong> nous sommes"
 
 #: ../index.php:11
 msgid "We make projects in the internet, for us and for others. Always with free software. For example:"
-msgstr "Nous réalisons des projets sur Internet. Nous n'utilisons que des software libres. Par exemple:"
+msgstr "Nous réalisons des projets sur Internet. Nous n'utilisons que des software libres. Quelques exemples:"
 
 #: ../index.php:18
 #, php-format
