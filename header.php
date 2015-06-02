@@ -76,7 +76,6 @@ if ( is_single() || is_page() ) {
 ?>
 
 <!-- generic meta -->
-<meta content="montera34" name="author" />
 <meta content="<?php echo $metadesc ?>" name="description" />
 <meta content="<?php _e('free software, open data, wordpress, web development, HTML5, twitter API, processing, Linux, Debian, data visualization','montera34' ); ?>" name="keywords" />
 <!-- facebook meta -->
@@ -90,6 +89,7 @@ if ( is_single() || is_page() ) {
 <meta property="og:image:height" content="<?php echo $metaimg_height ?>" />
 <meta property="og:url" content="<?php echo $metaperma ?>" />
 <meta property="og:locale" content="<?php echo get_locale(); ?>" />
+<meta property="article:author" content="https://www.facebook.com/skotperez" />
 <!-- twitter meta -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@montera34">
