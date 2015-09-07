@@ -47,8 +47,14 @@ if ( get_post_type() == 'montera34_project' ) {
 		$subtit_url = "<div class='subtit-url'><span class='icon-link'></span> " .$card_items[__('Project URL','montera34')]. "</div>";
 	} else { $subtit_link = ""; }
 	// project code repo URL
-	$project_code_repo = get_post_meta( $post->ID, '_montera34_project_card_code_repo', true );
-	if ( $project_code_repo[0] != '' ) { $card_items[__('Code repository','montera34')] = "<a href='" .$project_code_repo[0]['url']. "'>" .$project_code_repo[0]['url_text']. "</a>"; }
+	$project_code_repo = get_post_meta( $post->ID, '_montera34_project_card_code_repo', false);
+	$repos = $project_code_repo[0];
+	$repos_count = count($project_code_repo[0]);
+	if ( $repos_count != 0 ) {
+		$card_items[__('Code repository','montera34')] = "";
+		$count = 0;
+		while ( $repos_count >> $count ) { $card_items[__('Code repository','montera34')] .= "<a href='" .$repos[$count]['url']. "'>" .$repos[$count]['url_text']. "</a> "; $count++; }
+	}
 	// project code license URL
 	$project_code_license = get_post_meta( $post->ID, '_montera34_project_card_code_license', true );
 	if ( $project_code_license[0] != '' ) { $card_items[__('Code license','montera34')] = "<a href='" .$project_code_license[0]['url']. "'>" .$project_code_license[0]['url_text']. "</a>"; }
