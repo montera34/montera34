@@ -8,7 +8,7 @@ if ( has_post_thumbnail() ) {
 } else { $loop_featured = ""; }
 $loop_desc = get_the_excerpt();
 $loop_year_ini = get_post_meta( $post->ID, '_montera34_project_card_date_ini', true );
-if ( $loop_year_ini != '' ) { $loop_year = "<span class='list-item-year'>" .$loop_year_ini. "</span>"; }
+if ( $loop_year_ini != '' && !is_home() ) { $loop_year = "<span class='list-item-year'>" .$loop_year_ini. "</span>"; }
 else { $loop_year = ""; }
 
 // vars depending on the view
