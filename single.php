@@ -105,48 +105,51 @@ if ( get_post_type() == 'montera34_project' ) {
 	// related projects
 	if ( $post->post_parent != '0' ) {
 	// if project is child
+		$parent = $post->post_parent;
 		$args = array(
-			'post_parent' => $post->post_parent,
+			'post_parent' => $parent,
 			'posts_per_page' => -1,
-			'exclude' => $post->ID,
 			'post_type' => 'montera34_project'
 		);
 		$related_projects = get_posts($args);
 		$related_count = count($related_projects);
 		$related_type = "child";
-		//if ( $related_count == '0' ) { $related_count = 1; }
-		//echo count($related_projects);
-		//print_r($related_projects);
-		$related_out = "<section><h3>" .__('Parent Project','montera34'). "</h3><ul>";
-		$related_out .= "<li><a href='" .get_permalink($post->post_parent). "'>" .get_the_title($post->post_parent). "</a></li>";
-		if ( $related_count != '0' ) {
-			foreach ( $related_projects as $related ) {
-				$related_out .= "<li><a href='" .get_permalink($related->ID). "'>" .$related->post_title. "</a></li>";
-			}
-		}
-		$related_out .= "</ul></section>";
-		echo $related_out;
 	
 	} else {
 	// if project is parent
 		$args = array(
+			'post_status' => array('publish','private'),
 			'post_parent' => $post->ID,
 			'posts_per_page' => -1,
 			'post_type' => 'montera34_project'
 		);
 		$related_projects = get_posts($args);
 		$related_count = count($related_projects);
+		$related_type = "parent";
 	
-		if ( $related_count != '0' ) {
-		// if project has children
-			//echo "Project is parent and has children.";
-			$related_out = "<section><h3>" .__('Related Projects','montera34'). "</h3><ul>";
-			foreach ( $related_projects as $related ) {
-				$related_out .= "<li><a href='" .get_permalink($related->ID). "'>" .$related->post_title. "</a></li>";
-			}
-			$related_out .= "</ul></section>";
-		}
 	} // end if project is parent
+
+	if ( $related_count != '0' ) {
+	// if project has children
+		$related_out = "<aside id='related'><h3 class='tit-upper'>" .__('Related Projects','montera34'). "</h3><ul class='list-unstyled'>";
+		if ( $related_type == 'child' ) {
+			if ( has_post_thumbnail($parent) ) {
+				$rel_img = get_the_post_thumbnail( $parent, 'small', array('class' => 'img-responsive') );
+				$rel_img_out = "<figure class='rel-img'>" .$rel_img. "</figure>";
+			} else { $rel_img_out = ""; }
+			$related_out .= "<li class='rel-item'>".$rel_img_out."<a href='" .get_permalink($parent). "'>" .get_the_title($parent). "</a></li>";
+		}
+		if ( $related_type == 'child' && $related_count == 1 ) {} else {
+			foreach ( $related_projects as $related ) {
+				if ( has_post_thumbnail() ) {
+					$rel_img = get_the_post_thumbnail( $related->ID, 'small', array('class' => 'img-responsive') );
+					$rel_img_out = "<figure class='rel-img'>" .$rel_img. "</figure>";
+				} else { $rel_img_out = ""; }
+				$related_out .= "<li class='rel-item'>".$rel_img_out."<a href='" .get_permalink($related->ID). "'>" .$related->post_title. "</a></li>";
+			}
+		}
+		$related_out .= "</ul></aside>";
+	} else { $related_out = ""; }
 	// end related projects
 	$collabora_img_out = "";
 	$collabora_projects_out = "";

@@ -23,6 +23,9 @@ h1 {
 }
 h2, h3{
 }
+.tit-upper {
+	text-transform: uppercase;
+}
 p a, dd a, #content article ul li a, #content article ol li a {
 	text-decoration: underline;
 }
@@ -181,6 +184,17 @@ ul#pre-menu,
 }
 .media-footer a {
 	text-decoration: underline;
+}
+
+/* single project */
+#related {
+	margin-top: 40px;
+}
+.rel-item {
+	margin-bottom: 1.42em;
+}
+.rel-img img {
+	margin-bottom: 0;
 }
 
 /* footer */
