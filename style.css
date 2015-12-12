@@ -187,11 +187,16 @@ ul#pre-menu,
 }
 
 /* single project */
-#related {
+#related,
+#collaborators,
+#collabora-projects {
 	margin-top: 40px;
 }
 .rel-item {
-	margin-bottom: 1.42em;
+	margin-bottom: 1.4em;
+}
+.rel-item a {
+	text-decoration: none !important;
 }
 .rel-img img {
 	margin-bottom: 0;

@@ -76,7 +76,7 @@ if ( get_post_type() == 'montera34_project' ) {
 		);
 		$collaboras = get_posts($args);
 		if ( count($collaboras) != 0 ) {
-		$collaboras_out = "<section id='collaborators'><h3>" .__('Collaborators','montera34'). "</h3><div class='media-list'>";
+		$collaboras_out = "<section id='collaborators'><h3 class='tit-upper'>" .__('Collaborators','montera34'). "</h3><div class='media-list'>";
 			foreach ( $collaboras as $collabora ) {
 				$collabora_perma = get_permalink($collabora->ID);
 				$collabora_tit = $collabora->post_title;
@@ -192,7 +192,7 @@ if ( get_post_type() == 'montera34_project' ) {
 			'meta_key' => '_montera34_project_card_date_ini'
 		);
 		$projects = get_posts($args);
-		$collabora_projects_out = "<section id='projects'><h3>" .sprintf( __('Projects in which %s has collaborated','montera34'), $tit ). "</h3><div class='list'>";
+		$collabora_projects_out = "<section id='collabora-projects'><h3 class='tit-upper'>" .sprintf( __('Projects in which %s has collaborated','montera34'), $tit ). "</h3><div class='list'>";
 			foreach ( $projects as $project ) {
 				$project_perma = get_permalink($project->ID);
 				$project_tit = $project->post_title;
