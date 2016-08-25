@@ -109,6 +109,7 @@ if ( get_post_type() == 'montera34_project' ) {
 		$args = array(
 			'post_parent' => $parent,
 			'posts_per_page' => -1,
+			'exclude' => $post->ID,
 			'post_type' => 'montera34_project'
 		);
 		$related_projects = get_posts($args);
@@ -118,7 +119,7 @@ if ( get_post_type() == 'montera34_project' ) {
 	} else {
 	// if project is parent
 		$args = array(
-			'post_status' => array('publish','private'),
+//			'post_status' => array('publish','private'),
 			'post_parent' => $post->ID,
 			'posts_per_page' => -1,
 			'post_type' => 'montera34_project'
@@ -129,7 +130,7 @@ if ( get_post_type() == 'montera34_project' ) {
 	
 	} // end if project is parent
 
-	if ( $related_count != '0' ) {
+	if ( $related_count != '0' || $related_count == '0' && $related_type == 'child' ) {
 	// if project has children
 		$related_out = "<aside id='related'><h3 class='tit-upper'>" .__('Related Projects','montera34'). "</h3><ul class='list-unstyled'>";
 		if ( $related_type == 'child' ) {
@@ -139,14 +140,12 @@ if ( get_post_type() == 'montera34_project' ) {
 			} else { $rel_img_out = ""; }
 			$related_out .= "<li class='rel-item'>".$rel_img_out."<a href='" .get_permalink($parent). "'>" .get_the_title($parent). "</a></li>";
 		}
-		if ( $related_type == 'child' && $related_count == 1 ) {} else {
-			foreach ( $related_projects as $related ) {
-				if ( has_post_thumbnail() ) {
-					$rel_img = get_the_post_thumbnail( $related->ID, 'small', array('class' => 'img-responsive') );
-					$rel_img_out = "<figure class='rel-img'>" .$rel_img. "</figure>";
-				} else { $rel_img_out = ""; }
-				$related_out .= "<li class='rel-item'>".$rel_img_out."<a href='" .get_permalink($related->ID). "'>" .$related->post_title. "</a></li>";
-			}
+		foreach ( $related_projects as $related ) {
+			if ( has_post_thumbnail() ) {
+				$rel_img = get_the_post_thumbnail( $related->ID, 'small', array('class' => 'img-responsive') );
+				$rel_img_out = "<figure class='rel-img'>" .$rel_img. "</figure>";
+			} else { $rel_img_out = ""; }
+			$related_out .= "<li class='rel-item'>".$rel_img_out."<a href='" .get_permalink($related->ID). "'>" .$related->post_title. "</a></li>";
 		}
 		$related_out .= "</ul></aside>";
 	} else { $related_out = ""; }
