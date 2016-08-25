@@ -52,7 +52,7 @@ if ( is_single() || is_page() ) {
 		$metaimg_type = $img_metadata['sizes'][$wp_size]['mime-type'];
 
 	} else {
-		$metaimg = "http://montera34.com/wp-content/themes/montera34/screenshot.png";
+		$metaimg = "https://montera34.com/wp-content/themes/montera34/screenshot.png";
 		$metaimg_width = '880';
 		$metaimg_height = '660';
 		$metaimg_type = 'image/png';
@@ -67,7 +67,7 @@ if ( is_single() || is_page() ) {
 	$metadesc_fb = MONTERA34_BLOGDESC;
 	$metatit = MONTERA34_BLOGNAME;
 	$metatype = "website";
-	$metaimg = "http://montera34.com/wp-content/themes/montera34/screenshot.png";
+	$metaimg = "https://montera34.com/wp-content/themes/montera34/screenshot.png";
 	$metaimg_width = '880';
 	$metaimg_height = '660';
 	$metaimg_type = 'image/png';
