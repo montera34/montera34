@@ -17,6 +17,12 @@ Tags: HTML5, CSS3
 	http://www.opensource.org/licenses/gpl-license.php
 
 */
+
+.hide-text {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+   }
 h1 {
 	font-weight: normal;
 	margin-bottom: 0;
@@ -103,6 +109,13 @@ ul#pre-menu,
 }
 #social-networks {
 	margin-top:15px;
+}
+#social-networks a {
+	margin-left: 10px;
+}
+#social-networks a:hover {
+	color: #fff100;
+	background-color: transparent;
 }
 
 /* lang switcher */

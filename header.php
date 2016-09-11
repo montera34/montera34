@@ -139,9 +139,10 @@ wp_head(); ?>
 			);
 			echo '<ul class="pre-lang-switcher">'; pll_the_languages($args); echo '</ul>';
 		} ?>
-		<div id="social-networks">
-			<a href="https://www.facebook.com/pages/Montera34/779543418757603"><img src="<?php echo MONTERA34_BLOGTHEME . '/images/facebook_logo.png'; ?>" /> Facebook</a><br />
-			<a href="https://twitter.com/montera34"><img src="<?php echo MONTERA34_BLOGTHEME . '/images/twitter_logo.png'; ?>" /> Twitter</a>
+			<div id="social-networks"><?php _e('Montera34 in','montera34'); ?>
+			<a href="https://www.facebook.com/montera34" title="Montera34 Facebook"><i class='fa fa-facebook'></i></a>
+			<a href="https://twitter.com/montera34" title="Montera34 Twitter"><i class='fa fa-twitter'></i></a>
+			<a href="https://plus.google.com/+Montera34" title="Montera34 Google Plus"><i class='fa fa-google-plus'></i></a>
 		</div>
 	</div> <!-- first side bar --> <!-- #pre -->
 

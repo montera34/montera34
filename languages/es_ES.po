@@ -2,134 +2,272 @@ msgid ""
 msgstr ""
 "Project-Id-Version: montera34\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-08 10:52+0100\n"
+"POT-Creation-Date: 2016-09-11 16:07+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: skotperez <skotperez@voragine.net>\n"
+"Last-Translator: Alfonso Sánchez Uzábal <skotperez@voragine.net>\n"
 "Language-Team: montera34 <info@montera34.com>\n"
-"Language: \n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: __;_e;_n;_n:1,2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
+
+#: ../footer.php:6
+msgid "In <strong>montera34</strong> we are"
+msgstr "En <strong>montera34</strong> somos"
+
+#: ../functions.php:93
+msgid "Icon"
+msgstr "Icono"
+
+#: ../functions.php:94
+msgid "Big Icon"
+msgstr "Icono grande"
+
+#: ../functions.php:95
+msgid "Small"
+msgstr "Pequeña"
+
+#: ../functions.php:96
+msgid "Extra Large"
+msgstr "Muy grande"
+
+#: ../functions.php:135 ../functions.php:459
+#: ../lib/metabox/example-functions.php:356
+msgid "Twitter URL"
+msgstr "URL de Twitter"
+
+#: ../functions.php:136
+msgid "Custom avatar"
+msgstr "Avatar personalizado"
+
+#: ../functions.php:145
+msgid "Sidebar menu"
+msgstr "Menú de la barra lateral"
+
+#: ../functions.php:146
+msgid "Footer menu"
+msgstr "Menú del pie de página"
+
+#: ../functions.php:178 ../functions.php:467
+msgid "Projects"
+msgstr "Proyectos"
+
+#: ../functions.php:179 ../functions.php:477
+msgid "Project"
+msgstr "Proyecto"
+
+#: ../functions.php:180
+msgid "Add a project"
+msgstr "Añadir proyecto"
+
+#: ../functions.php:181 ../functions.php:213
+msgid "Edit"
+msgstr "Editar"
+
+#: ../functions.php:182
+msgid "Edit this project"
+msgstr "Editar este proyecto"
+
+#: ../functions.php:183
+msgid "New project"
+msgstr "Nuevo proyecto"
+
+#: ../functions.php:184
+msgid "View project"
+msgstr "Ver proyecto"
+
+#: ../functions.php:185
+msgid "View this project"
+msgstr "Ver este proyecto"
+
+#: ../functions.php:186
+msgid "Search project"
+msgstr "Buscar proyectos"
+
+#: ../functions.php:187
+msgid "No project found"
+msgstr "Ningún proyecto encontrado"
+
+#: ../functions.php:188
+msgid "No projects in trash"
+msgstr "Ningún proyecto en la papelera"
+
+#: ../functions.php:189 ../functions.php:221
+msgid "Parent"
+msgstr "Superior"
+
+#: ../functions.php:210 ../functions.php:414 ../functions.php:421
+#: ../single.php:79
+msgid "Collaborators"
+msgstr "Colaboradores"
+
+#: ../functions.php:211
+msgid "Collaborator"
+msgstr "Colaborador"
+
+#: ../functions.php:212
+msgid "Add a collaborator"
+msgstr "Añadir colaborador"
+
+#: ../functions.php:214
+msgid "Edit this collaborator"
+msgstr "Editar este colaborador"
+
+#: ../functions.php:215
+msgid "New collaborator"
+msgstr "Nuevo colaborador"
+
+#: ../functions.php:216
+msgid "View collaborator"
+msgstr "Ver colaborador"
+
+#: ../functions.php:217
+msgid "View this collaborator"
+msgstr "Ver este colaborador"
+
+#: ../functions.php:218
+msgid "Search collaborator"
+msgstr "Buscar colaboradores"
+
+#: ../functions.php:219
+msgid "No collaborator found"
+msgstr "Ningún colaborador encontrado"
+
+#: ../functions.php:220
+msgid "No collaborators in trash"
+msgstr "Ningún colaborador en la papelera"
+
+#: ../functions.php:245 ../page-projects.php:15 ../single.php:19
+msgid "Type"
+msgstr "Tipo"
+
+#: ../functions.php:246
+msgid "Types"
+msgstr "Tipos"
+
+#: ../functions.php:253
+msgid "Technology"
+msgstr "Tecnología"
+
+#: ../functions.php:254 ../single.php:20
+msgid "Technologies"
+msgstr "Tecnología"
+
+#: ../functions.php:295
+msgid "Show at home page"
+msgstr "Mostrar en la portada"
+
+#: ../functions.php:312
+msgid "Project card"
+msgstr "Ficha del proyecto"
+
+#: ../functions.php:319
+msgid "Project beginning"
+msgstr "Inicio del proyecto"
+
+#: ../functions.php:325
+msgid "Project ending"
+msgstr "Fin del proyecto"
+
+#: ../functions.php:331
+msgid "Project status"
+msgstr "Estado"
+
+#: ../functions.php:340 ../single.php:46 ../single.php:47
+msgid "Project URL"
+msgstr "URL del proyecto"
+
+#: ../functions.php:349
+msgid "Code repo URL"
+msgstr "URL del repositorio de código"
+
+#: ../functions.php:351
+msgid "Project code"
+msgstr "Código del proyecto"
+
+#: ../functions.php:358 ../functions.php:381
+msgid "URL text"
+msgstr "Texto de la URL"
+
+#: ../functions.php:373
+msgid "Code license URL"
+msgstr "URL de la licencia del código"
+
+#: ../functions.php:375 ../single.php:60
+msgid "Code license"
+msgstr "Licencia del código"
+
+#: ../functions.php:394
+msgid "Budget"
+msgstr "Presupuesto"
+
+#: ../functions.php:401
+msgid "Client. Name, and URL if any"
+msgstr "Cliente. Nombre, y URL si existe"
+
+#: ../functions.php:434
+msgid "Collaborator data"
+msgstr "Datos del colaborador"
+
+#: ../functions.php:441
+msgid "First name"
+msgstr "Nombre"
+
+#: ../functions.php:447
+msgid "Last name"
+msgstr "Apellidos"
+
+#: ../functions.php:469
+msgid "Project {#}"
+msgstr "Proyecto {#}"
+
+#: ../functions.php:470
+msgid "Add Another Project"
+msgstr "Añadir otro proyecto"
+
+#: ../functions.php:471
+msgid "Remove Project"
+msgstr "Eliminar proyecto"
+
+#: ../functions.php:485 ../single.php:213
+msgid "Rol"
+msgstr "Rol"
 
 #: ../header.php:25
 #, php-format
 msgid "Page %s"
 msgstr "Página %s"
 
-#: ../header.php:66
-msgid "free software, open data, wordpress, web development, HTML5, twitter API, processing, Linux, Debian, data visualization"
-msgstr "software libre, datos abiertos, wordpress, desarrollo web, HTML5, Twitter API, processing, Linux, Debian, visualización de datos"
+#: ../header.php:80
+msgid ""
+"free software, open data, wordpress, web development, HTML5, twitter API, "
+"processing, Linux, Debian, data visualization"
+msgstr ""
+"software libre, datos abiertos, wordpress, desarrollo web, HTML5, Twitter "
+"API, processing, Linux, Debian, visualización de datos"
 
-#: ../header.php:103
+#: ../header.php:123
 msgid "Go to home page"
 msgstr "Ir a la portada"
 
-#: ../searchform.php:3
-#: ../searchform.php:4
-msgid "Search projects"
-msgstr "Buscar proyectos"
-
-#: ../single.php:19
-#: ../page-projects.php:15
-#: ../functions.php:231
-msgid "Type"
-msgstr "Tipo"
-
-#: ../single.php:20
-#: ../functions.php:240
-msgid "Technologies"
-msgstr "Tecnología"
-
-#: ../single.php:29
-#, php-format
-msgid "More projects in %s"
-msgstr "Más proyectos en %s"
-
-#: ../single.php:38
-#: ../single.php:39
-msgid "Year of publication"
-msgstr "Año de publicación"
-
-#: ../single.php:42
-msgid "Client"
-msgstr "Cliente"
-
-#: ../single.php:46
-#: ../single.php:47
-#: ../functions.php:326
-msgid "Project URL"
-msgstr "URL del proyecto"
-
-#: ../single.php:46
-msgid "Go to this project website"
-msgstr "Ir a la web del proyecto"
-
-#: ../single.php:51
-msgid "Code repository"
-msgstr "Repositorio de código"
-
-#: ../single.php:54
-#: ../functions.php:361
-msgid "Code license"
-msgstr "Licencia del código"
-
-#: ../single.php:57
-msgid "Status"
-msgstr "Estado"
-
-#: ../single.php:60
-msgid "In charge"
-msgstr "Responsable"
-
-#: ../single.php:73
-#: ../functions.php:196
-#: ../functions.php:400
-#: ../functions.php:407
-msgid "Collaborators"
-msgstr "Colaboradores"
-
-#: ../single.php:114
-msgid "Parent Project"
-msgstr "Proyecto superior"
-
-#: ../single.php:137
-msgid "Related Projects"
-msgstr "Proyectos relacionados"
-
-#: ../single.php:158
-msgid "Website"
-msgstr "Sitio web"
-
-#: ../single.php:186
-#, php-format
-msgid "Projects in which %s has collaborated"
-msgstr "Proyectos en los que %s ha colaborado"
-
-#: ../single.php:205
-#: ../functions.php:471
-msgid "Rol"
-msgstr "Rol"
-
-#: ../single.php:221
-#: ../single.php:222
-msgid "Back to project"
-msgstr "Volver al proyecto"
-
-#: ../footer.php:6
-msgid "In <strong>montera34</strong> we are"
-msgstr "En <strong>montera34</strong> somos"
+#: ../header.php:142
+msgid "Montera34 in"
+msgstr "Montera34 en"
 
 #: ../index.php:11
-msgid "We make projects in the internet, for us and for others. Always with free software. For example:"
-msgstr "Desarrollamos proyectos en internet, propios y ajenos, usando software libre. Por ejemplo:"
+msgid ""
+"We make projects in the internet, for us and for others. Always with free "
+"software. For example:"
+msgstr ""
+"Desarrollamos proyectos en internet, propios y ajenos, usando software "
+"libre. Por ejemplo:"
 
 #: ../index.php:18
 #, php-format
@@ -148,281 +286,13 @@ msgstr "por año de publicación."
 msgid "by number of projects."
 msgstr "por número de proyectos."
 
-#: ../index.php:56
-msgid "Sitio web"
+#: ../index.php:65 ../single.php:166
+msgid "Website"
 msgstr "Sitio web"
 
-#: ../index.php:81
+#: ../index.php:89
 msgid "No content."
 msgstr "Ningún contenido."
-
-#: ../old-footer.php:3
-#, php-format
-msgid "%d queries. %s seconds."
-msgstr "%d queries. %s segundos."
-
-#: ../page-projects.php:11
-msgid "Name"
-msgstr "Nombre"
-
-#: ../page-projects.php:12
-msgid "Code Repository"
-msgstr "Repositorio de código"
-
-#: ../page-projects.php:13
-msgid "URL"
-msgstr "URL"
-
-#: ../page-projects.php:14
-msgid "Year"
-msgstr "Año"
-
-#: ../page-projects.php:56
-msgid "Permanent Link to"
-msgstr "Enlace permanente a"
-
-#: ../page-projects.php:58
-#: ../loop.list.php:67
-msgid "Edit This"
-msgstr "Editar"
-
-#: ../page-projects.php:82
-msgid "No projects."
-msgstr "Ningún proyecto."
-
-#: ../functions.php:90
-msgid "Icon"
-msgstr "Icono"
-
-#: ../functions.php:91
-msgid "Big Icon"
-msgstr "Icono grande"
-
-#: ../functions.php:92
-msgid "Small"
-msgstr "Pequeña"
-
-#: ../functions.php:93
-msgid "Extra Large"
-msgstr "Muy grande"
-
-#: ../functions.php:135
-msgid "Sidebar menu"
-msgstr "Menú de la barra lateral"
-
-#: ../functions.php:136
-msgid "Footer menu"
-msgstr "Menú del pie de página"
-
-#: ../functions.php:164
-#: ../functions.php:453
-msgid "Projects"
-msgstr "Proyectos"
-
-#: ../functions.php:165
-#: ../functions.php:463
-msgid "Project"
-msgstr "Proyecto"
-
-#: ../functions.php:166
-msgid "Add a project"
-msgstr "Añadir proyecto"
-
-#: ../functions.php:167
-#: ../functions.php:199
-msgid "Edit"
-msgstr "Editar"
-
-#: ../functions.php:168
-msgid "Edit this project"
-msgstr "Editar este proyecto"
-
-#: ../functions.php:169
-msgid "New project"
-msgstr "Nuevo proyecto"
-
-#: ../functions.php:170
-msgid "View project"
-msgstr "Ver proyecto"
-
-#: ../functions.php:171
-msgid "View this project"
-msgstr "Ver este proyecto"
-
-#: ../functions.php:172
-msgid "Search project"
-msgstr "Buscar proyectos"
-
-#: ../functions.php:173
-msgid "No project found"
-msgstr "Ningún proyecto encontrado"
-
-#: ../functions.php:174
-msgid "No projects in trash"
-msgstr "Ningún proyecto en la papelera"
-
-#: ../functions.php:175
-#: ../functions.php:207
-msgid "Parent"
-msgstr "Superior"
-
-#: ../functions.php:197
-msgid "Collaborator"
-msgstr "Colaborador"
-
-#: ../functions.php:198
-msgid "Add a collaborator"
-msgstr "Añadir colaborador"
-
-#: ../functions.php:200
-msgid "Edit this collaborator"
-msgstr "Editar este colaborador"
-
-#: ../functions.php:201
-msgid "New collaborator"
-msgstr "Nuevo colaborador"
-
-#: ../functions.php:202
-msgid "View collaborator"
-msgstr "Ver colaborador"
-
-#: ../functions.php:203
-msgid "View this collaborator"
-msgstr "Ver este colaborador"
-
-#: ../functions.php:204
-msgid "Search collaborator"
-msgstr "Buscar colaboradores"
-
-#: ../functions.php:205
-msgid "No collaborator found"
-msgstr "Ningún colaborador encontrado"
-
-#: ../functions.php:206
-msgid "No collaborators in trash"
-msgstr "Ningún colaborador en la papelera"
-
-#: ../functions.php:232
-msgid "Types"
-msgstr "Tipos"
-
-#: ../functions.php:239
-msgid "Technology"
-msgstr "Tecnología"
-
-#: ../functions.php:281
-msgid "Show at home page"
-msgstr "Mostrar en la portada"
-
-#: ../functions.php:298
-msgid "Project card"
-msgstr "Ficha del proyecto"
-
-#: ../functions.php:305
-msgid "Project beginning"
-msgstr "Inicio del proyecto"
-
-#: ../functions.php:311
-msgid "Project ending"
-msgstr "Fin del proyecto"
-
-#: ../functions.php:317
-msgid "Project status"
-msgstr "Estado"
-
-#: ../functions.php:335
-msgid "Code repo URL"
-msgstr "URL del repositorio de código"
-
-#: ../functions.php:337
-msgid "Project code"
-msgstr "Código del proyecto"
-
-#: ../functions.php:344
-#: ../functions.php:367
-msgid "URL text"
-msgstr "Texto de la URL"
-
-#: ../functions.php:359
-msgid "Code license URL"
-msgstr "URL de la licencia del código"
-
-#: ../functions.php:380
-msgid "Budget"
-msgstr "Presupuesto"
-
-#: ../functions.php:387
-msgid "Client. Name, and URL if any"
-msgstr "Cliente. Nombre, y URL si existe"
-
-#: ../functions.php:420
-msgid "Collaborator data"
-msgstr "Datos del colaborador"
-
-#: ../functions.php:427
-msgid "First name"
-msgstr "Nombre"
-
-#: ../functions.php:433
-msgid "Last name"
-msgstr "Apellidos"
-
-#: ../functions.php:445
-msgid "Twitter URL"
-msgstr "URL de Twitter"
-
-#: ../functions.php:455
-msgid "Project {#}"
-msgstr "Proyecto {#}"
-
-#: ../functions.php:456
-msgid "Add Another Project"
-msgstr "Añadir otro proyecto"
-
-#: ../functions.php:457
-msgid "Remove Project"
-msgstr "Eliminar proyecto"
-
-#: ../old-header.php:17
-#, php-format
-msgid "%s RSS Feed"
-msgstr "%s feed RSS"
-
-#: ../old-header.php:18
-#, php-format
-msgid "%s Atom Feed"
-msgstr "%s feed Atom"
-
-#: ../loop.media-list.php:29
-#, php-format
-msgid "<strong>1 project</strong> with us"
-msgid_plural "<strong>%s projects</strong> with us"
-msgstr[0] "<strong>1 proyecto</strong> con nosotros"
-msgstr[1] "<strong>%s proyectos</strong> con nosotros"
-
-#: ../lib/metabox/init.php:258
-msgid "Clear"
-msgstr "Limpiar"
-
-#: ../lib/metabox/init.php:259
-msgid "Default"
-msgstr "Por omisión"
-
-#: ../lib/metabox/init.php:260
-msgid "Select Color"
-msgstr "Seleccionar color"
-
-#: ../lib/metabox/init.php:261
-msgid "Current Color"
-msgstr "Color actual"
-
-#: ../lib/metabox/init.php:288
-msgid "Select / Deselect All"
-msgstr "Seleccionar / Deseleccionar todo"
-
-#: ../lib/metabox/init.php:1177
-msgid "Save"
-msgstr "Guardar"
 
 #: ../lib/metabox/example-functions.php:28
 msgid "Test Metabox"
@@ -620,8 +490,14 @@ msgid "oEmbed"
 msgstr "oEmbed"
 
 #: ../lib/metabox/example-functions.php:250
-msgid "Enter a youtube, twitter, or instagram URL. Supports services listed at <a href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/Embeds</a>."
-msgstr "Añadir una URL de youtube, twitter o instagram. Lista completa de servicios soportados: <a href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/Embeds</a>."
+msgid ""
+"Enter a youtube, twitter, or instagram URL. Supports services listed at <a "
+"href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/"
+"Embeds</a>."
+msgstr ""
+"Añadir una URL de youtube, twitter o instagram. Lista completa de servicios "
+"soportados: <a href=\"http://codex.wordpress.org/Embeds\">http://codex."
+"wordpress.org/Embeds</a>."
 
 #: ../lib/metabox/example-functions.php:262
 msgid "About Page Metabox"
@@ -683,14 +559,6 @@ msgstr "Opciones del theme"
 msgid "Site Background Color"
 msgstr "Color de fondo del sitio"
 
-#: ../lib/metabox/helpers/cmb_Meta_Box_field.php:459
-msgid "Add Group"
-msgstr "Añadir gupo"
-
-#: ../lib/metabox/helpers/cmb_Meta_Box_field.php:460
-msgid "Remove Group"
-msgstr "Eliminar grupo"
-
 #: ../lib/metabox/helpers/cmb_Meta_Box_ajax.php:47
 msgid "Please Try Again"
 msgstr "Por favor, inténtalo de nuevo"
@@ -703,6 +571,14 @@ msgstr "Eliminar Embed"
 #, php-format
 msgid "No oEmbed Results Found for %s. View more info at"
 msgstr "Ningún oEmbed encontrado para %s. Ver más en"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_field.php:459
+msgid "Add Group"
+msgstr "Añadir gupo"
+
+#: ../lib/metabox/helpers/cmb_Meta_Box_field.php:460
+msgid "Remove Group"
+msgstr "Eliminar grupo"
 
 #: ../lib/metabox/helpers/cmb_Meta_Box_types.php:250
 msgid "Add Row"
@@ -739,6 +615,140 @@ msgstr "Archivo:"
 msgid "Download"
 msgstr "Descargar"
 
+#: ../lib/metabox/init.php:258
+msgid "Clear"
+msgstr "Limpiar"
+
+#: ../lib/metabox/init.php:259
+msgid "Default"
+msgstr "Por omisión"
+
+#: ../lib/metabox/init.php:260
+msgid "Select Color"
+msgstr "Seleccionar color"
+
+#: ../lib/metabox/init.php:261
+msgid "Current Color"
+msgstr "Color actual"
+
+#: ../lib/metabox/init.php:288
+msgid "Select / Deselect All"
+msgstr "Seleccionar / Deseleccionar todo"
+
+#: ../lib/metabox/init.php:1177
+msgid "Save"
+msgstr "Guardar"
+
+#: ../loop.list.php:67 ../page-projects.php:58
+msgid "Edit This"
+msgstr "Editar"
+
+#: ../loop.media-list.php:29
+#, php-format
+msgid "<strong>1 project</strong> with us"
+msgid_plural "<strong>%s projects</strong> with us"
+msgstr[0] "<strong>1 proyecto</strong> con nosotros"
+msgstr[1] "<strong>%s proyectos</strong> con nosotros"
+
+#: ../old-footer.php:3
+#, php-format
+msgid "%d queries. %s seconds."
+msgstr "%d queries. %s segundos."
+
+#: ../old-header.php:17
+#, php-format
+msgid "%s RSS Feed"
+msgstr "%s feed RSS"
+
+#: ../old-header.php:18
+#, php-format
+msgid "%s Atom Feed"
+msgstr "%s feed Atom"
+
+#: ../page-blog-feeds.php:29 ../page-blog-feeds.php:54
+msgid "No items"
+msgstr "Ningún elemento"
+
+#: ../page-blog-feeds.php:35 ../page-blog-feeds.php:61
+#, php-format
+msgid "Posted %s"
+msgstr ""
+
+#: ../page-projects.php:11
+msgid "Name"
+msgstr "Nombre"
+
+#: ../page-projects.php:12
+msgid "Code Repository"
+msgstr "Repositorio de código"
+
+#: ../page-projects.php:13
+msgid "URL"
+msgstr "URL"
+
+#: ../page-projects.php:14
+msgid "Year"
+msgstr "Año"
+
+#: ../page-projects.php:56
+msgid "Permanent Link to"
+msgstr "Enlace permanente a"
+
+#: ../page-projects.php:82
+msgid "No projects."
+msgstr "Ningún proyecto."
+
+#: ../searchform.php:3 ../searchform.php:4
+msgid "Search projects"
+msgstr "Buscar proyectos"
+
+#: ../single.php:29
+#, php-format
+msgid "More projects in %s"
+msgstr "Más proyectos en %s"
+
+#: ../single.php:38 ../single.php:39
+msgid "Year of publication"
+msgstr "Año de publicación"
+
+#: ../single.php:42
+msgid "Client"
+msgstr "Cliente"
+
+#: ../single.php:46
+msgid "Go to this project website"
+msgstr "Ir a la web del proyecto"
+
+#: ../single.php:54 ../single.php:56
+msgid "Code repository"
+msgstr "Repositorio de código"
+
+#: ../single.php:63
+msgid "Status"
+msgstr "Estado"
+
+#: ../single.php:66
+msgid "In charge"
+msgstr "Responsable"
+
+#: ../single.php:135
+msgid "Related Projects"
+msgstr "Proyectos relacionados"
+
+#: ../single.php:194
+#, php-format
+msgid "Projects in which %s has collaborated"
+msgstr "Proyectos en los que %s ha colaborado"
+
+#: ../single.php:229 ../single.php:230
+msgid "Back to project"
+msgstr "Volver al proyecto"
+
+#~ msgid "Parent Project"
+#~ msgstr "Proyecto superior"
+
+#~ msgid "Sitio web"
+#~ msgstr "Sitio web"
+
 #~ msgid "We'll make your website, only if you need it."
 #~ msgstr "Desarrollamos tu sitio web, solo si lo necesitas"
-
