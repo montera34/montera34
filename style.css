@@ -1,14 +1,14 @@
 /*
 Theme Name: montera34
-Theme URI: http://montera34.com
-Description: Tema desarrollado para la página de montera34.
+Theme URI: https://montera34.com
+Description: Tema desarrollado para el sitio web de Montera34.
 Version: 0.1
 Author: montera34
-Author URI: http://montera34.com
+Author URI: https://montera34.com
 Tags: HTML5, CSS3
 
 	montera34 v0.1
-	 http://montera34.com
+	 https://montera34.com
 
 	This theme was designed and built by montera34,
 	whose blog you will find at http://montera34.com/
@@ -27,7 +27,8 @@ h1 {
 	font-weight: normal;
 	margin-bottom: 0;
 }
-h2, h3{
+h4 {
+	text-transform: uppercase;
 }
 .tit-upper {
 	text-transform: uppercase;
@@ -153,6 +154,7 @@ ul#pre-menu,
 	margin-bottom: 4em;
 }
 .list-item-tit {
+	font-size: 14px;
 	margin: 0;
 }
 .list-item-text {
@@ -191,6 +193,9 @@ ul#pre-menu,
 
 .media-collabora {
 	margin-top: 30px;
+}
+.media-collabora h2 {
+	font-size: 14px;
 }
 .media-list img {
 	margin-bottom: 0;
