@@ -94,7 +94,7 @@ function montera34_custom_sizes( $sizes ) {
         'icon' => __('Icon','montera34'),
         'bigicon' => __('Big Icon','montera34'),
         'small' => __('Small','montera34'),
-        'small' => __('Newsletter','montera34'),
+        'newsletter' => __('Newsletter','montera34'),
         'extralarge' => __('Extra Large','montera34'),
     ) );
 }
