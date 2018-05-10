@@ -76,6 +76,7 @@ function montera34_media_options() {
 	add_image_size( 'icon', '32', '32', true );
 	add_image_size( 'bigicon', '64', '64', true );
 	add_image_size( 'small', '263', '0', false );
+	add_image_size( 'newsletter', '500', '0', false );
 	add_image_size( 'extralarge', '1200', '0', false );
 
 	/* set up image sizes*/
@@ -93,6 +94,7 @@ function montera34_custom_sizes( $sizes ) {
         'icon' => __('Icon','montera34'),
         'bigicon' => __('Big Icon','montera34'),
         'small' => __('Small','montera34'),
+        'small' => __('Newsletter','montera34'),
         'extralarge' => __('Extra Large','montera34'),
     ) );
 }
