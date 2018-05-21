@@ -24,7 +24,10 @@ if ( count($collabora_projects) >= 1 ) {
 		// featured image
 		if ( has_post_thumbnail() ) {
 			$loop_featured = get_the_post_thumbnail($post->ID,'bigicon',array('class' => 'img-responsive'));
-		} else { $loop_featured = ""; }
+			$loop_featured_out = '<a class="pull-left" href="'.$loop_perma.'">'.$loop_featured.'</a>';
+		} else {
+			$loop_featured_out = '<div class="pull-left" style="width: 64px; margin: 0 10px 10px 0; text-align: center;"><i class="fa fa-user-secret fa-4x" aria-hidden="true"></i></div>';
+		}
 
 		$collabora_projects_out = sprintf( _n('<strong>1 project</strong> with us','<strong>%s projects</strong> with us',$public_projects_count,'montera34' ),$public_projects_count). ": ";
 			foreach ( $public_projects as $project ) {
@@ -42,7 +45,7 @@ if ( count($collabora_projects) >= 1 ) {
 			$collabora_projects_out = substr($collabora_projects_out, 0, -2); ?>
 
 <article class="media-collabora media">
-	<a class="pull-left" href="<?php echo $loop_perma ?>"><?php echo $loop_featured ?></a>
+	<?php echo $loop_featured_out ?>
 	<div class="media-body">
 		<header><h2 class="media-heading"><a href="<?php echo $loop_perma ?>"><?php echo $loop_tit ?></a></h2></header>
 		<div class="media-desc"><?php echo $loop_desc; ?></div>
