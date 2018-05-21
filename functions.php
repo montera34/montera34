@@ -50,9 +50,6 @@ function montera_theme_setup() {
 	// custom loops for each template
 	add_filter( 'pre_get_posts', 'montera34_custom_args_for_loops' );
 
-	// count how many projects a collaborator has and add the number as a CF
-	add_action('wp_insert_post', 'montera34_cf_count_collabora_projects');
-
 	// Filter body_class function
 	add_filter('body_class', 'montera34_body_classes');
 
@@ -503,6 +500,7 @@ function montera34_init_metaboxes() {
 } // end Init metaboxes
 
 // count how many projects a collaborator has and add the number as a CF
+add_action('wp_insert_post', 'montera34_cf_count_collabora_projects');
 function montera34_cf_count_collabora_projects() {
 
 	global $post;
@@ -546,6 +544,7 @@ function montera34_custom_args_for_loops( $query ) {
 	if ( !is_admin() && is_post_type_archive('montera34_collabora') && $query->is_main_query() ) {
 		$query->set( 'orderby', array ('meta_value_num' => 'DESC', 'title' => 'ASC' ) );
 		$query->set( 'meta_key','_montera34_collabora_projects_count');
+		$query->set( 'nopaging',true);
 	}
 	if ( !is_admin() && is_author() && $query->is_main_query() ) {
 		$query->set( 'post_type',array('montera34_project'));
