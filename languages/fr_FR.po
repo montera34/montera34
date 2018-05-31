@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: montera34\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-11 16:09+0100\n"
+"POT-Creation-Date: 2018-06-01 00:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Alfonso Sánchez Uzábal <skotperez@voragine.net>\n"
 "Language-Team: montera34 <info@montera34.com>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n;_n:1,2\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
@@ -22,221 +22,224 @@ msgstr ""
 msgid "In <strong>montera34</strong> we are"
 msgstr "À <strong>montera34</strong> nous sommes"
 
-#: ../functions.php:93
+#: ../functions.php:100
 msgid "Icon"
 msgstr "Icône"
 
-#: ../functions.php:94
+#: ../functions.php:101
 msgid "Big Icon"
 msgstr "Grand icône"
 
-#: ../functions.php:95
+#: ../functions.php:102
 msgid "Small"
 msgstr "Petite"
 
-#: ../functions.php:96
+#: ../functions.php:103
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: ../functions.php:104
 msgid "Extra Large"
 msgstr "Très grande"
 
-#: ../functions.php:135 ../functions.php:459
+#: ../functions.php:143 ../functions.php:467
 #: ../lib/metabox/example-functions.php:356
 msgid "Twitter URL"
 msgstr "URL du Twitter"
 
-#: ../functions.php:136
+#: ../functions.php:144
 msgid "Custom avatar"
 msgstr "Avatar personnalisé"
 
-#: ../functions.php:145
+#: ../functions.php:153
 msgid "Sidebar menu"
 msgstr "Menu de la barre latérale"
 
-#: ../functions.php:146
+#: ../functions.php:154
 msgid "Footer menu"
 msgstr "Menu du pied de page"
 
-#: ../functions.php:178 ../functions.php:467
+#: ../functions.php:186 ../functions.php:475
 msgid "Projects"
 msgstr "Projets"
 
-#: ../functions.php:179 ../functions.php:477
+#: ../functions.php:187 ../functions.php:485
 msgid "Project"
 msgstr "Projet"
 
-#: ../functions.php:180
+#: ../functions.php:188
 msgid "Add a project"
 msgstr "Ajouter un projet"
 
-#: ../functions.php:181 ../functions.php:213
+#: ../functions.php:189 ../functions.php:221
 msgid "Edit"
 msgstr "Éditer"
 
-#: ../functions.php:182
+#: ../functions.php:190
 msgid "Edit this project"
 msgstr "Éditer ce projet"
 
-#: ../functions.php:183
+#: ../functions.php:191
 msgid "New project"
 msgstr "Nouveau projet"
 
-#: ../functions.php:184
+#: ../functions.php:192
 msgid "View project"
 msgstr "Voir ce projet"
 
-#: ../functions.php:185
+#: ../functions.php:193
 msgid "View this project"
 msgstr "Voir ce projet"
 
-#: ../functions.php:186
+#: ../functions.php:194
 msgid "Search project"
 msgstr "Chercher un projet"
 
-#: ../functions.php:187
+#: ../functions.php:195
 msgid "No project found"
 msgstr "Aucun projet trouvé"
 
-#: ../functions.php:188
+#: ../functions.php:196
 msgid "No projects in trash"
 msgstr "Aucun projet dans la corbeille"
 
-#: ../functions.php:189 ../functions.php:221
+#: ../functions.php:197 ../functions.php:229
 msgid "Parent"
 msgstr "Initial"
 
-#: ../functions.php:210 ../functions.php:414 ../functions.php:421
-#: ../single.php:79
+#: ../functions.php:218 ../functions.php:422 ../functions.php:429
 msgid "Collaborators"
 msgstr "Collaborateurs"
 
-#: ../functions.php:211
+#: ../functions.php:219
 msgid "Collaborator"
 msgstr "Collaborateur"
 
-#: ../functions.php:212
+#: ../functions.php:220
 msgid "Add a collaborator"
 msgstr "Ajouter un collaborateur"
 
-#: ../functions.php:214
+#: ../functions.php:222
 msgid "Edit this collaborator"
 msgstr "Éditer ce collaborateur"
 
-#: ../functions.php:215
+#: ../functions.php:223
 msgid "New collaborator"
 msgstr "Nouveau collaborateur"
 
-#: ../functions.php:216
+#: ../functions.php:224
 msgid "View collaborator"
 msgstr "Voir collaborateur"
 
-#: ../functions.php:217
+#: ../functions.php:225
 msgid "View this collaborator"
 msgstr "Voir ce collaborateur"
 
-#: ../functions.php:218
+#: ../functions.php:226
 msgid "Search collaborator"
 msgstr "Chercher un collaborateur"
 
-#: ../functions.php:219
+#: ../functions.php:227
 msgid "No collaborator found"
 msgstr "Aucun collaborateur trouvé"
 
-#: ../functions.php:220
+#: ../functions.php:228
 msgid "No collaborators in trash"
 msgstr "Aucun collaborateur dans la corbeille"
 
-#: ../functions.php:245 ../page-projects.php:15 ../single.php:19
+#: ../functions.php:253 ../page-projects.php:15 ../single.php:19
 msgid "Type"
 msgstr "Genre"
 
-#: ../functions.php:246
+#: ../functions.php:254
 msgid "Types"
 msgstr "Genre"
 
-#: ../functions.php:253
+#: ../functions.php:261
 msgid "Technology"
 msgstr "Technologie"
 
-#: ../functions.php:254 ../single.php:20
+#: ../functions.php:262 ../single.php:20
 msgid "Technologies"
 msgstr "Technologies"
 
-#: ../functions.php:295
+#: ../functions.php:303
 msgid "Show at home page"
 msgstr "Montrer dans la page d'accueil"
 
-#: ../functions.php:312
+#: ../functions.php:320
 msgid "Project card"
 msgstr "Fiche du projet"
 
-#: ../functions.php:319
+#: ../functions.php:327
 msgid "Project beginning"
 msgstr "Début du projet"
 
-#: ../functions.php:325
+#: ../functions.php:333
 msgid "Project ending"
 msgstr "Fin du projet"
 
-#: ../functions.php:331
+#: ../functions.php:339
 msgid "Project status"
 msgstr "Statut"
 
-#: ../functions.php:340 ../single.php:46 ../single.php:47
+#: ../functions.php:348 ../single.php:46 ../single.php:47
 msgid "Project URL"
 msgstr "URL du projet"
 
-#: ../functions.php:349
+#: ../functions.php:357
 msgid "Code repo URL"
 msgstr "Code URL"
 
-#: ../functions.php:351
+#: ../functions.php:359
 msgid "Project code"
 msgstr "Code du projet"
 
-#: ../functions.php:358 ../functions.php:381
+#: ../functions.php:366 ../functions.php:389
 msgid "URL text"
 msgstr "Texte de la URL"
 
-#: ../functions.php:373
+#: ../functions.php:381
 msgid "Code license URL"
 msgstr "URL de la licence du code"
 
-#: ../functions.php:375 ../single.php:60
+#: ../functions.php:383 ../single.php:60
 msgid "Code license"
 msgstr "Licence du code"
 
-#: ../functions.php:394
+#: ../functions.php:402
 msgid "Budget"
 msgstr "Budget"
 
-#: ../functions.php:401
+#: ../functions.php:409
 msgid "Client. Name, and URL if any"
 msgstr "Client. Nom, et URL si elle existe"
 
-#: ../functions.php:434
+#: ../functions.php:442
 msgid "Collaborator data"
 msgstr "Données du collaborateur"
 
-#: ../functions.php:441
+#: ../functions.php:449
 msgid "First name"
 msgstr "Prénom"
 
-#: ../functions.php:447
+#: ../functions.php:455
 msgid "Last name"
 msgstr "Nom"
 
-#: ../functions.php:469
+#: ../functions.php:477
 msgid "Project {#}"
 msgstr "Projet {#}"
 
-#: ../functions.php:470
+#: ../functions.php:478
 msgid "Add Another Project"
 msgstr "Ajouter un autre projet"
 
-#: ../functions.php:471
+#: ../functions.php:479
 msgid "Remove Project"
 msgstr "Éliminer un projet"
 
-#: ../functions.php:485 ../single.php:213
+#: ../functions.php:493 ../single.php:227
 msgid "Rol"
 msgstr "Rôle"
 
@@ -276,7 +279,7 @@ msgstr "Résultats de la recherche <strong>%s</strong>"
 
 #: ../index.php:25
 msgid "In charge of the following projects."
-msgstr "Responsable des projets suivants"
+msgstr "Responsable des projets suivants."
 
 #: ../index.php:32
 msgid "by year of publication."
@@ -286,7 +289,7 @@ msgstr "par année de publication."
 msgid "by number of projects."
 msgstr "par quantité de projets."
 
-#: ../index.php:65 ../single.php:166
+#: ../index.php:65 ../single.php:180
 msgid "Website"
 msgstr "Site Internet"
 
@@ -336,7 +339,7 @@ msgstr "Texte d'essai"
 #: ../lib/metabox/example-functions.php:375
 #: ../lib/metabox/example-functions.php:393
 msgid "field description (optional)"
-msgstr "Description (facultatif)"
+msgstr "description (facultatif)"
 
 #: ../lib/metabox/example-functions.php:47
 msgid "Test Text Small"
@@ -352,7 +355,7 @@ msgstr "URL du site Internet"
 
 #: ../lib/metabox/example-functions.php:69
 msgid "Test Text Email"
-msgstr "Test Email "
+msgstr "Test Email"
 
 #: ../lib/metabox/example-functions.php:76
 msgid "Test Time"
@@ -401,7 +404,7 @@ msgstr "Titre"
 
 #: ../lib/metabox/example-functions.php:150
 msgid "This is a title description"
-msgstr "Ceci est un titre de description "
+msgstr "Ceci est un titre de description"
 
 #: ../lib/metabox/example-functions.php:155
 msgid "Test Select"
@@ -455,7 +458,7 @@ msgstr "Test Multi Case à Cocher"
 
 #: ../lib/metabox/example-functions.php:222
 msgid "Check One"
-msgstr "Contrôle Un "
+msgstr "Contrôle Un"
 
 #: ../lib/metabox/example-functions.php:223
 msgid "Check Two"
@@ -475,7 +478,7 @@ msgstr "Image d'essai"
 
 #: ../lib/metabox/example-functions.php:237
 msgid "Upload an image or enter a URL."
-msgstr "Mettre en ligne l'image ou ajouter une URL"
+msgstr "Mettre en ligne l'image ou ajouter une URL."
 
 #: ../lib/metabox/example-functions.php:242
 msgid "Multiple Files"
@@ -613,7 +616,7 @@ msgstr "Document:"
 #: ../lib/metabox/helpers/cmb_Meta_Box_types.php:706
 #: ../lib/metabox/helpers/cmb_Meta_Box_types.php:768
 msgid "Download"
-msgstr "Télécharger "
+msgstr "Télécharger"
 
 #: ../lib/metabox/init.php:258
 msgid "Clear"
@@ -643,7 +646,7 @@ msgstr "Guarder"
 msgid "Edit This"
 msgstr "Éditer ceci"
 
-#: ../loop.media-list.php:29
+#: ../loop.media-list.php:32
 #, php-format
 msgid "<strong>1 project</strong> with us"
 msgid_plural "<strong>%s projects</strong> with us"
@@ -727,20 +730,24 @@ msgstr "Code repository"
 msgid "Status"
 msgstr "Statut"
 
-#: ../single.php:66
+#: ../single.php:77
 msgid "In charge"
 msgstr "Responsable"
 
-#: ../single.php:135
+#: ../single.php:92
+msgid "Team"
+msgstr "Équipe"
+
+#: ../single.php:149
 msgid "Related Projects"
 msgstr "Projets liés"
 
-#: ../single.php:194
+#: ../single.php:208
 #, php-format
 msgid "Projects in which %s has collaborated"
 msgstr "Projets où  %s a collaboré"
 
-#: ../single.php:229 ../single.php:230
+#: ../single.php:243 ../single.php:244
 msgid "Back to project"
 msgstr "Retourner au projet"
 
