@@ -19,6 +19,11 @@ function montera_theme_setup() {
 	/* Set up media options: sizes, featured images... */
 	add_action( 'init', 'montera34_media_options' );
 	add_filter( 'image_size_names_choose', 'montera34_custom_sizes' );
+
+	//  Add responsive container to embed
+	add_filter( 'embed_oembed_html', 'montera34_embed_html', 10, 3 );
+	add_filter( 'video_embed_html', 'montera34_embed_html' ); // Jetpack
+
 	/* Filter caption shortcode */
 	add_filter( 'img_caption_shortcode', 'montera34_img_caption_shortcode_filter', 10, 3 );
 
@@ -62,7 +67,11 @@ function montera_theme_setup() {
 
 } // end montera34 theme setup function
 
-
+//  Add responsive container to embed
+function montera34_embed_html( $html ) {
+    return '<div class="video-container">' . $html . '</div>';
+}
+ 
 // set up media options
 function montera34_media_options() {
 	/* Add theme support for post thumbnails (featured images). */
