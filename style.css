@@ -31,7 +31,7 @@ h4 {
 	text-transform: uppercase;
 }
 .tit-upper {
-	text-transform: uppercase;
+	font-size: 14px;
 }
 p a, dd a, #content article ul li a, #content article ol li a {
 	text-decoration: underline;
@@ -81,6 +81,10 @@ figure.aligncenter figcaption {
 	max-width: 100%;
 	height: auto;
 	margin-bottom: 2em;
+}
+.in-charge-img {
+	max-width: 64px !important;
+	margin-bottom: 0;
 }
 .wp-caption-text {
 	font-size: 0.85em;
@@ -226,7 +230,7 @@ ul#pre-menu,
 #related,
 #collaborators,
 #collabora-projects {
-	margin-top: 40px;
+	margin-top: 1.4em;
 }
 .rel-item {
 	margin-bottom: 1.4em;

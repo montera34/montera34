@@ -62,10 +62,24 @@ if ( get_post_type() == 'montera34_project' ) {
 	$project_status = get_post_meta( $post->ID, '_montera34_project_card_status', true );
 	if ( $project_status != '' ) { $card_items[__('Status','montera34')] = $project_status; }
 
-	$project_responsible = "<a href='" .get_author_posts_url( get_the_author_meta( 'ID' ) ). "'>" .get_the_author_meta( 'display_name' ). "</a>";
-	$card_items[__('In charge','montera34')] = $project_responsible;
+	// in charge of the project
+	$author_id = get_the_author_meta( 'ID' );
+	$author_url = get_author_posts_url( $author_id );
+	$author_img = get_the_author_meta('custom_avatar');
+	if ( $author_img == '' ) { $author_img = get_avatar( $author_id, 64 ); }
+	else { $author_img = "<img class='in-charge-img' src='".$author_img."' alt='".$author_name."' />"; }
+	$author_img_out = "<a class='pull-left' href='" .$author_url. "'>" .$author_img. "</a>";
+	$project_responsible = "
+		<div class='media'>
+			" .$author_img_out."
+			<div class='media-body'>
+				<h4 class='media-heading'><a href='" .$author_url. "'>" .get_the_author_meta( 'display_name' ). "</a></h4>
+				<p>".__('In charge','montera34')."</p>
+			</div>
+		</div>
+	";
 
-	// building collaborators section
+	// building team section
 	$project_collaboras = get_post_meta( $post->ID, '_montera34_collabora', true );
 	if ( $project_collaboras != '' ) {
 		$args = array(
@@ -75,15 +89,16 @@ if ( get_post_type() == 'montera34_project' ) {
 			'post_type' => 'montera34_collabora'
 		);
 		$collaboras = get_posts($args);
-		if ( count($collaboras) != 0 ) {
-		$collaboras_out = "<section id='collaborators'><h3 class='tit-upper'>" .__('Collaborators','montera34'). "</h3><div class='media-list'>";
+		$collaboras_out = "<section id='collaborators'><h3 class='tit-upper'>" .__('Team','montera34'). "</h3><div class='media-list'>".$project_responsible;
 			foreach ( $collaboras as $collabora ) {
 				$collabora_perma = get_permalink($collabora->ID);
 				$collabora_tit = $collabora->post_title;
 				if ( has_post_thumbnail($collabora->ID) ) {
 					$collabora_img = get_the_post_thumbnail( $collabora->ID, 'bigicon', array('class' => 'media-object') );
 					$collabora_img_out = "<a class='pull-left' href='" .$collabora_perma. "' title='" .$collabora_tit. "'>" .$collabora_img. "</a>";
-				} else { $collabora_img_out = ""; }
+				} else {
+					$collabora_img_out = '<a class="pull-left" href="' .$collabora_perma. '" title="' .$collabora_tit. '" style="padding-left: 5px;"><i class="fa fa-user-secret fa-5x" aria-hidden="true"></i></a>';
+				}
 				$collabora_roles = get_post_meta( $collabora->ID, '_montera34_collabora_projects', true );
 				foreach ( $collabora_roles as $rol ) {
 					if ( $rol['project'] == $post->ID ) { $collabora_rol = $rol['rol']; }
@@ -98,7 +113,6 @@ if ( get_post_type() == 'montera34_project' ) {
 				";
 				unset($collabora_rol);
 			} // end foreach collaborators
-		} // end if collaborators
 		$collaboras_out .= "</div></section>";
 	} // end if there is collaboras
 
