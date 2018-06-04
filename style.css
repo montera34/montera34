@@ -134,7 +134,8 @@ ul#pre-menu,
 	margin-top:15px;
 }
 #social-networks a {
-	margin-left: 10px;
+	margin-right: 10px;
+	color: #333;
 }
 #social-networks a:hover {
 	color: #fff100;

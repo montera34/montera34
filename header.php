@@ -139,12 +139,13 @@ wp_head(); ?>
 			);
 			echo '<ul class="pre-lang-switcher">'; pll_the_languages($args); echo '</ul>';
 		} ?>
-		<div id="social-networks"><?php _e('Montera34 in','montera34'); ?>
-			<a href="https://github.com/montera34" title="Montera34 Github"><i class='fa fa-github'></i></a>
-			<a href="https://www.facebook.com/montera34" title="Montera34 Facebook"><i class='fa fa-facebook'></i></a>
-			<a href="https://twitter.com/montera34" title="Montera34 Twitter"><i class='fa fa-twitter'></i></a>
-			<a href="https://instagram.com/montera_34" title="Montera34 Instagram"><i class='fa fa-instagram'></i></a>
-			<a href="https://plus.google.com/+Montera34" title="Montera34 Google Plus"><i class='fa fa-google-plus'></i></a>
+		<div id="social-networks"><?php _e('Montera34 in','montera34'); ?><br />
+			<a href="https://github.com/montera34" title="Montera34 Github"><i class='fa fa-2x fa-github'></i></a>
+			<a href="https://www.facebook.com/montera34" title="Montera34 Facebook"><i class='fa fa-2x fa-facebook'></i></a>
+			<a href="https://twitter.com/montera34" title="Montera34 Twitter"><i class='fa fa-2x fa-twitter'></i></a>
+			<a href="https://instagram.com/montera_34" title="Montera34 Instagram"><i class='fa fa-2x fa-instagram'></i></a>
+			<a href="https://plus.google.com/+Montera34" title="Montera34 Google Plus"><i class='fa fa-2x fa-google-plus'></i></a>
+			<a href="https://www.youtube.com/c/Montera34" title="Montera34 Youtube Channel"><i class='fa fa-2x fa-youtube'></i></a>
 		</div>
 	</div> <!-- first side bar --> <!-- #pre -->
 
