@@ -81,6 +81,7 @@ if ( get_post_type() == 'montera34_project' ) {
 
 	// building team section
 	$project_collaboras = get_post_meta( $post->ID, '_montera34_collabora', true );
+	$collaboras_out = "<section id='collaborators'><h3 class='tit-upper'>" .__('Team','montera34'). "</h3><div class='media-list'>".$project_responsible;
 	if ( $project_collaboras != '' ) {
 		$args = array(
 			'posts_per_page' => -1,
@@ -89,7 +90,6 @@ if ( get_post_type() == 'montera34_project' ) {
 			'post_type' => 'montera34_collabora'
 		);
 		$collaboras = get_posts($args);
-		$collaboras_out = "<section id='collaborators'><h3 class='tit-upper'>" .__('Team','montera34'). "</h3><div class='media-list'>".$project_responsible;
 			foreach ( $collaboras as $collabora ) {
 				$collabora_perma = get_permalink($collabora->ID);
 				$collabora_tit = $collabora->post_title;
@@ -113,8 +113,8 @@ if ( get_post_type() == 'montera34_project' ) {
 				";
 				unset($collabora_rol);
 			} // end foreach collaborators
-		$collaboras_out .= "</div></section>";
 	} // end if there is collaboras
+	$collaboras_out .= "</div></section>";
 
 	// related projects
 	if ( $post->post_parent != '0' ) {
