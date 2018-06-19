@@ -54,14 +54,17 @@ a:hover,
 	background-color: #fff100;
 	text-decoration: none !important;
 }
+img.alignleft,
 figure.alignleft {
 	float: left;
 	margin: 0 1em 1em 0;
 }
+img.alignright,
 figure.alignright {
 	float: right;
 	margin: 0 0 1em 1em;
 }
+img.aligncenter,
 figure.aligncenter {
 	margin: 0 0 1em 0;
 	text-align: center;
