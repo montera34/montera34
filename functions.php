@@ -541,21 +541,20 @@ function montera34_custom_args_for_loops( $query ) {
 		));
 		$query->set( 'post_type',array('montera34_project'));
 		$query->set( 'order','DESC');
-		$query->set( 'orderby','meta_value_num title');
+		$query->set( 'orderby','meta_value_num date');
 		$query->set( 'meta_key','_montera34_project_card_date_ini');
 	}
-	if ( !is_admin() && is_post_type_archive('montera34_project') && false == $query->query_vars['suppress_filters'] ||
-	!is_admin() && is_tax('montera34_type') && false == $query->query_vars['suppress_filters'] ) {
+	elseif ( !is_admin() && is_post_type_archive('montera34_project') || !is_admin() && is_tax('montera34_type') ) {
 		$query->set( 'order','DESC');
-		$query->set( 'orderby','meta_value_num title');
+		$query->set( 'orderby','meta_value_num date');
 		$query->set( 'meta_key','_montera34_project_card_date_ini');
 	}
-	if ( !is_admin() && is_post_type_archive('montera34_collabora') && $query->is_main_query() ) {
+	elseif ( !is_admin() && is_post_type_archive('montera34_collabora') && $query->is_main_query() ) {
 		$query->set( 'orderby', array ('meta_value_num' => 'DESC', 'title' => 'ASC' ) );
 		$query->set( 'meta_key','_montera34_collabora_projects_count');
 		$query->set( 'nopaging',true);
 	}
-	if ( !is_admin() && is_author() && $query->is_main_query() ) {
+	elseif ( !is_admin() && is_author() && $query->is_main_query() ) {
 		$query->set( 'post_type',array('montera34_project'));
 	}
 	return $query;

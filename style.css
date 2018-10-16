@@ -54,6 +54,15 @@ a:hover,
 	background-color: #fff100;
 	text-decoration: none !important;
 }
+.btn {
+	background-color: #fff100;
+	text-decoration: none;
+	font-weight: bold;
+}
+.btn:hover {
+	border: 1px solid #000;
+}
+
 img.alignleft,
 figure.alignleft {
 	float: left;

@@ -22,7 +22,7 @@ if ( get_post_type() == 'montera34_project' ) {
 	foreach ( $taxes as $tax_tit => $tax ) {
 		$terms = get_the_terms($post->ID,$tax);
 		if ( $terms != '' ) {
-			$terms_out = "";
+			$term_out = "";
 			foreach ( $terms as $term ) {
 				$term_name = $term->name;
 				$term_perma = get_term_link($term);
@@ -57,7 +57,7 @@ if ( get_post_type() == 'montera34_project' ) {
 	}
 	// project code license URL
 	$project_code_license = get_post_meta( $post->ID, '_montera34_project_card_code_license', true );
-	if ( $project_code_license[0] != '' ) { $card_items[__('Code license','montera34')] = "<a href='" .$project_code_license[0]['url']. "'>" .$project_code_license[0]['url_text']. "</a>"; }
+	if ( count($project_code_license) >= 1 && $project_code_license[0] != '' ) { $card_items[__('Code license','montera34')] = "<a href='" .$project_code_license[0]['url']. "'>" .$project_code_license[0]['url_text']. "</a>"; }
 	// status
 	$project_status = get_post_meta( $post->ID, '_montera34_project_card_status', true );
 	if ( $project_status != '' ) { $card_items[__('Status','montera34')] = $project_status; }
