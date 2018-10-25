@@ -544,7 +544,7 @@ function montera34_custom_args_for_loops( $query ) {
 		$query->set( 'orderby','meta_value_num date');
 		$query->set( 'meta_key','_montera34_project_card_date_ini');
 	}
-	elseif ( !is_admin() && is_post_type_archive('montera34_project') || !is_admin() && is_tax('montera34_type') ) {
+	elseif ( !is_admin() && is_post_type_archive('montera34_project') && $query->is_main_query() || !is_admin() && is_tax('montera34_type') && $query->is_main_query() ) {
 		$query->set( 'order','DESC');
 		$query->set( 'orderby','meta_value_num date');
 		$query->set( 'meta_key','_montera34_project_card_date_ini');
