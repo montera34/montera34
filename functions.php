@@ -65,6 +65,9 @@ function montera_theme_setup() {
 	add_filter('pll_copy_post_metas', 'montera34_translate_copy_post_metas');
 	add_filter('pll_translation_url', 'montera34_author_translation_url', 10, 2);
 
+	// enable post thumbnails in all post types
+	add_theme_support( 'post-thumbnails' );
+
 } // end montera34 theme setup function
 
 //  Add responsive container to embed
